@@ -1,0 +1,203 @@
+.nav
+  +r(1200)
+    position: fixed
+    top: 0
+    right: 0
+    z-index: 10
+    display: flex
+    flex-direction: column
+    width: 320px
+    height: 100%
+    padding: 70px 20px 30px
+    margin: 0
+    background-color: #fff
+    box-shadow: 0 0 10px rgba(#000, 0.1)
+    overflow-y: auto
+    transform: translateX(100%)
+    +trans
+    &.open
+      transform: translateX(0)
+  &__close
+    position: absolute
+    top: 20px
+    right: 20px
+    background: none
+    border: none
+    width: 32px
+    height: 32px
+    padding: 0
+    +r(767)
+      top: 15px
+      right: 15px
+    &:focus
+      outline: none
+    &::before, &::after
+      content: ''
+      position: absolute
+      left: 5px
+      width: 70%
+      height: 1px
+      background-color: $dark
+    &::before
+      transform: rotate(45deg)
+    &::after
+      transform: rotate(-45deg)
+  &__menu-wrap
+    +r(1200)
+      position: relative
+      &::after
+        content: ''
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        height: 50px
+        pointer-events: none
+        background-image: linear-gradient(rgba(#fff, 0), #fff)
+
+
+.nav-list
+  margin: 15px 0 0
+  padding: 0
+  list-style: none
+  display: flex
+  align-items: center
+  +r(1200)
+    display: block
+    margin: 0
+    overflow-y: auto
+    max-height: calc(100vh - 100px)
+    +smooth-scroll
+  > li
+    position: relative
+    margin-right: 25px
+    padding-bottom: 15px
+    +r(1395)
+      margin-right: 20px
+    +r(1200)
+      margin-right: 0
+      margin-bottom: 10px
+      padding: 0
+    &:last-child
+      margin-right: 0
+      +r(1200)
+        margin-bottom: 40px
+  li
+    &:hover
+      > .sub-menu
+        display: block
+  a
+    font-size: 16px
+    color: #fff
+    +r(1200)
+      color: $dark
+    &:hover, &:focus
+      color: $accent
+
+.sub-menu
+  position: absolute
+  top: 100%
+  left: 0
+  z-index: 1
+  display: none
+  min-width: 150px
+  max-width: 270px
+  margin: 0
+  padding: 0
+  list-style: none
+  background-color: #fff
+  border-radius: 12px
+  box-shadow: 0 33px 250px rgba(#000, 0.2)
+  +r(1200)
+    position: static
+    top: auto
+    left: auto
+    display: block
+    min-width: auto
+    max-width: none
+    margin-left: 10px
+    margin-top: 10px
+    border-radius: 0
+    box-shadow: none
+  li
+    position: relative
+    padding: 5px 10px
+    border-bottom: 1px solid #ededed
+    +r(1200)
+      border: 0
+      padding: 0
+      margin-bottom: 10px
+    &:last-child
+      border: 0
+      +r(1200)
+        margin-bottom: 0
+    .sub-menu
+      left: 100%
+      top: 0
+  a
+    color: $dark
+
+
+.nav-toggle
+  display: none
+  position: absolute
+  right: 15px
+  top: 50%
+  transform: translateY(-50%)
+  width: 28px
+  height: 15px
+  padding: 0
+  margin: 0
+  outline: none
+  border: none
+  background: none
+  z-index: 1
+  cursor: pointer
+  +r(1200)
+    display: block
+  &:focus
+    outline: none
+  &__line
+    position: relative
+    display: block
+    height: 2px
+    width: 100%
+    background: $accent
+    +transition
+    &::after, &::before
+      content: ''
+      position: absolute
+      left: 0
+      display: block
+      height: 2px
+      width: 100%
+      background: $accent
+      +transition
+    &::before
+      top: -6px
+    &::after
+      top: 6px
+  &.active
+    .nav-toggle__line
+      background: transparent
+      &::after
+        top: 0
+        transform: rotate(45deg)
+      &::before
+        top: 0
+        transform: rotate(-45deg)
+
+.nav-overlay
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 9
+  background-color: rgba(#1b244e, 0.9)
+  opacity: 0
+  visibility: hidden
+  +trans
+  &.is-active
+    opacity: 1
+    visibility: visible

@@ -1,0 +1,29 @@
+.noUi-target
+  border-radius: 0
+  background: $bd-color
+  box-shadow: none
+  border: 0
+
+.noUi-horizontal
+  height: 3px
+  .noUi-handle
+    top: -15px
+    width: 23px
+    height: 31px
+    background: url(images/general/handle.svg) no-repeat center / contain
+    border: 0
+    border-radius: 0
+    box-shadow: none
+    +trans
+    &::before, &::after
+      display: none
+    &:focus
+      outline: none
+    &.noUi-active
+      transform: rotate(30deg)
+
+.noUi-connect
+  background: linear-gradient(to right, #00d2ff, #0042ff)
+
+html:not([dir=rtl]) .noUi-horizontal .noUi-handle
+  right: -12px

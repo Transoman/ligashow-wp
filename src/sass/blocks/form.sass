@@ -1,0 +1,70 @@
+.form-group
+  position: relative
+  margin-bottom: 40px
+  +r(767)
+    margin-bottom: 20px
+  &--btn
+    margin-top: 60px
+    +r(767)
+      margin-top: 40px
+.form-field
+  width: 100%
+  padding: 10px 0
+  border: 0
+  border-bottom: 3px solid $light-gray
+  border-radius: 0
+  font-family: $main-font
+  font-size: 18px
+  box-shadow: none
+  appearance: none
+  +trans
+  &:focus
+    outline: none
+    border-color: $blue
+  &::placeholder
+    color: $light-gray
+  &.wpcf7-not-valid
+    border-color: red
+.form-label
+  display: block
+  margin: 0
+  font-family: $futura-d-font
+  font-size: 14px
+  color: $dark
+
+input[type="checkbox"]
+  @extend .visually-hidden
+  &:checked + span::after
+    opacity: 1
+  & + span
+    position: relative
+    display: block
+    padding-left: 60px
+    font-size: 14px
+    color: $dark
+    line-height: 1.2
+    cursor: pointer
+    &::before
+      content: ''
+      position: absolute
+      top: 50%
+      left: 0
+      transform: translateY(-50%)
+      width: 32px
+      height: 32px
+      border-radius: 50%
+      background-color: $blue
+    &::after
+      content: ''
+      position: absolute
+      left: 9px
+      top: 50%
+      transform: translateY(-50%)
+      width: 14px
+      height: 12px
+      background: url(images/general/check-white.svg) no-repeat left center / contain
+      +trans
+      opacity: 0
+
+span.wpcf7-not-valid-tip
+  display: none

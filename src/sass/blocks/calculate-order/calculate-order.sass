@@ -1,0 +1,83 @@
+.calculate-order
+  display: flex
+  &__left
+    width: 27.81%
+    flex-shrink: 0
+    padding: 90px 65px
+    background: $blue url(images/general/calculate-order-bg.jpg) no-repeat center / cover
+    border-radius: 12px 0 0 12px
+    .section-title
+      margin-bottom: 85px
+      color: #fff
+  &__right
+    flex-grow: 1
+    padding: 100px 175px 80px 105px
+    border: 3px solid $bd-color
+    border-left: 0
+    border-radius: 0 12px 12px 0
+  &__label
+    margin-bottom: 40px
+    font-family: $futura-d-font
+    font-size: 30px
+    color: $dark
+  &__range
+    &-labels
+      display: flex
+      align-items: center
+      justify-content: space-between
+      margin-bottom: 30px
+    &-label
+      color: $dark
+  &__current
+    margin: 15px 0 0
+    font-family: $futura-d-font
+    font-size: 30px
+    color: $dark
+    text-align: right
+  &__row
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    margin-top: 30px
+    margin-bottom: 35px
+    &--align-center
+      align-items: center
+  &__col
+    flex: 1 0 auto
+    max-width: 300px
+  &__variants
+    position: relative
+    margin-top: -5px
+    font-family: $futura-d-font
+    font-size: 14px
+    color: $dark
+    &::after
+      content: ''
+      position: absolute
+      bottom: -5px
+      left: 0
+      right: 0
+      height: 2px
+      background-color: $light-blue
+
+.calculate-order-list
+  margin: 0
+  padding: 0
+  list-style: none
+  li
+    margin-bottom: 15px
+    &:last-child
+      margin-bottom: 0
+  a
+    display: block
+    width: 100%
+    padding: 26px 15px
+    font-family: $futura-d-font
+    font-size: 22px
+    color: #fff
+    border: 3px solid #fff
+    border-radius: 12px
+    text-align: center
+    &:hover, &:focus
+      background-color: #fff
+      color: #007aff

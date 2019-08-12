@@ -1,0 +1,36 @@
+.hero-thumb-slider
+  position: absolute
+  left: 15px
+  right: 15px
+  bottom: 160px
+  +r(1200)
+    bottom: 50px
+  +r(992)
+    opacity: 0
+    visibility: hidden
+  &__item
+    position: relative
+    padding-top: 15px
+    border-top: 2px solid rgba(#fff, 0.22)
+    &::before
+      content: ''
+      position: absolute
+      top: -2px
+      left: 0
+      width: 0
+      height: 2px
+      background-color: #fff
+      +trans
+    &.swiper-slide-thumb-active
+      &::before
+        width: 100px
+      .hero-thumb-slider
+        &__title
+          color: #fff
+  &__title
+    font-family: $futura-d-font
+    color: rgba(#fff, 0.44)
+    line-height: 1.22
+    +trans
+    br
+      display: none
