@@ -42,6 +42,11 @@ require get_template_directory() . '/inc/helpers.php';
 require get_template_directory() . '/inc/custom-posttype.php';
 
 /**
+ * Custom taxonomies
+ */
+require get_template_directory() . '/inc/custom-taxonomy.php';
+
+/**
  * ACF
  */
 require get_template_directory() . '/inc/acf.php';

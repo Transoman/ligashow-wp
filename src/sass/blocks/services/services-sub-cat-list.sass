@@ -1,0 +1,76 @@
+.services-sub-cat-list
+  padding: 45px 50px 25px
+  border: 3px solid $light-gray
+  border-radius: 12px
+  display: flex
+  flex-wrap: wrap
+  +r(767)
+    padding: 20px 20px 0
+  &__item
+    display: flex
+    align-items: center
+    justify-content: center
+    flex: 1 0 calc(20% - 20px)
+    max-width: 236px
+    width: calc(20% - 20px)
+    height: 130px
+    margin-right: 20px
+    margin-bottom: 20px
+    padding: 45px 14px
+    border-radius: 12px
+    border: 3px solid transparent
+    background-color: $bg-color
+    font-family: $futura-d-font
+    color: $main-color
+    +r(1395)
+      flex: 1 0 calc(25% - 20px)
+      max-width: 251px
+      width: calc(25% - 20px)
+    +r(1200)
+      flex: 1 0 calc(33.33% - 20px)
+      max-width: 261px
+      width: calc(33.33% - 20px)
+    +r(992)
+      flex: 1 0 calc(50% - 20px)
+      max-width: 282px
+      width: calc(50% - 20px)
+    +r(767)
+      flex: 1 0 100%
+      max-width: none
+      width: 100%
+      margin-right: 0
+    &:hover, &:focus
+      border-color: $accent
+      background: none
+      color: $main-color
+      svg
+        fill: $accent
+    &:nth-child(5n)
+      margin-right: 0
+      +r(1395)
+        margin-right: 20px
+      +r(767)
+        margin-right: 0
+    &:nth-child(4n)
+      +r(1395)
+        margin-right: 0
+      +r(1200)
+        margin-right: 20px
+      +r(767)
+        margin-right: 0
+    &:nth-child(3n)
+      +r(1200)
+        margin-right: 0
+      +r(992)
+        margin-right: 20px
+      +r(767)
+        margin-right: 0
+    &:nth-child(2n)
+      +r(992)
+        margin-right: 0
+    svg
+      width: 32px
+      height: 32px
+      fill: url(#services-cat-gradient)
+      margin-right: 20px
+      +trans

@@ -1,0 +1,67 @@
+{
+    "key": "group_5d52d109c38f8",
+    "title": "Услуги категория",
+    "fields": [
+        {
+            "key": "field_5d52d114f3873",
+            "label": "Иконка",
+            "name": "icon",
+            "type": "text",
+            "instructions": "Вставте шорткод иконки. Пример: <i>[svgmap sprite=\"accounts\"]<\/i>\r\nУправление иконками <a href=\"\/wp\/wp-admin\/upload.php?page=svgmap\">здесь<\/a>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "[svgmap sprite=\"\"]",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5d539dd2e5ecc",
+            "label": "Фоновое изображение",
+            "name": "bg",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "services_cat"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1565761286
+}

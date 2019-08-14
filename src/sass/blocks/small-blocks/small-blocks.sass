@@ -4,3 +4,23 @@
 @import 'section'
 @import 'range'
 @import 'switch'
+@import 'slider'
+
+.bg-gray
+  background-color: $bg-color
+
+.link-arrow
+  font-family: $futura-d-font
+  color: #28292e
+  text-transform: uppercase
+  white-space: nowrap
+  +r(767)
+    font-size: 14px
+  &:hover, &:focus
+    color: $accent
+  &__icon
+    width: 23px
+    height: 11px
+    fill: $accent
+    margin-left: 15px
+    vertical-align: baseline

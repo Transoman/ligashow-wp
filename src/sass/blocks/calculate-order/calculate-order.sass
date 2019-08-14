@@ -1,50 +1,96 @@
 .calculate-order
   display: flex
+  +r(767)
+    display: block
   &__left
     width: 27.81%
     flex-shrink: 0
     padding: 90px 65px
     background: $blue url(images/general/calculate-order-bg.jpg) no-repeat center / cover
     border-radius: 12px 0 0 12px
+    +r(1395)
+      padding:
+        right: 45px
+        left: 45px
+    +r(1200)
+      width: 35%
+      padding: 40px 45px
+    +r(992)
+      width: 40%
+      padding: 30px 20px
+    +r(767)
+      width: auto
+      border-radius: 12px 12px 0 0
     .section-title
       margin-bottom: 85px
       color: #fff
+      +r(767)
+        margin-bottom: 25px
   &__right
     flex-grow: 1
     padding: 100px 175px 80px 105px
     border: 3px solid $bd-color
     border-left: 0
     border-radius: 0 12px 12px 0
+    background-color: #fff
+    color: $dark
+    +r(1395)
+      padding:
+        right: 80px
+        left: 80px
+    +r(1200)
+      padding-top: 45px
+      padding-bottom: 60px
+    +r(992)
+      padding: 30px 20px
+    +r(767)
+      border-radius: 0 0 12px 12px
+      border: 2px solid $bd-color
+      border-top: 0
+  &__item
+    display: none
+    &.active
+      display: block
   &__label
     margin-bottom: 40px
     font-family: $futura-d-font
     font-size: 30px
-    color: $dark
+    +r(992)
+      margin-bottom: 20px
+      font-size: 24px
   &__range
     &-labels
       display: flex
       align-items: center
       justify-content: space-between
       margin-bottom: 30px
-    &-label
-      color: $dark
   &__current
     margin: 15px 0 0
     font-family: $futura-d-font
     font-size: 30px
-    color: $dark
     text-align: right
+    +r(992)
+      font-size: 26px
   &__row
     display: flex
     flex-wrap: wrap
     justify-content: space-between
     margin-top: 30px
     margin-bottom: 35px
+    +r(1200)
+      &:not(.calculate-order__row--bars)
+        flex-direction: column
+    +r(992)
+      margin-top: 20px
     &--align-center
       align-items: center
+    &--bars
+      margin-bottom: 0
   &__col
     flex: 1 0 auto
     max-width: 300px
+    +r(1200)
+      max-width: none
   &__variants
     position: relative
     margin-top: -5px
@@ -59,6 +105,39 @@
       right: 0
       height: 2px
       background-color: $light-blue
+  &__bottom
+    display: flex
+    align-items: center
+    +r(1200)
+      display: block
+    +r(767)
+      text-align: center
+    .btn
+      margin-left: auto
+  &__total
+    +r(1200)
+      margin-bottom: 30px
+    +r(767)
+      text-align: left
+    &-price
+      margin: 10px 0 0
+      font-family: $futura-d-font
+      font-size: 48px
+      line-height: 1
+      +r(992)
+        font-size: 38px
+      sup
+        font-family: $sfu-font
+        font-size: 30px
+        font-weight: 700
+        +r(992)
+          font-size: 26px
+  &__switch-val
+    display: inline-block
+    margin-left: 15px
+    &-on
+      display: none
+
 
 .calculate-order-list
   margin: 0
@@ -66,11 +145,6 @@
   list-style: none
   li
     margin-bottom: 15px
-    &:last-child
-      margin-bottom: 0
-  a
-    display: block
-    width: 100%
     padding: 26px 15px
     font-family: $futura-d-font
     font-size: 22px
@@ -78,6 +152,16 @@
     border: 3px solid #fff
     border-radius: 12px
     text-align: center
+    +trans
+    cursor: pointer
+    +r(992)
+      padding: 15px
+      font-size: 18px
     &:hover, &:focus
+      background-color: #fff
+      color: #007aff
+    &:last-child
+      margin-bottom: 0
+    &.active
       background-color: #fff
       color: #007aff

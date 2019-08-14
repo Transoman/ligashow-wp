@@ -33,7 +33,6 @@ body
   color: $main-color
   letter-spacing: -0.025em
   overflow-x: hidden
-  background-color: #ccc
 
 img
   max-width: 100%
@@ -41,11 +40,16 @@ img
 
 h1, h2, h3, h4, h5, h6
   font-family: $futura-d-font
+  font-weight: 400
   color: $dark
   line-height: 1
 
 h2
   font-size: 48px
+  +r(992)
+    font-size: 38px
+  +r(767)
+    font-size: 28px
 
 small
   font-size: 12px
@@ -74,7 +78,7 @@ a
 .btn
   display: inline-block
   vertical-align: middle
-  padding: 27px 40px
+  padding: 30px 40px
   font-family: $futura-d-font
   font-size: 16px
   color: #fff
@@ -124,3 +128,8 @@ a
     max-width: 960px
   +r(992)
     max-width: 720px
+
+.text-right
+  text-align: right
+.text-center
+  text-align: center

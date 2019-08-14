@@ -1,0 +1,118 @@
+.services-cat-list
+  display: flex
+  flex-wrap: wrap
+  &__item
+    position: relative
+    z-index: 1
+    display: flex
+    flex-direction: column
+    align-items: center
+    flex: 1 0 calc(33.33% - 45px)
+    max-width: 425px
+    width: calc(33.33% - 45px)
+    padding: 120px 20px 100px
+    margin-right: 45px
+    margin-bottom: 35px
+    background-color: $bg-color
+    border-radius: 12px
+    text-align: center
+    overflow: hidden
+    +r(1395)
+      max-width: 360px
+    +r(1200)
+      flex: 1 0 calc(50% - 45px)
+      max-width: 443px
+      width: calc(50% - 45px)
+    +r(992)
+      max-width: 323px
+      padding: 50px 20px 40px
+    +r(767)
+      flex: 1 0 100%
+      max-width: none
+      width: 100%
+      margin-right: 0
+      margin-bottom: 20px
+    &:nth-child(3n)
+      margin-right: 0
+      +r(1200)
+        margin-right: 45px
+      +r(767)
+        margin-right: 0
+    &:nth-child(2n)
+      +r(1200)
+        margin-right: 0
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      background-color: rgba(#237be9, 0.4)
+      opacity: 0
+      pointer-events: none
+      +trans
+    &:hover, &.is-active
+      &::before
+        opacity: 1
+      svg
+        fill: #fff
+      .services-cat-list
+        &__btn
+          background-color: $accent
+          color: #fff
+          &:hover
+            background-color: lighten($accent, 5%)
+            color: #fff
+          &:focus
+            background-color: darken($accent, 5%)
+            color: #fff
+            outline: none
+        &__img
+          opacity: 1
+          visibility: visible
+    svg
+      position: relative
+      width: 64px
+      height: 64px
+      fill: url(#services-gradient)
+      +trans
+      +r(992)
+        width: 45px
+        height: 45px
+  &__btn
+    display: inline-block
+    margin-top: -20px
+    padding: 20px 60px
+    font-family: $futura-d-font
+    font-size: 24px
+    color: $dark
+    border-radius: 12px
+    +r(1395)
+      padding:
+        right: 50px
+        left: 50px
+      font-size: 22px
+    +r(992)
+      margin-top: -15px
+      padding: 15px 40px
+      font-size: 18px
+    +r(767)
+      padding:
+        right: 30px
+        left: 30px
+  &__img
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: -2
+    background:
+      repeat: no-repeat
+      position: center
+      size: cover
+    border-radius: 12px
+    opacity: 0
+    +trans

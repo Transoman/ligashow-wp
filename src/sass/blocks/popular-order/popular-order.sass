@@ -1,0 +1,108 @@
+.popular-order-slider
+  padding-bottom: 100px
+  +r(767)
+    padding-bottom: 40px
+    margin: 0 -15px
+  &__item
+    position: relative
+    height: auto
+    max-width: 430px
+    +r(767)
+      max-width: none
+      padding: 0 15px
+      &.swiper-slide-active
+        .popular-order-slider
+          &__head
+            &::before
+              background-color: rgba(#0066ff, 0.45)
+          &__body
+            background-color: #fff
+            border-color: transparent
+    &:hover
+      .popular-order-slider
+        &__head
+          &::before
+            background-color: rgba(#0066ff, 0.45)
+        &__body
+          background-color: #fff
+          border-color: transparent
+  &__head
+    position: relative
+    z-index: 1
+    padding: 50px 20px 40px
+    border-radius: 12px 12px 0 0
+    background:
+      color: #0066ff
+      repeat: no-repeat
+      position: center
+      size: cover
+    text-align: center
+    color: #fff
+    overflow: hidden
+    +r(1200)
+      padding: 30px 20px 20px
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      background-color: rgba(#0066ff, 0.78)
+      +trans
+    &-label
+      display: block
+      margin-bottom: 10px
+    &-price
+      margin: 0
+      font-family: $futura-d-font
+      font-size: 48px
+      line-height: 1
+      +r(1200)
+        font-size: 38px
+      sup
+        font-family: $sfu-font
+        font-size: 30px
+        font-weight: 700
+        +r(1200)
+          font-size: 22px
+  &__body
+    padding: 35px 65px 50px
+    border-radius: 0 0 12px 12px
+    border: 3px solid $light-gray
+    border-top: 0
+    box-shadow: 8px 15px 43px rgba(#676767, 0.08)
+    +trans
+    +r(767)
+      padding: 20px 35px 20px
+    .btn
+      width: 100%
+    ul
+      margin: 0 0 50px
+      padding: 0
+      list-style: none
+      +r(1200)
+        margin-bottom: 30px
+      li
+        position: relative
+        margin-bottom: 15px
+        padding-left: 25px
+        font-size: 22px
+        color: #595959
+        +r(1200)
+          font-size: 18px
+          margin-bottom: 10px
+        &:last-child
+          margin: 0
+        &::before
+          content: ''
+          position: absolute
+          top: 10px
+          left: 0
+          width: 8px
+          height: 8px
+          background-color: #0066ff
+          border-radius: 50%
+          +r(1200)
+            top: 8px

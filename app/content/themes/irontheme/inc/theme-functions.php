@@ -91,6 +91,9 @@ if ( ! function_exists( 'ith_setup' ) ) :
       'image',
       'video'
     ) );
+
+    add_image_size( 'portfolio_cat', 344, 344, true );
+    add_image_size( 'services_cat', 425, 355, true );
   }
 endif;
 add_action( 'after_setup_theme', 'ith_setup' );
@@ -185,4 +188,63 @@ function get_popups($count = null) {
 	);
 	$popups = new WP_Query( $args );
 	return $popups;
+}
+
+/**
+ * Get portfolio posts
+ */
+function get_portfolios($count = null) {
+	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+	$args = array(
+		'post_type' => 'portfolio',
+		'post_status' => 'publish',
+		'posts_per_page' => $count ? $count : get_option('posts_per_page'),
+		'paged' => $paged,
+		'order' => 'ASC'
+	);
+	$portfolios = new WP_Query( $args );
+	return $portfolios;
+}
+
+/**
+ * Get Services posts
+ */
+function get_services($count = null, $tax = null) {
+	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+	$args = array(
+		'post_type' => 'services',
+		'post_status' => 'publish',
+		'posts_per_page' => $count ? $count : get_option('posts_per_page'),
+		'paged' => $paged,
+		'order' => 'ASC'
+	);
+
+	if ($tax) {
+		$args['tax_query'] = array(
+			array(
+				'taxonomy' => 'services_cat',
+				'field' => 'term_id',
+				'terms' => $tax
+			)
+		);
+	}
+
+	$services = new WP_Query( $args );
+	return $services;
+}
+
+/**
+ * Get popular order posts
+ */
+function get_popular_orders($count = null) {
+	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+	$args = array(
+		'post_type' => 'popular_order',
+		'post_status' => 'publish',
+		'posts_per_page' => $count ? $count : get_option('posts_per_page'),
+		'paged' => $paged,
+		'order' => 'ASC'
+	);
+	$popular_orders = new WP_Query( $args );
+	return $popular_orders;
 }

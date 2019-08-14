@@ -1,2 +1,30 @@
 section
   padding: 90px 0
+  +r(767)
+    padding: 40px 0
+
+.s
+  &-services
+    .section-header
+      margin-bottom: 80px
+      +r(767)
+        margin-bottom: 55px
+
+.section-header
+  display: flex
+  align-items: baseline
+  margin-bottom: 55px
+  padding-bottom: 30px
+  border-bottom: 1px solid $light-gray
+  +r(767)
+    flex-direction: column
+    align-items: stretch
+    text-align: center
+  .section-title
+    margin-bottom: 0
+    +r(767)
+      margin-bottom: 20px
+  .link-arrow
+    margin-left: auto
+    +r(767)
+      margin-left: 0

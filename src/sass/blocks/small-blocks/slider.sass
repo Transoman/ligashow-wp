@@ -1,0 +1,59 @@
+.slider-container
+  +r(767)
+    width: 100%
+    margin: 0 auto
+    padding: 0 15px
+    max-width: 720px
+
+.slider-controls
+  position: relative
+  display: flex
+  align-items: center
+  &__btns
+    display: flex
+    align-items: center
+    margin-left: auto
+    +r(576)
+      width: 100%
+      margin-left: 0
+      justify-content: space-between
+    .swiper-button-next,
+    .swiper-button-prev
+      position: static
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 70px
+      height: 70px
+      margin: 0
+      border-radius: 50%
+      border: 2px solid $accent
+      background: none
+      opacity: 0.44
+      +trans
+      &:hover
+        opacity: 1
+        background-color: $accent
+        svg
+          fill: #fff
+      &:focus
+        outline: none
+      svg
+        width: 15px
+        height: 8px
+        fill: $accent
+        +trans
+    .swiper-button-prev
+      margin-right: 35px
+  .swiper-pagination
+    +r(576)
+      display: none
+
+.swiper-pagination-progressbar
+  position: static
+  width: 100%
+  height: 2px
+  margin-right: 50px
+  background-color: #d2d3dc
+  .swiper-pagination-progressbar-fill
+    background-color: $accent

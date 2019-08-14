@@ -1,3 +1,31 @@
+<?php
+$region_id = null;
+
+if ($_GET['region_id']) {
+	$region_id = $_GET['region_id'];
+
+	if ($_COOKIE['region'] !== $region_id) {
+		setcookie('region', $region_id, time() + 2592000);
+  }
+}
+elseif ($_COOKIE['region']) {
+  $region_id = $_COOKIE['region'];
+}
+else {
+  $regions = get_regions(1);
+  if ($regions->have_posts()) {
+    while ($regions->have_posts()) {
+	    $regions->the_post();
+
+	    $region_id = get_the_ID();
+	    setcookie('region', $region_id,time() + 2592000);
+    }
+    wp_reset_postdata();
+  }
+}
+
+?>
+
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -51,7 +79,7 @@
             <div class="location__head">
               <?php ith_the_icon('navigation', 'location__icon'); ?>
               <span class="location__title">
-                <?php $region_id = $_GET['region_id'];
+                <?php
                 if ($region_id) {
                   echo get_post($region_id)->post_title;
                 }
@@ -85,7 +113,9 @@
           </a>
         <?php endif; ?>
 
-        <a href="tel:+78005509193" class="phone__tel">+7 (800) 550-91-93</a>
+        <?php if (get_field('phone', $region_id)): ?>
+          <a href="tel:<?php echo preg_replace('![^0-9/+]+!', '', get_field('phone', $region_id)); ?>" class="phone__tel"><?php the_field('phone', $region_id); ?></a>
+        <?php endif; ?>
       </div>
 
       <button type="button" class="nav-toggle">

@@ -1,0 +1,148 @@
+.portfolio-slider-wrap
+  position: relative
+
+.portfolio-slider
+  padding-bottom: 100px
+  +r(767)
+    margin: 0 -15px
+    padding-bottom: 40px
+  &__item
+    position: relative
+    height: auto
+    max-width: 560px
+    +r(767)
+      max-width: none
+      padding: 0 15px
+    &.swiper-slide-active
+      .portfolio-slider-card
+        opacity: 0
+      .portfolio-slider-card-full
+        opacity: 1
+        visibility: visible
+
+.portfolio-slider-card
+  height: 100%
+  border: 3px solid $light-gray
+  border-radius: 12px
+  padding: 50px
+  text-align: center
+  opacity: 0.7
+  +trans
+  +r(767)
+    display: none
+  &__date
+    position: absolute
+    top: 40px
+    left: 50px
+    font-family: $futura-d-font
+    font-size: 14px
+  &__img
+    width: 344px
+    height: 344px
+    margin: 0 auto 55px
+    border-radius: 50%
+    overflow: hidden
+  &__title
+    margin: 0
+    font-size: 24px
+    line-height: 1.25
+
+.portfolio-slider-card-full
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  z-index: 1
+  max-height: 650px
+  background-color: #fff
+  box-shadow: 8px 15px 43px rgba(#676767, 0.08)
+  border-radius: 12px
+  +trans
+  opacity: 0
+  visibility: hidden
+  +r(767)
+    position: static
+    opacity: 1
+    visibility: visible
+    max-height: none
+    height: 100%
+  &__top
+    display: flex
+    align-items: center
+    padding: 55px 50px 50px
+    +r(576)
+      flex-direction: column
+      padding: 30px 20px
+      text-align: center
+  &__img
+    flex-shrink: 0
+    width: 217px
+    height: 217px
+    margin-right: 45px
+    border-radius: 50%
+    overflow: hidden
+    +r(576)
+      width: 150px
+      height: 150px
+      margin-right: 0
+      margin-bottom: 30px
+  &__right
+    flex-grow: 1
+  &__date
+    display: inline-block
+    margin-bottom: 35px
+    padding: 7px 15px
+    font-family: $futura-d-font
+    font-size: 14px
+    color: #545454
+    border: 2px solid #dadada
+    +r(576)
+      margin-bottom: 15px
+  &__title
+    margin: 0
+    font-size: 22px
+    line-height: 1.35
+    +r(576)
+      font-size: 18px
+  &__bottom
+    padding: 50px
+    border-top: 1px solid #ecedf5
+    +r(576)
+      padding: 20px
+  &__label
+    margin-bottom: 40px
+    font-family: $futura-d-font
+    font-size: 22px
+    color: $dark
+    +r(576)
+      margin-bottom: 20px
+      font-size: 18px
+      text-align: center
+  &__list
+    margin: 0 0 50px
+    padding: 0
+    list-style: none
+    column-count: 2
+    +r(576)
+      column-count: 1
+      margin-bottom: 20px
+    li
+      position: relative
+      padding-left: 25px
+      font-size: 22px
+      color: #595959
+      &::before
+        content: ''
+        position: absolute
+        top: 10px
+        left: 0
+        width: 8px
+        height: 8px
+        background-color: $light-blue
+        border-radius: 50%
+  &__link
+    font-family: $futura-d-font
+    color: $accent
+    text-transform: uppercase
+    &:hover, &:focus
+      color: lighten($accent, 8%)

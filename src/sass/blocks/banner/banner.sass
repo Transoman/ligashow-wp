@@ -1,0 +1,87 @@
+.banner
+  position: relative
+  z-index: 1
+  padding: 140px 0 155px
+  background-color: #001db1
+  overflow: hidden
+  +r(1200)
+    padding: 120px 0 135px
+  +r(992)
+    padding: 90px 0
+  +r(767)
+    padding: 40px 0
+  &--filter
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      background-image: linear-gradient(rgba(#0027ef, 0) 40%, #0027ef)
+    &::after
+      content: ''
+      position: absolute
+      top: 70px
+      left: 37%
+      width: 1750px
+      height: 1750px
+      border-radius: 50%
+      z-index: -1
+      background-color: #001fbd
+      pointer-events: none
+      +r(1395)
+        width: 1350px
+        height: 1350px
+        left: 40%
+      +r(992)
+        width: 850px
+        height: 850px
+      +r(767)
+        top: 30px
+        width: 400px
+        height: 400px
+        left: 50%
+  &__content
+    position: relative
+    z-index: 1
+    max-width: 790px
+    +r(1200)
+      max-width: 580px
+    +r(992)
+      max-width: 450px
+    +r(767)
+      max-width: none
+      text-align: center
+    .btn
+      padding:
+        top: 30px
+        bottom: 30px
+      +r(767)
+        padding: 15px 25px
+  &__title
+    margin-bottom: 50px
+    font-size: 72px
+    color: #fff
+    line-height: 1.13
+    letter-spacing: -1.7px
+    +r(1395)
+      font-size: 62px
+    +r(1200)
+      font-size: 52px
+    +r(992)
+      font-size: 42px
+    +r(767)
+      font-size: 30px
+      margin-bottom: 30px
+  &__img
+    position: absolute
+    left: 61%
+    bottom: 0
+    max-width: 430px
+    +r(992)
+      max-width: 300px
+    +r(767)
+      left: 70%
+      max-width: 130px
