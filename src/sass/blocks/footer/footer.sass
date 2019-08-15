@@ -1,0 +1,105 @@
+.footer
+  padding: 0 0 85px
+  +r(767)
+    padding-bottom: 30px
+  &__top
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    margin: 0 0 50px
+    padding-top: 55px
+    border-top: 1px solid $light-gray
+    +r(767)
+      display: block
+      margin-bottom: 20px
+      padding-top: 30px
+      text-align: center
+  &__col
+    flex: 1 0 33.33%
+    width: 33.33%
+    +r(767)
+      width: 100%
+    &--social
+      +r(1200)
+        width: 100%
+        margin-top: 30px
+  &__phone
+    font-family: $futura-d-font
+    font-size: 48px
+    color: $dark
+    +r(1200)
+      font-size: 38px
+    +r(767)
+      font-size: 22px
+  &__location
+    +r(767)
+      margin-top: 20px
+    .location
+      &__head
+        justify-content: center
+        +r(1200)
+          justify-content: flex-end
+        +r(767)
+          justify-content: center
+      &__icon
+        fill: $accent
+        margin-right: 25px
+      &__title
+        font-size: 24px
+        +r(767)
+          font-size: 20px
+  &__socials
+    justify-content: flex-end
+    +r(1200)
+      justify-content: center
+  &__middle
+    display: flex
+    margin-bottom: 50px
+    +r(767)
+      display: block
+      text-align: center
+      margin-bottom: 20px
+  &__menu
+    margin: 0
+    padding: 0
+    list-style: none
+    column-count: 3
+    +r(992)
+      column-count: 2
+    +r(767)
+      column-count: 1
+      margin-bottom: 20px
+    li
+      margin-bottom: 25px
+      +r(767)
+        margin-bottom: 10px
+    a
+      font-size: 24px
+      color: $main-color
+      +r(767)
+        font-size: 18px
+      &:hover, &:focus
+        color: $accent
+  &__address
+    max-width: 250px
+    margin-left: auto
+    font-family: $futura-d-font
+    text-align: right
+    +r(767)
+      max-width: none
+      text-align: center
+  &__bottom
+    display: flex
+    align-items: center
+    font-size: 16px
+    +r(767)
+      display: block
+      text-align: center
+      & > *:not(:last-child)
+        margin-bottom: 20px
+  &__dev
+    margin: 0
+    a
+      font-family: $futura-d-font
+  &__copy
+    margin: 0 0 0 auto

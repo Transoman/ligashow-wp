@@ -1,15 +1,15 @@
 <?php
-$region_id = null;
+$GLOBALS['region_id'] = null;
 
 if ($_GET['region_id']) {
-	$region_id = $_GET['region_id'];
+	$GLOBALS['region_id'] = $_GET['region_id'];
 
-	if ($_COOKIE['region'] !== $region_id) {
-		setcookie('region', $region_id, time() + 2592000);
+	if ($_COOKIE['region'] !== $GLOBALS['region_id']) {
+		setcookie('region', $GLOBALS['region_id'], time() + 2592000);
   }
 }
 elseif ($_COOKIE['region']) {
-  $region_id = $_COOKIE['region'];
+  $GLOBALS['region_id'] = $_COOKIE['region'];
 }
 else {
   $regions = get_regions(1);
@@ -17,8 +17,8 @@ else {
     while ($regions->have_posts()) {
 	    $regions->the_post();
 
-	    $region_id = get_the_ID();
-	    setcookie('region', $region_id,time() + 2592000);
+	    $GLOBALS['region_id'] = get_the_ID();
+	    setcookie('region', $GLOBALS['region_id'],time() + 2592000);
     }
     wp_reset_postdata();
   }
@@ -80,8 +80,8 @@ else {
               <?php ith_the_icon('navigation', 'location__icon'); ?>
               <span class="location__title">
                 <?php
-                if ($region_id) {
-                  echo get_post($region_id)->post_title;
+                if ($GLOBALS['region_id']) {
+                  echo get_post($GLOBALS['region_id'])->post_title;
                 }
                 else {
                   the_title();
@@ -113,8 +113,8 @@ else {
           </a>
         <?php endif; ?>
 
-        <?php if (get_field('phone', $region_id)): ?>
-          <a href="tel:<?php echo preg_replace('![^0-9/+]+!', '', get_field('phone', $region_id)); ?>" class="phone__tel"><?php the_field('phone', $region_id); ?></a>
+        <?php if (get_field('phone', $GLOBALS['region_id'])): ?>
+          <a href="tel:<?php echo preg_replace('![^0-9/+]+!', '', get_field('phone', $GLOBALS['region_id'])); ?>" class="phone__tel"><?php the_field('phone', $GLOBALS['region_id']); ?></a>
         <?php endif; ?>
       </div>
 

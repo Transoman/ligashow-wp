@@ -1,0 +1,65 @@
+.about
+  display: flex
+  padding-right: 175px
+  +r(1395)
+    padding-right: 0
+  +r(992)
+    display: block
+  &__col
+    width: 50%
+    +r(992)
+      width: 100%
+    &--left
+      width: 46%
+      margin-right: 160px
+      +r(1395)
+        width: 47%
+        margin-right: 130px
+      +r(1200)
+        margin-right: 50px
+      h2
+        margin-bottom: 40px
+        +r(1200)
+          font-size: 38px
+        +r(992)
+          text-align: center
+        +r(767)
+          font-size: 28px
+      .about
+        &__content
+          position: relative
+          padding-left: 65px
+          border-left: 1px solid #00d2ff
+          +r(767)
+            padding-left: 30px
+          &::before
+            content: ''
+            position: absolute
+            top: 0
+            bottom: 0
+            left: 0
+            width: 1px
+            background-color: #0042ff
+    &--right
+      max-width: 490px
+      padding-top: 40px
+      +r(992)
+        max-width: none
+        text-align: center
+      img
+        margin-bottom: 85px
+        +r(1200)
+          margin-bottom: 50px
+        +r(767)
+          margin-bottom: 20px
+      .about
+        &__content
+          +r(992)
+            text-align: left
+  &__content
+    font-size: 22px
+    +r(767)
+      font-size: 18px
+    p
+      &:last-child
+        margin-bottom: 0

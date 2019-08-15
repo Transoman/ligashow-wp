@@ -1,0 +1,74 @@
+{
+    "key": "group_5d550befa7a07",
+    "title": "Соцсети",
+    "fields": [
+        {
+            "key": "field_5d550bf668700",
+            "label": "Ссылка",
+            "name": "link",
+            "type": "url",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5d550c0668701",
+            "label": "Иконка",
+            "name": "icon",
+            "type": "text",
+            "instructions": "Вставте шорткод иконки. Пример: <i>[svgmap sprite=\"accounts\"]<\/i>\r\nУправление иконками <a href=\"\/wp\/wp-admin\/upload.php?page=svgmap\">здесь<\/a>",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "[svgmap sprite=\"\"]",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5d550c8068702",
+            "label": "Цвет иконки",
+            "name": "icon_color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "socials"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1565855657
+}

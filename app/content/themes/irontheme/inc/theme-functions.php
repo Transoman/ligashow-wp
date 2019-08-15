@@ -46,6 +46,7 @@ if ( ! function_exists( 'ith_setup' ) ) :
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus( array(
       'primary' => esc_html__( 'Primary', 'ith' ),
+      'footer' => esc_html__( 'Футер', 'ith' ),
     ) );
 
     /*
@@ -94,6 +95,7 @@ if ( ! function_exists( 'ith_setup' ) ) :
 
     add_image_size( 'portfolio_cat', 344, 344, true );
     add_image_size( 'services_cat', 425, 355, true );
+    add_image_size( 'partner', 113, 85, true  );
   }
 endif;
 add_action( 'after_setup_theme', 'ith_setup' );
@@ -247,4 +249,32 @@ function get_popular_orders($count = null) {
 	);
 	$popular_orders = new WP_Query( $args );
 	return $popular_orders;
+}
+
+
+/**
+ * Get any posts
+ */
+function get_any_post($post_type, $count = null, $tax_name = null, $tax_id = null) {
+	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
+	$args = array(
+		'post_type' => $post_type,
+		'post_status' => 'publish',
+		'posts_per_page' => $count ? $count : get_option('posts_per_page'),
+		'paged' => $paged,
+		'order' => 'ASC'
+	);
+
+	if ($tax_id && $tax_name) {
+		$args['tax_query'] = array(
+			array(
+				'taxonomy' => $tax_name,
+				'field' => 'term_id',
+				'terms' => $tax_id
+			)
+		);
+	}
+
+	$query = new WP_Query( $args );
+	return $query;
 }

@@ -169,3 +169,105 @@ function popular_order_post_type() {
 
 }
 add_action( 'init', 'popular_order_post_type', 0 );
+
+
+// Register Partner Post Type
+function partner_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Партнеры', 'Post Type General Name', 'ith' ),
+		'singular_name'         => _x( 'Партнер', 'Post Type Singular Name', 'ith' ),
+		'menu_name'             => __( 'Партнеры', 'ith' ),
+		'name_admin_bar'        => __( 'Партнеры', 'ith' ),
+		'archives'              => __( 'Партнеры', 'ith' ),
+	);
+	$args = array(
+		'label'                 => __( 'Партнер', 'ith' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'thumbnail' ),
+		'hierarchical'          => false,
+		'public'                => false,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-businessman',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'partner', $args );
+
+}
+add_action( 'init', 'partner_post_type', 0 );
+
+
+// Register Project Post Type
+function project_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Проекты', 'Post Type General Name', 'ith' ),
+		'singular_name'         => _x( 'Проект', 'Post Type Singular Name', 'ith' ),
+		'menu_name'             => __( 'Проекты', 'ith' ),
+		'name_admin_bar'        => __( 'Проекты', 'ith' ),
+		'archives'              => __( 'Проекты', 'ith' ),
+	);
+	$args = array(
+		'label'                 => __( 'Проект', 'ith' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'thumbnail' ),
+		'hierarchical'          => false,
+		'public'                => false,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-lightbulb',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'project', $args );
+
+}
+add_action( 'init', 'project_post_type', 0 );
+
+
+// Register Socials Post Type
+function socials_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Социальные сети', 'Post Type General Name', 'ith' ),
+		'singular_name'         => _x( 'Социальные сети', 'Post Type Singular Name', 'ith' ),
+		'menu_name'             => __( 'Социальные сети', 'ith' ),
+		'name_admin_bar'        => __( 'Социальные сети', 'ith' ),
+		'archives'              => __( 'Социальные сети', 'ith' ),
+	);
+	$args = array(
+		'label'                 => __( 'Социальные сети', 'ith' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title' ),
+		'hierarchical'          => false,
+		'public'                => false,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-share',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'socials', $args );
+
+}
+add_action( 'init', 'socials_post_type', 0 );

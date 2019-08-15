@@ -133,6 +133,26 @@ jQuery(document).ready(function($) {
     }
   });
 
+  new Swiper('.partners-slider', {
+    slidesPerView: 6,
+    speed: 1000,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+    },
+    breakpoints: {
+      1200: {
+        slidesPerView: 5,
+      },
+      992: {
+        slidesPerView: 4,
+      },
+      767: {
+        slidesPerView: 1,
+      }
+    }
+  });
+
   let offsetSlider = function(container, slider, slidesView) {
     let sliderWidth = $(slider.$el[0]).width();
     let sliderOffset = $(container).offset().left;
