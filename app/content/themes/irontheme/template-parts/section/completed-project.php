@@ -35,18 +35,19 @@
 										<div class="portfolio-slider-card-full__img"><?php the_post_thumbnail('portfolio_cat'); ?></div>
 										<div class="portfolio-slider-card-full__top-right">
 											<span class="portfolio-slider-card-full__date"><?php the_field('date'); ?></span>
-											<h3 class="portfolio-slider-card-full__title"><?php the_title(); ?></h3>
+											<h3 class="portfolio-slider-card-full__title"><?php echo wp_trim_words(get_the_title(), 8); ?></h3>
 										</div>
 									</div>
 
 									<div class="portfolio-slider-card-full__bottom">
-										<p class="portfolio-slider-card-full__label">Услуги на мероприятии</p>
-										<ul class="portfolio-slider-card-full__list">
-											<li>Аренда кофемашин</li>
-											<li>Кофе-брейк меню</li>
-											<li>Выездные бариста</li>
-											<li>Кофейный бар</li>
-										</ul>
+                    <?php if (get_field('services')): ?>
+                      <p class="portfolio-slider-card-full__label">Услуги на мероприятии</p>
+                      <ul class="portfolio-slider-card-full__list">
+                        <?php foreach (get_field('services') as $item): ?>
+                          <li><?php echo $item->post_title; ?></li>
+                        <?php endforeach; ?>
+                      </ul>
+                    <?php endif; ?>
 
 										<div class="text-right">
 											<a href="<?php the_permalink(); ?>" class="portfolio-slider-card-full__link">подробнее</a>

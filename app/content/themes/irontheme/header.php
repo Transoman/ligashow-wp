@@ -43,7 +43,7 @@ else {
 <body <?php body_class(); ?>>
 
 <div class="wrapper">
-  <header class="header">
+  <header class="header<?php echo (!is_home() && !is_front_page()) ? ' header--inner' : ''; ?>">
     <div class="container">
 
       <div class="logo header__logo">
@@ -65,6 +65,42 @@ else {
           'menu_id'         => '',
         ) );
         ?>
+
+	      <?php $regions = get_regions(-1);
+	      if ($regions->have_posts()): ?>
+          <div class="location nav__location">
+
+			      <?php $i = 0; while ($regions->have_posts()): $regions->the_post(); ?>
+
+			      <?php if ($i == 0): ?>
+            <div class="location__head">
+				      <?php ith_the_icon('navigation', 'location__icon'); ?>
+              <span class="location__title">
+                <?php
+                if ($GLOBALS['region_id']) {
+	                echo get_post($GLOBALS['region_id'])->post_title;
+                }
+                else {
+	                the_title();
+                }
+                ?>
+              </span>
+            </div>
+            <div class="location__body">
+              <ul class="location__list">
+					      <?php endif; $i++; ?>
+                <li><a href="<?php echo home_url('/') . '?region_id='. get_the_ID(); ?>"><?php the_title(); ?></a></li>
+					      <?php endwhile; wp_reset_postdata(); ?>
+              </ul>
+            </div>
+
+          </div>
+	      <?php endif; ?>
+
+	      <?php if (get_field('phone', $GLOBALS['region_id'])): ?>
+          <a href="tel:<?php echo preg_replace('![^0-9/+]+!', '', get_field('phone', $GLOBALS['region_id'])); ?>" class="nav__tel"><?php the_field('phone', $GLOBALS['region_id']); ?></a>
+	      <?php endif; ?>
+
       </nav>
 
       <div class="nav-overlay"></div>

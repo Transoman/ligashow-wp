@@ -5,20 +5,56 @@ section
 
 .s
   &-services
+    padding-top: 95px
+    padding-bottom: 65px
+    +r(767)
+      padding-top: 40px
+      padding-bottom: 40px
     .section-header
       margin-bottom: 80px
       +r(767)
         margin-bottom: 20px
+  &-services-sub-cat
+    padding-top: 70px
+    padding-bottom: 125px
+    +r(767)
+      padding: 40px 0
+    .section-header
+      margin-bottom: 30px
+      +r(767)
+        margin-bottom: 20px
   &-about
-    padding-bottom: 130px
+    padding-bottom: 135px
     +r(767)
       padding-bottom: 40px
+    .section-header
+      margin-bottom: 75px
+      +r(767)
+        margin-bottom: 20px
+  &-popular-order
+    padding-bottom: 100px
+    +r(767)
+      padding-bottom: 40px
+    .section-header
+      margin-bottom: 50px
+  &-our-project
+    padding-top: 70px
+    padding-bottom: 50px
+    +r(767)
+      padding-top: 40px
+      padding-bottom: 40px
+    .section-header
+      margin-bottom: 25px
+      padding-bottom: 0
+      border: 0
+      +r(767)
+        margin-bottom: 20px
 
 .section-header
   display: flex
   align-items: baseline
   margin-bottom: 55px
-  padding-bottom: 30px
+  padding-bottom: 35px
   border-bottom: 1px solid $light-gray
   +r(767)
     flex-direction: column
@@ -32,3 +68,6 @@ section
     +r(767)
       margin-top: 20px
       margin-left: 0
+
+.section-title
+  letter-spacing: -1.45px

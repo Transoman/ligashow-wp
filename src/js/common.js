@@ -4,7 +4,8 @@
 let svg4everybody = require('svg4everybody'),
   popup = require('jquery-popup-overlay'),
   Swiper = require('swiper'),
-  noUiSlider = require('nouislider');
+  noUiSlider = require('nouislider'),
+  iMask = require('imask');
 
 jQuery(document).ready(function($) {
   // Toggle nav menu
@@ -34,16 +35,35 @@ jQuery(document).ready(function($) {
 
   };
 
-
   // Modal
   $('.modal').popup({
     transition: 'all 0.3s',
+    color: '#1b244e',
+    opacity: 0.9,
     onclose: function() {
       $(this).find('label.error').remove();
     }
   });
 
-  let sliderSpeed = parseInt(document.querySelector('.hero-slider').getAttribute('data-speed'), 10);
+  // Input mask
+  let phoneInputs = $('input[type="tel"]');
+  let maskOptions = {
+    mask: '+{7} (000) 000-0000'
+  };
+
+  if (phoneInputs) {
+    phoneInputs.each(function(i, el) {
+      IMask(el, maskOptions);
+    });
+  }
+
+  // Slider
+  let heroSlider = document.querySelector('.hero-slider');
+  let sliderSpeed = 500;
+  if (heroSlider) {
+    let sliderSpeed = parseInt(heroSlider.getAttribute('data-speed'), 10);
+  }
+
   new Swiper('.hero-slider', {
     speed: sliderSpeed,
     pagination: {
@@ -69,12 +89,10 @@ jQuery(document).ready(function($) {
     }
   });
 
-  let portfolioSlider = new Swiper('.portfolio-slider', {
-    // slidesPerView: 3.15,
+  new Swiper('.portfolio-slider', {
     slidesPerView: 'auto',
     spaceBetween: 75,
     slidesOffsetBefore: -400,
-    // width: 1920,
     centeredSlides: true,
     navigation: {
       nextEl: '.portfolio-slider-wrap .swiper-button-next',
@@ -153,109 +171,114 @@ jQuery(document).ready(function($) {
     }
   });
 
-  let offsetSlider = function(container, slider, slidesView) {
-    let sliderWidth = $(slider.$el[0]).width();
-    let sliderOffset = $(container).offset().left;
 
-    if ($(window).width() > 767) {
-      slider.params.slidesOffsetBefore = - (680.83 - sliderOffset - 15);
-      slider.update();
+  let calculateOrder = function () {
+    let parentBlocks = $('.calculate-order__item');
+
+    if (parentBlocks) {
+      parentBlocks.each(function(i, el) {
+
+        let countPersonRange = $(el).find('.calculate-order__range--count-person');
+        let worksRange = $(el).find('.calculate-order__range--works');
+        let total = $(el).find('.calculate-order__total-price');
+        let countPerson = $(el).find('.calculate-order__count-person-current');
+        let countWorks = $(el).find('.calculate-order__works-current');
+        let pricesBlock = $(el).find('script');
+        let bar = $(el).find('.switch');
+        let btn = $(el).find('.btn');
+        let timePrice = 0;
+        let sum = 0;
+        let barValue = '';
+
+        let calc = function() {
+          if (pricesBlock) {
+            let p = 'prices' + i;
+
+            for (let key in window[p]) {
+              if (countPerson.text() >= window[p][key].person_from && countPerson.text() <= window[p][key].person_to) {
+                timePrice = window[p][key].price;
+              } else if (countPerson.text() > window[p][key].person_to) {
+                timePrice = window[p][key].price;
+              }
+            }
+          }
+
+          if (bar.is(':checked')) {
+            sum = (countPerson.text() * countWorks.text() * timePrice)  * 1.15;
+            barValue = 'нужна';
+          }
+          else {
+            sum = (countPerson.text() * countWorks.text() * timePrice);
+            barValue = 'не нужна';
+          }
+
+          total.find('span').text(new Intl.NumberFormat('ru-RU').format(parseInt(sum, 10)));
+        };
+
+        if (countPersonRange) {
+          noUiSlider.create(countPersonRange[0], {
+            start: parseInt(countPersonRange.data('max') / 3, 10),
+            connect: [true, false],
+            step: 1,
+            range: {
+              'min': parseInt(countPersonRange.data('min'), 10),
+              'max': parseInt(countPersonRange.data('max'), 10)
+            }
+          });
+
+          countPersonRange[0].noUiSlider.on('update', function (values, handle) {
+            countPerson.text(parseInt(values[handle], 10));
+            calc();
+          });
+        }
+
+        if (worksRange) {
+          noUiSlider.create(worksRange[0], {
+            start: parseInt(worksRange.data('max') / 3, 10),
+            connect: [true, false],
+            step: 1,
+            range: {
+              'min': parseInt(worksRange.data('min'), 10),
+              'max': parseInt(worksRange.data('max'), 10)
+            }
+          });
+
+          worksRange[0].noUiSlider.on('update', function (values, handle) {
+            countWorks.text(parseInt(values[handle], 10));
+            calc();
+          });
+        }
+
+        bar.change(function() {
+          if ($(this).is(':checked')) {
+            $(this).next().parent().find('.calculate-order__switch-val-on').show();
+            $(this).next().parent().find('.calculate-order__switch-val-off').hide();
+          }
+          else {
+            $(this).next().parent().find('.calculate-order__switch-val-on').hide();
+            $(this).next().parent().find('.calculate-order__switch-val-off').show();
+          }
+          calc();
+        });
+
+        calc();
+
+        btn.click(function() {
+          let popupName = $(this).data('popup-name');
+          if (popupName) {
+            $('#' + popupName).find('input[name="person"]').val(parseInt(countPerson.text(), 10));
+            $('#' + popupName).find('input[name="time"]').val(parseInt(countWorks.text(), 10));
+            $('#' + popupName).find('input[name="service"]').val($('.calculate-order-list li.active').text());
+            $('#' + popupName).find('input[name="sum"]').val(total.find('span').text());
+            $('#' + popupName).find('input[name="bar"]').val(barValue);
+          }
+
+        });
+
+      });
     }
+
   };
-
-  let calculateOrder = function(people, time, elItem) {
-    let total = $(elItem).parents('.calculate-order__item').find('.calculate-order__total-price');
-    let timePrice = total.data('time-price');
-    let bar = $(elItem).parents('.calculate-order__item').find('.switch');
-    let sum = 0;
-
-    if (bar.is(':checked')) {
-      sum = (people * time * timePrice);
-    }
-    else {
-      sum = (people * time * timePrice) * 0.15;
-    }
-
-    total.find('span').text(parseInt(sum, 10));
-
-  };
-
-  let countPersonRange = $('.calculate-order__range--count-person');
-
-  if (countPersonRange) {
-    countPersonRange.each(function(i, el) {
-      noUiSlider.create(this, {
-        start: parseInt($(this).data('max') / 3, 10),
-        connect: [true, false],
-        step: 1,
-        range: {
-          'min': parseInt($(this).data('min'), 10),
-          'max': parseInt($(this).data('max'), 10)
-        }
-      });
-
-      this.noUiSlider.on('update', function (values, handle) {
-        $(el).parents('.calculate-order__item').find('.calculate-order__count-person-current').text(parseInt(values[handle], 10));
-        calculateOrder(parseInt(values[handle], 10), parseInt($(el).parents('.calculate-order__item').find('.calculate-order__works-current').text(), 10), el);
-      });
-
-    });
-  }
-
-  let worksRange = $('.calculate-order__range--works');
-
-  if (worksRange) {
-    worksRange.each(function(i, el) {
-      noUiSlider.create(this, {
-        start: parseInt($(this).data('max') / 3, 10),
-        connect: [true, false],
-        step: 1,
-        range: {
-          'min': parseInt($(this).data('min'), 10),
-          'max': parseInt($(this).data('max'), 10)
-        }
-      });
-
-      this.noUiSlider.on('update', function (values, handle) {
-        $(el).parents('.calculate-order__item').find('.calculate-order__works-current').text(parseInt(values[handle], 10));
-        calculateOrder(parseInt($(el).parents('.calculate-order__item').find('.calculate-order__count-person-current').text(), 10), parseInt(values[handle], 10), el);
-      });
-
-    });
-  }
-
-  let calculateOrderItems = $('.calculate-order__item');
-
-  if (calculateOrderItems) {
-    calculateOrderItems.each(function(i, el) {
-      calculateOrder(parseInt($(el).find('.calculate-order__count-person-current').text(), 10), parseInt($(el).find('.calculate-order__works-current').text(), 10), el);
-
-      $(this).find('.btn').click(function() {
-        let popupName = $(this).data('popup-name');
-        if (popupName) {
-          $('#' + popupName).find('input[name="person"]').val(parseInt($(el).find('.calculate-order__count-person-current').text(), 10));
-          $('#' + popupName).find('input[name="time"]').val(parseInt($(el).find('.calculate-order__works-current').text(), 10));
-          $('#' + popupName).find('input[name="service"]').val($('.calculate-order-list li.active').text());
-          $('#' + popupName).find('input[name="sum"]').val(parseInt($(el).find('.calculate-order__total-price span').text(), 10));
-          let bar = $(el).find('.switch').is(':checked') ? 'Да' : 'Нет';
-          $('#' + popupName).find('input[name="bar"]').val(bar);
-        }
-
-      });
-
-    });
-  }
-
-  $('.calculate-order__item .switch').change(function() {
-    if ($(this).is(':checked')) {
-      $(this).next().parent().find('.calculate-order__switch-val-on').show();
-      $(this).next().parent().find('.calculate-order__switch-val-off').hide();
-    }
-    else {
-      $(this).next().parent().find('.calculate-order__switch-val-on').hide();
-      $(this).next().parent().find('.calculate-order__switch-val-off').show();
-    }
-  });
 
   // Tabs
   $('.calculate-order-list').on('click', 'li:not(.active)', function(e) {
@@ -270,12 +293,53 @@ jQuery(document).ready(function($) {
     $(this).addClass('is-active');
   });
 
+  let toggleLocation = function() {
+    $('.location__head').click(function() {
+      $(this).next('.location__body').toggleClass('is-active');
+    });
+
+    $(window).mouseup(function(e) {
+      if (e.target != 'location' && $(e.target).parents('.location').length == 0) {
+        $('.location__head').next('.location__body').removeClass('is-active');
+      }
+    });
+
+  };
+
+  $('form input[name="region"]').each(function() {
+    $(this).val(document.querySelector('.location__title').innerHTML);
+  });
+
+  // Smooth scroll to anchor
+  $('a[href*="#"]')
+  // Remove links that don't actually link to anything
+      .not('[href="#"]')
+      .not('[href="#0"]')
+      .click(function(event) {
+        // On-page links
+        if (
+            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+            &&
+            location.hostname == this.hostname
+        ) {
+          // Figure out element to scroll to
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+
+          // Does a scroll target exist?
+          if (target.length) {
+            // Only prevent default if animation is actually gonna happen
+            event.preventDefault();
+            $('html, body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+          }
+        }
+      });
+
   toggleNav();
-  // offsetSlider('.s-project .container', portfolioSlider);
-  //
-  // $(window).resize(function() {
-  //   offsetSlider('.s-project .container', portfolioSlider);
-  // });
+  toggleLocation();
+  calculateOrder();
 
   // SVG
   svg4everybody({});

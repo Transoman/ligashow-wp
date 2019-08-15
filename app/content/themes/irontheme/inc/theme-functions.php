@@ -152,6 +152,15 @@ add_action( 'wp_enqueue_scripts', 'ith_scripts' );
  */
 add_filter( 'wpcf7_autop_or_not', '__return_false' );
 
+/**
+ * Validate Phone Number CF7
+ */
+function custom_filter_wpcf7_is_tel( $result, $tel ) {
+	$result = preg_match( '/\+[0-9]{1}\s\([0-9]{3}\)\s[0-9]{3}-[0-9]{4}/', $tel );
+	return $result;
+}
+add_filter( 'wpcf7_is_tel', 'custom_filter_wpcf7_is_tel', 10, 2 );
+
 function js_variables(){
   $variables = array (
     'ajax_url' => admin_url('admin-ajax.php'),

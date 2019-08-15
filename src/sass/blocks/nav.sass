@@ -57,6 +57,27 @@
         height: 50px
         pointer-events: none
         background-image: linear-gradient(rgba(#fff, 0), #fff)
+  &__location
+    display: none
+    margin-bottom: 20px
+    +r(1200)
+      display: block
+    .location
+      &__icon
+        fill: $accent
+      &__body
+        top: auto
+        bottom: calc(100% + 10px)
+        &::before
+          top: auto
+          bottom: -8px
+          border-width: 8px 5px 0 5px
+          border-color: #ffffff transparent transparent transparent
+
+  &__tel
+    display: none
+    +r(1200)
+      display: block
 
 
 .nav-list

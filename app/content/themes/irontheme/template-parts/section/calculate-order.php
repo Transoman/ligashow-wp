@@ -1,7 +1,7 @@
 <?php $title = get_sub_field('title'); ?>
 
 <?php if (have_rows('list')): ?>
-	<section class="s-calculate-order">
+	<section class="s-calculate-order" id="calculate-order">
 		<div class="container">
 			<div class="calculate-order">
 				<div class="calculate-order__left">
@@ -52,11 +52,11 @@
 									<p class="calculate-order__label">Нужна ли <br>барная стойка?</p>
 									<div class="calculate-order__row calculate-order__row--bars calculate-order__row--align-center">
 										<div class="switch-wrap">
-											<input class="switch" id="bar<?php echo $i;?>" type="checkbox"><label for="bar<?php echo $i++;?>">&nbsp;</label>
+											<input class="switch" id="bar<?php echo $i;?>" type="checkbox"><label for="bar<?php echo $i; ?>">&nbsp;</label>
 											<span class="calculate-order__switch-val">
-                              <span class="calculate-order__switch-val-on">нужна</span>
-                              <span class="calculate-order__switch-val-off">не нужна</span>
-                            </span>
+                        <span class="calculate-order__switch-val-on">нужна</span>
+                        <span class="calculate-order__switch-val-off">не нужна</span>
+                      </span>
 										</div>
 									</div>
 								</div>
@@ -66,7 +66,19 @@
 							<div class="calculate-order__bottom">
 								<div class="calculate-order__total">
 									<span class="calculate-order__total-label">Стоимость</span>
-									<p class="calculate-order__total-price" data-time-price="<?php echo (int) get_sub_field('time_price'); ?>"><span>0</span> <sup>₽</sup></p>
+									<p class="calculate-order__total-price"><span>0</span> <sup>₽</sup></p>
+                  <?php if (have_rows('prices')): ?>
+                  <script>
+                    var prices = 'prices' + <?php echo $i++; ?>;
+                    window[prices] = {
+                    <?php $j = 0; while (have_rows('prices')): the_row(); ?>
+                      <?php echo $j.': { person_from: '.get_sub_field('person_from') . ','; ?>
+                      <?php echo 'person_to: '.get_sub_field('person_to') . ','; ?>
+                      <?php echo 'price: '.get_sub_field('price') . '},'; $j++; ?>
+                    <?php endwhile; ?>
+                    };
+                    </script>
+                  <?php endif; ?>
 								</div>
 
 								<?php if (get_sub_field('type') == 'link' && get_sub_field('link')): ?>
