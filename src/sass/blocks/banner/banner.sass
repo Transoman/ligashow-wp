@@ -85,3 +85,89 @@
     +r(767)
       left: 70%
       max-width: 130px
+
+.banner-2
+  position: relative
+  z-index: 1
+  padding: 180px 0 165px
+  background-color:
+  background:
+    color: $blue
+    repeat: no-repeat
+    position: center
+    size: cover
+  color: #fff
+  +r(1200)
+    padding: 120px 0 135px
+  +r(992)
+    padding: 90px 0
+  +r(767)
+    padding: 40px 0
+    text-align: center
+  .btn
+    margin-left: auto
+    padding:
+      right: 65px
+      left: 65px
+    +r(992)
+      padding:
+        right: 30px
+        left: 30px
+  &--filter
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      background-color: rgba($blue, 0.7)
+    &::after
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      background-image: linear-gradient(rgba($accent, 0) 40%, rgba($accent, 0.3))
+  .container
+    display: flex
+    align-items: flex-start
+    +r(767)
+      display: block
+  &__content
+    display: flex
+    align-items: flex-start
+    width: 65.88%
+    flex-shrink: 0
+    +r(1395)
+      flex-direction: column
+    +r(767)
+      display: block
+      width: auto
+      margin-bottom: 30px
+    p
+      margin: 0
+      font-size: 24px
+      line-height: 1.25
+      +r(767)
+        font-size: 18px
+  &__title
+    flex-shrink: 0
+    max-width: 510px
+    margin: -10px 125px 0 0
+    font-size: 60px
+    color: #fff
+    letter-spacing: -1.25px
+    +r(1395)
+      margin: 0 0 20px
+    +r(1200)
+      font-size: 52px
+    +r(992)
+      font-size: 42px
+    +r(767)
+      max-width: none
+      margin-bottom: 15px
+      font-size: 30px

@@ -1,0 +1,25 @@
+.breadcrumb
+  padding: 35px 0
+  background-color: $bg-color
+  +r(767)
+    padding: 15px 0
+  .container
+    display: flex
+    align-items: baseline
+    +r(767)
+      display: block
+      text-align: center
+  .page-title
+    margin: 0 35px 0 0
+    +r(767)
+      margin: 0 0 10px
+  &-list
+    font-size: 16px
+    color: #555555
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+    a
+      color: inherit
+      &:hover, &:focus
+        color: $accent

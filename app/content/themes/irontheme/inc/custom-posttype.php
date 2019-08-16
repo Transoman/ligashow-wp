@@ -115,7 +115,7 @@ function services_post_type() {
 	$args = array(
 		'label'                 => __( 'Услуга', 'ith' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor' ),
+		'supports'              => array( 'title', 'editor', 'thumbnail' ),
 		'taxonomies'            => array( 'services_cat' ),
 		'hierarchical'          => false,
 		'public'                => true,

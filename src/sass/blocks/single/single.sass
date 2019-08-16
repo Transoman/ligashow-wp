@@ -1,0 +1,107 @@
+.single-content
+  padding-top: 60px
+  border-bottom: 1px solid #d7dbe4
+  +r(767)
+    padding-top: 40px
+  .container
+    display: flex
+    +r(992)
+      display: block
+  &__left
+    width: 51.97%
+    margin-right: 70px
+    +r(1200)
+      margin-right: 30px
+    +r(992)
+      width: auto
+      margin-right: 0
+  &__right
+    flex-grow: 1
+  &__label
+    margin-top: 20px
+    margin-bottom: 50px
+    padding-left: 20px
+    font-family: $futura-d-font
+    font-size: 30px
+    color: $dark
+    +r(992)
+      margin-bottom: 20px
+    +r(767)
+      font-size: 24px
+      margin-bottom: 10px
+  &__summary
+    margin-bottom: 35px
+    padding: 60px 50px 55px
+    border: 3px solid $bg-color
+    border-radius: 12px
+    +r(1200)
+      padding: 50px 40px 45px
+      margin-bottom: 20px
+    +r(767)
+      padding: 20px 10px
+    &-wrap
+      border-left: 2px solid $bg-color
+      padding: 0 0 40px 35px
+      font-size: 16px
+      +r(767)
+        padding: 0 0 20px 15px
+      p
+        margin-bottom: 20px
+        line-height: 1.125
+        +r(767)
+          margin-bottom: 10px
+        &:last-child
+          margin-bottom: 0
+      strong
+        color: $dark
+  &__bottom
+    display: flex
+    align-items: center
+    padding-left: 20px
+    +r(1200)
+      display: block
+    +r(992)
+      display: flex
+    +r(767)
+      display: block
+      padding: 0
+      text-align: center
+    .btn
+      width: 100%
+      margin-left: auto
+      +r(1200)
+        width: auto
+        margin: 0
+      +r(992)
+        margin-left: auto
+        width: 100%
+      +r(767)
+        margin: 0
+        width: auto
+  &__price
+    margin: 0
+    font-family: $futura-d-font
+    font-size: 36px
+    +r(767)
+      font-size: 30px
+    &-wrap
+      flex-shrink: 0
+      margin-right: 35px
+      color: #282828
+      +r(1200)
+        margin-bottom: 20px
+      +r(767)
+        margin-right: 0
+      span
+        font-size: 14px
+  &__media
+    border-radius: 12px
+    overflow: hidden
+
+
+
+.single-title
+  @extend h2
+  margin-bottom: 35px
+  +r(992)
+    margin-bottom: 20px

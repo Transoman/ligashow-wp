@@ -2,10 +2,14 @@
 @import 'location'
 @import 'phone'
 @import 'section'
+@import 'page'
 @import 'range'
 @import 'switch'
 @import 'slider'
 @import 'socials'
+@import 'breadcrumb'
+@import 'archive'
+@import 'video'
 
 .bg-gray
   background-color: $bg-color
@@ -25,3 +29,16 @@
     fill: $accent
     margin-left: 15px
     vertical-align: baseline
+
+.simplebar-track
+  &.simplebar-vertical
+    width: 3px
+    background-color: #e5e6eb
+  .simplebar-scrollbar.simplebar-visible::before
+    background-color: $accent
+    opacity: 1
+    border-radius: 0
+
+.simplebar-scrollbar
+  width: 3px
+  right: 0

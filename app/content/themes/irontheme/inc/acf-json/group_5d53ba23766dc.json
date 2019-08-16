@@ -20,6 +20,89 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_5d56a59551629",
+            "label": "Текст над ценой",
+            "name": "text_on_price",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5d569d64757f4",
+            "label": "Цена",
+            "name": "price",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "от",
+            "append": "руб",
+            "min": 0,
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_5d569d85757f5",
+            "label": "Тип кнопки",
+            "name": "type_btn",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5d51089dc5d9c",
+                "field_5d5108f1c5d9d",
+                "field_5d510931c5d9e",
+                "field_5d510eb82e196"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_5d569da7757f6",
+            "label": "Видео",
+            "name": "video",
+            "type": "text",
+            "instructions": "Вставте сюда ссылку на видео с Youtube",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -39,5 +122,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565768277
+    "modified": 1565959641
 }

@@ -5,7 +5,8 @@ let svg4everybody = require('svg4everybody'),
   popup = require('jquery-popup-overlay'),
   Swiper = require('swiper'),
   noUiSlider = require('nouislider'),
-  iMask = require('imask');
+  iMask = require('imask'),
+  simplebar = require('simplebar');
 
 jQuery(document).ready(function($) {
   // Toggle nav menu
@@ -171,7 +172,7 @@ jQuery(document).ready(function($) {
     }
   });
 
-
+  // Calculate order
   let calculateOrder = function () {
     let parentBlocks = $('.calculate-order__item');
 
@@ -288,6 +289,13 @@ jQuery(document).ready(function($) {
         .closest('.calculate-order').find('.calculate-order__item').removeClass('active').eq($(this).index()).addClass('active');
   });
 
+  $('.services-tab-list').on('click', 'li:not(.active)', function(e) {
+    e.preventDefault();
+    $(this)
+        .addClass('active').siblings().removeClass('active')
+        .closest('.services-tab').find('.services-tab__item').removeClass('active').eq($(this).index()).addClass('active');
+  });
+
   $('.services-cat-list__item').hover(function() {
     $('.services-cat-list__item').removeClass('is-active');
     $(this).addClass('is-active');
@@ -313,30 +321,92 @@ jQuery(document).ready(function($) {
   // Smooth scroll to anchor
   $('a[href*="#"]')
   // Remove links that don't actually link to anything
-      .not('[href="#"]')
-      .not('[href="#0"]')
-      .click(function(event) {
-        // On-page links
-        if (
-            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
-            &&
-            location.hostname == this.hostname
-        ) {
-          // Figure out element to scroll to
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+        location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+        &&
+        location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 
-          // Does a scroll target exist?
-          if (target.length) {
-            // Only prevent default if animation is actually gonna happen
-            event.preventDefault();
-            $('html, body').animate({
-              scrollTop: target.offset().top
-            }, 1000);
-          }
-        }
-      });
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+      }
+    }
+  });
 
+  // Youtube Video Lazy Load
+  function findVideos() {
+    var videos = document.querySelectorAll('.video');
+
+    for (var i = 0; i < videos.length; i++) {
+      setupVideo(videos[i]);
+    }
+  }
+
+  function setupVideo(video) {
+    var link = video.querySelector('.video__link');
+    var button = video.querySelector('.video__button');
+    var id = parseMediaURL(link);
+
+    video.addEventListener('click', function() {
+      var iframe = createIframe(id);
+
+      link.remove();
+      button.remove();
+      video.appendChild(iframe);
+    });
+
+    var source = "https://img.youtube.com/vi/"+ id +"/maxresdefault.jpg";
+    var image = new Image();
+    image.src = source;
+    image.classList.add('video__media');
+
+    image.addEventListener('load', function() {
+      link.append( image );
+    } (video) );
+
+    link.removeAttribute('href');
+    video.classList.add('video--enabled');
+  }
+
+  function parseMediaURL(media) {
+    var regexp = /^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$/;
+    var url = media.href;
+    var match = url.match(regexp);
+
+    return match[5];
+  }
+
+  function createIframe(id) {
+    var iframe = document.createElement('iframe');
+
+    iframe.setAttribute('allowfullscreen', '');
+    iframe.setAttribute('allow', 'autoplay');
+    iframe.setAttribute('src', generateURL(id));
+    iframe.classList.add('video__media');
+
+    return iframe;
+  }
+
+  function generateURL(id) {
+    var query = '?rel=0&showinfo=0&autoplay=1';
+
+    return 'https://www.youtube.com/embed/' + id + query;
+  }
+
+
+  findVideos();
   toggleNav();
   toggleLocation();
   calculateOrder();

@@ -96,6 +96,7 @@ if ( ! function_exists( 'ith_setup' ) ) :
     add_image_size( 'portfolio_cat', 344, 344, true );
     add_image_size( 'services_cat', 425, 355, true );
     add_image_size( 'partner', 113, 85, true  );
+    add_image_size( 'single', 710, 545, true  );
   }
 endif;
 add_action( 'after_setup_theme', 'ith_setup' );

@@ -1,0 +1,30 @@
+.services-tab-card
+  display: block
+  height: calc(100% - 25px)
+  margin-bottom: 25px
+  padding: 65px 25px 40px
+  background-color: #fff
+  border-radius: 12px
+  text-align: center
+  +trans
+  &:hover
+    background-color: $accent
+    .services-tab-card
+      &__icon
+        svg
+          fill: #fff
+      &__title
+        color: #fff
+  &__icon
+    height: 55px
+    margin-bottom: 30px
+    svg
+      width: 52px
+      height: 52px
+      line-height: 55px
+      fill: url(#services-tab-gradient)
+      +trans
+  &__title
+    font-size: 18px
+    line-height: 1
+    +trans
