@@ -1,0 +1,44 @@
+.similar-portfolio-slider
+  margin-bottom: 70px
+  +r(767)
+    margin-bottom: 40px
+  &__item
+    width: 660px
+    height: auto
+    border-radius: 12px
+    overflow: hidden
+    +trans
+    +r(992)
+      width: 400px
+    &.swiper-slide-next + .similar-portfolio-slider__item
+      opacity: 0.55
+    .video
+      height: 100%
+      p
+        position: absolute
+        top: 70%
+        left: 0
+        right: 0
+        max-width: 420px
+        padding: 0 10px
+        z-index: 1
+        margin: 0 auto
+        font-family: $futura-d-font
+        font-size: 22px
+        color: #fff
+        text-align: center
+        +r(992)
+          top: 60%
+          font-size: 18px
+        +r(767)
+          top: 65%
+          font-size: 16px
+      &__button
+        +r(992)
+          width: 50px
+          height: 50px
+          border-width: 2px
+          &::before
+            border-width: 9px 0 9px 16px
+    > img
+      width: 100%

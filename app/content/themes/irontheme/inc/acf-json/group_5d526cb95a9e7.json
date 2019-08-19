@@ -66,6 +66,27 @@
             "mime_types": ""
         },
         {
+            "key": "field_5d5a4cb0bbb7e",
+            "label": "Видео",
+            "name": "video_clone",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5d569da7757f6"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_5d555abdd25c3",
             "label": "Услуги на мероприятии",
             "name": "services",
@@ -87,8 +108,51 @@
             ],
             "elements": "",
             "min": "",
-            "max": 4,
+            "max": "",
             "return_format": "object"
+        },
+        {
+            "key": "field_5d5a4896befb2",
+            "label": "Важное",
+            "name": "important",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5d5abc2aa7743",
+            "label": "Тип кнопки",
+            "name": "type_clone",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5d51089dc5d9c",
+                "field_5d5108f1c5d9d",
+                "field_5d510931c5d9e",
+                "field_5d510eb82e196"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         }
     ],
     "location": [
@@ -108,5 +172,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1565874991
+    "modified": 1566227581
 }

@@ -1,0 +1,76 @@
+@import 'advantages-list'
+
+.advantages
+  position: relative
+  z-index: 1
+  +r(992)
+    padding-bottom: 60px
+  +r(767)
+    padding-bottom: 10px
+  &::before
+    content: ''
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    height: 100%
+    background: linear-gradient(160deg, rgba(255,255,255,0) 20%, rgba($blue,0.03) 64%,rgba($blue,0.1) 98%,rgba($blue,0.1) 100%)
+    pointer-events: none
+  &__block
+    display: flex
+    align-items: center
+    max-width: 660px
+    margin-bottom: 50px
+    padding: 50px 35px
+    background-color: $bg-color
+    border-radius: 12px
+    +r(1200)
+      max-width: 550px
+      padding: 30px
+    +r(992)
+      margin: 0 auto 50px
+    +r(767)
+      flex-direction: column
+      text-align: center
+      padding: 20px
+    &-icon
+      flex-shrink: 0
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 120px
+      height: 120px
+      margin-right: 55px
+      border-radius: 50%
+      background-color: $accent
+      +r(1200)
+        width: 100px
+        height: 100px
+        margin-right: 30px
+      +r(767)
+        width: 70px
+        height: 70px
+        margin-right: 0
+        margin-bottom: 20px
+      svg
+        width: 55px
+        height: 55px
+        fill: #fff
+        +r(1200)
+          width: 45px
+          height: 45px
+        +r(767)
+          width: 35px
+          height: 35px
+    &-descr
+      font-family: $futura-d-font
+      font-size: 36px
+      color: $dark
+      line-height: 1
+      +r(1200)
+        font-size: 30px
+      +r(767)
+        font-size: 20px
+      p
+        &:last-child
+          margin-bottom: 0

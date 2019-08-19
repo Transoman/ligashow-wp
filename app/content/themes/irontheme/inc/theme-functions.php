@@ -97,6 +97,7 @@ if ( ! function_exists( 'ith_setup' ) ) :
     add_image_size( 'services_cat', 425, 355, true );
     add_image_size( 'partner', 113, 85, true  );
     add_image_size( 'single', 710, 545, true  );
+    add_image_size( 'similar-portfolio-slider', 660, 610, true  );
   }
 endif;
 add_action( 'after_setup_theme', 'ith_setup' );
@@ -265,14 +266,15 @@ function get_popular_orders($count = null) {
 /**
  * Get any posts
  */
-function get_any_post($post_type, $count = null, $tax_name = null, $tax_id = null) {
+function get_any_post($post_type, $count = null, $tax_name = null, $tax_id = null, $orderby = 'ID') {
 	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
 	$args = array(
 		'post_type' => $post_type,
 		'post_status' => 'publish',
 		'posts_per_page' => $count ? $count : get_option('posts_per_page'),
 		'paged' => $paged,
-		'order' => 'ASC'
+		'order' => 'ASC',
+		'orderby' => $orderby
 	);
 
 	if ($tax_id && $tax_name) {

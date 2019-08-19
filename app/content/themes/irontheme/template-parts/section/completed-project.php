@@ -43,9 +43,21 @@
                     <?php if (get_field('services')): ?>
                       <p class="portfolio-slider-card-full__label">Услуги на мероприятии</p>
                       <ul class="portfolio-slider-card-full__list">
-                        <?php foreach (get_field('services') as $item): ?>
-                          <li><?php echo $item->post_title; ?></li>
-                        <?php endforeach; ?>
+                        <?php
+                        $terms_title = [];
+						            foreach (get_field('services') as $item) {
+							            $terms_title[] = $item->post_title;
+						            }
+
+						            sort($terms_title, SORT_STRING );
+
+						            $i = 1;
+                        foreach ($terms_title as $item):
+                          if ($i++ < 5) :?>
+                            <li><?php echo $item; ?></li>
+                        <?php endif;
+                        endforeach;
+                        unset($terms_title);?>
                       </ul>
                     <?php endif; ?>
 

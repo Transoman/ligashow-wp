@@ -1,0 +1,110 @@
+.single-portfolio-content
+  padding-top: 60px
+  border-bottom: 1px solid #d7dbe4
+  +r(767)
+    padding-top: 40px
+  .container
+    display: flex
+    +r(992)
+      display: block
+  .single-title
+    margin-bottom: 25px
+    +r(992)
+      margin-bottom: 20px
+  &__left
+    width: 46.48%
+    margin-right: 150px
+    +r(1200)
+      margin-right: 30px
+    +r(992)
+      width: auto
+      margin-right: 0
+  &__info
+    display: flex
+    align-items: center
+    margin-bottom: 30px
+    font-family: $futura-d-font
+    font-size: 14px
+    color: #545454
+  &__date
+    margin-right: 35px
+    padding: 7px 14px
+    border: 2px solid $bd-color
+    border-radius: 7px
+  &__place
+    svg
+      width: 18px
+      height: 18px
+      fill: $light-blue
+      margin-right: 12px
+  &__media
+    border-radius: 12px
+    overflow: hidden
+  &__right
+    flex-grow: 1
+    background-color: $bg-color
+    border-radius: 12px
+  &__summary
+    position: relative
+    padding: 50px 65px 60px
+    ul
+      @extend .portfolio-slider-card-full__list
+      margin: 0
+      li
+        font-size: 18px
+        &::before
+          top: 8px
+  &__label
+    margin-bottom: 90px
+    font-family: $futura-d-font
+    font-size: 52px
+    color: $dark
+    line-height: 1
+  &__similar-project
+    position: absolute
+    top: 0
+    right: 25px
+    z-index: 1
+    border: 2px solid $blue
+    border-bottom-color: transparent
+    border-radius: 0 0 10px 10px
+    padding: 20px 15px 50px
+    font-size: 14px
+    color: $dark
+    text-align: center
+    text-transform: uppercase
+    line-height: 1.6
+    &::before
+      content: ''
+      position: absolute
+      bottom: 1px
+      left: 1px
+      width: 53%
+      height: 2px
+      background-color: $blue
+      transform: rotate(-20deg)
+      transform-origin: 0 50%
+    &::after
+      content: ''
+      position: absolute
+      bottom: 1px
+      right: 1px
+      width: 53%
+      height: 2px
+      background-color: $blue
+      transform: rotate(20deg)
+      transform-origin: 100% 100%
+    b
+      display: block
+      margin-bottom: 5px
+      font-family: $futura-d-font
+      font-size: 48px
+      color: $blue
+      line-height: 1
+  &__bottom
+    padding: 60px 20px
+    border-top: 1px solid #e7e7ee
+    text-align: center
+    .btn
+      width: 100%
+      max-width: 315px

@@ -162,3 +162,18 @@ else {
   </header><!-- /.header-->
 
   <div class="content">
+
+<?php
+$object = null;
+
+if (is_archive()) {
+	$object = get_queried_object()->name;
+}
+$page_settings = get_field('page_settings', $object);
+
+if ($page_settings['breadcrumb']) {
+	if (!is_home() && !is_front_page()) {
+		get_template_part( 'template-parts/breadcrumbs' );
+	}
+}
+?>

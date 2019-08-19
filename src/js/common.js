@@ -6,7 +6,8 @@ let svg4everybody = require('svg4everybody'),
   Swiper = require('swiper'),
   noUiSlider = require('nouislider'),
   iMask = require('imask'),
-  simplebar = require('simplebar');
+  simplebar = require('simplebar'),
+  fancybox = require('@fancyapps/fancybox');
 
 jQuery(document).ready(function($) {
   // Toggle nav menu
@@ -152,6 +153,46 @@ jQuery(document).ready(function($) {
     }
   });
 
+  let similarPortfolioSlider = document.querySelector('.similar-portfolio-slider');
+  let similarPortfolioSliderSettings = [];
+  if (similarPortfolioSlider) {
+    similarPortfolioSliderSettings['speed'] = parseInt(similarPortfolioSlider.getAttribute('data-speed'), 10);
+    similarPortfolioSliderSettings['autoplay'] = similarPortfolioSlider.getAttribute('data-autoplay') ? true : false;
+  }
+  new Swiper('.similar-portfolio-slider', {
+    slidesPerView: 'auto',
+    spaceBetween: 50,
+    speed: similarPortfolioSliderSettings['speed'],
+    autoplay: similarPortfolioSliderSettings['autoplay'],
+    slidesOffsetBefore: -355,
+    centeredSlides: true,
+    navigation: {
+      nextEl: '.s-similar-portfolio .swiper-button-next',
+      prevEl: '.s-similar-portfolio .swiper-button-prev',
+    },
+    pagination: {
+      el: '.s-similar-portfolio .swiper-pagination',
+      type: 'progressbar',
+    },
+    breakpoints: {
+      1395: {
+        slidesOffsetBefore: -255,
+      },
+      1200: {
+        slidesOffsetBefore: -140,
+      },
+      992: {
+        slidesOffsetBefore: -150,
+      },
+      767: {
+        slidesPerView: 1,
+        centeredSlides: false,
+        slidesOffsetBefore: 0,
+        spaceBetween: 30
+      }
+    }
+  });
+
   new Swiper('.partners-slider', {
     slidesPerView: 6,
     speed: 1000,
@@ -170,6 +211,43 @@ jQuery(document).ready(function($) {
         slidesPerView: 1,
       }
     }
+  });
+
+  new Swiper('.similar-services-slider', {
+    slidesPerView: 5,
+    spaceBetween: 20,
+    slidesPerGroup: 5,
+    slidesPerColumn: 1,
+    breakpoints: {
+      1395: {
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+        slidesPerColumn: 1,
+      },
+      1200: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+        slidesPerColumn: 1,
+      },
+      992: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        slidesPerColumn: 1,
+      },
+      767: {
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+        slidesPerColumn: 1,
+      }
+    },
+    navigation: {
+      nextEl: '.s-similar-services .swiper-button-next',
+      prevEl: '.s-similar-services .swiper-button-prev',
+    },
+    pagination: {
+      el: '.s-similar-services .swiper-pagination',
+      type: 'progressbar',
+    },
   });
 
   // Calculate order
@@ -294,6 +372,10 @@ jQuery(document).ready(function($) {
     $(this)
         .addClass('active').siblings().removeClass('active')
         .closest('.services-tab').find('.services-tab__item').removeClass('active').eq($(this).index()).addClass('active');
+
+    let servicesName = $(this).text();
+    $(this).parents('.s-services-tab').find('.section-title').text(servicesName);
+
   });
 
   $('.services-cat-list__item').hover(function() {
@@ -357,6 +439,7 @@ jQuery(document).ready(function($) {
   function setupVideo(video) {
     var link = video.querySelector('.video__link');
     var button = video.querySelector('.video__button');
+    var text = video.querySelector('p');
     var id = parseMediaURL(link);
 
     video.addEventListener('click', function() {
@@ -364,6 +447,7 @@ jQuery(document).ready(function($) {
 
       link.remove();
       button.remove();
+      text.remove();
       video.appendChild(iframe);
     });
 

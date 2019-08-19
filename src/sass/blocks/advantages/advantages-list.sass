@@ -1,0 +1,108 @@
+.advantages-list
+  display: flex
+  flex-wrap: wrap
+  align-items: flex-end
+  margin: 0 -15px
+  +r(992)
+    align-items: stretch
+  &__item
+    width: 16.66%
+    padding: 0 15px
+    +r(992)
+      width: 33.33%
+      margin-bottom: 30px
+    +r(767)
+      width: 100%
+    &:nth-child(2)
+      .advantages-list
+        &__body
+          height: 235px
+          +r(1200)
+            height: 175px
+    &:nth-child(3)
+      .advantages-list
+        &__body
+          height: 305px
+          +r(1200)
+            height: 245px
+    &:nth-child(4)
+      margin-top: -60px
+      +r(1395)
+        margin-top: -40px
+      +r(1200)
+        margin-top: 0
+      .advantages-list
+        &__body
+          height: 375px
+          +r(1200)
+            height: 315px
+    &:nth-child(5)
+      margin-top: -110px
+      +r(1395)
+        margin-top: -90px
+      +r(1200)
+        margin-top: -50px
+      +r(992)
+        margin-top: 0
+      .advantages-list
+        &__body
+          height: 415px
+          +r(1200)
+            height: 355px
+    &:nth-child(6)
+      margin-top: -160px
+      +r(1395)
+        margin-top: -140px
+      +r(1200)
+        margin-top: -100px
+      +r(992)
+        margin-top: 0
+      .advantages-list
+        &__body
+          height: 490px
+          +r(1200)
+            height: 430px
+  &__head
+    margin-bottom: 40px
+    text-align: center
+    +r(1200)
+      margin-bottom: 30px
+    +r(992)
+      margin-bottom: 0
+    +r(767)
+      max-width: 200px
+      margin: 0 auto
+    p
+      margin: 0
+      font-size: 22px
+      color: $dark
+      line-height: 1
+      +r(1200)
+        font-size: 18px
+  &__title
+    font-family: $futura-d-font
+    font-size: 48px
+    color: $blue
+    line-height: 1
+    +r(1395)
+      font-size: 40px
+    +r(1200)
+      font-size: 30px
+  &__body
+    position: relative
+    height: 170px
+    border-right: 3px solid $blue
+    border-left: 3px solid $blue
+    +r(1200)
+      height: 110px
+    +r(992)
+      display: none
+    &::before
+      content: ''
+      position: absolute
+      top: -14px
+      left: -3px
+      right: -3px
+      height: 30px
+      background-color: $blue
+      border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%
