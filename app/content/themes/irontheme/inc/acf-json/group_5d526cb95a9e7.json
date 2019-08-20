@@ -87,6 +87,27 @@
             "prefix_name": 0
         },
         {
+            "key": "field_5d5b82e4768e8",
+            "label": "Число реализованных проектов",
+            "name": "completed_project",
+            "type": "number",
+            "instructions": "Если поле оставить пустим, то записи будут считаться автоматически.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_5d555abdd25c3",
             "label": "Услуги на мероприятии",
             "name": "services",
@@ -172,5 +193,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1566227581
+    "modified": 1566279475
 }

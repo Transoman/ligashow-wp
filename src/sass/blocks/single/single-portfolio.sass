@@ -1,24 +1,23 @@
 .single-portfolio-content
   padding-top: 60px
-  border-bottom: 1px solid #d7dbe4
   +r(767)
     padding-top: 40px
   .container
     display: flex
+    align-items: flex-start
     +r(992)
       display: block
-  .single-title
-    margin-bottom: 25px
-    +r(992)
-      margin-bottom: 20px
   &__left
     width: 46.48%
     margin-right: 150px
+    +r(1395)
+      margin-right: 50px
     +r(1200)
       margin-right: 30px
     +r(992)
       width: auto
       margin-right: 0
+      margin-bottom: 30px
   &__info
     display: flex
     align-items: center
@@ -26,6 +25,8 @@
     font-family: $futura-d-font
     font-size: 14px
     color: #545454
+    +r(767)
+      margin-bottom: 20px
   &__date
     margin-right: 35px
     padding: 7px 14px
@@ -40,13 +41,19 @@
   &__media
     border-radius: 12px
     overflow: hidden
+    img
+      width: 100%
   &__right
     flex-grow: 1
     background-color: $bg-color
     border-radius: 12px
   &__summary
     position: relative
-    padding: 50px 65px 60px
+    padding: 50px 65px 75px
+    +r(1200)
+      padding: 50px 35px 45px
+    +r(767)
+      padding: 30px 20px 15px
     ul
       @extend .portfolio-slider-card-full__list
       margin: 0
@@ -55,56 +62,57 @@
         &::before
           top: 8px
   &__label
-    margin-bottom: 90px
+    margin-bottom: 120px
     font-family: $futura-d-font
     font-size: 52px
     color: $dark
     line-height: 1
-  &__similar-project
+    +r(1200)
+      margin-bottom: 100px
+      font-size: 42px
+    +r(767)
+      margin-bottom: 80px
+      font-size: 24px
+  &__ribbon-number
     position: absolute
     top: 0
     right: 25px
     z-index: 1
-    border: 2px solid $blue
-    border-bottom-color: transparent
-    border-radius: 0 0 10px 10px
-    padding: 20px 15px 50px
-    font-size: 14px
-    color: $dark
-    text-align: center
-    text-transform: uppercase
-    line-height: 1.6
-    &::before
-      content: ''
-      position: absolute
-      bottom: 1px
-      left: 1px
-      width: 53%
-      height: 2px
-      background-color: $blue
-      transform: rotate(-20deg)
-      transform-origin: 0 50%
-    &::after
-      content: ''
-      position: absolute
-      bottom: 1px
-      right: 1px
-      width: 53%
-      height: 2px
-      background-color: $blue
-      transform: rotate(20deg)
-      transform-origin: 100% 100%
-    b
-      display: block
-      margin-bottom: 5px
-      font-family: $futura-d-font
-      font-size: 48px
-      color: $blue
-      line-height: 1
+    +r(767)
+      right: 10px
   &__bottom
     padding: 60px 20px
     border-top: 1px solid #e7e7ee
     text-align: center
+    +r(1200)
+      padding: 50px 20px
+    +r(767)
+      padding: 30px 20px
     .btn
       width: 100%
       max-width: 315px
+
+.single-portfolio-slider
+  position: relative
+  &__item
+    height: auto
+    .video
+      height: 100%
+  .slider-controls
+    position: absolute
+    bottom: 20px
+    right: 20px
+    z-index: 1
+    &__btns
+      .swiper-button-next,
+      .swiper-button-prev
+        border-color: #fff
+        opacity: 1
+        &:hover
+          background-color: #fff
+          svg
+            fill: $dark
+        svg
+          fill: #fff
+      .swiper-button-prev
+        margin-right: 25px

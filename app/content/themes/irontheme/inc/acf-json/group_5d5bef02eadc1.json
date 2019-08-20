@@ -1,0 +1,48 @@
+{
+    "key": "group_5d5bef02eadc1",
+    "title": "Портфолио каталог",
+    "fields": [
+        {
+            "key": "field_5d5bef112c0c3",
+            "label": "Тип кнопки",
+            "name": "type_clone",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5d51089dc5d9c",
+                "field_5d5108f1c5d9d",
+                "field_5d510931c5d9e",
+                "field_5d510eb82e196"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "admin_page",
+                "operator": "==",
+                "value": "portfolio"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1566306131
+}

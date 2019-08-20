@@ -95,9 +95,10 @@ if ( ! function_exists( 'ith_setup' ) ) :
 
     add_image_size( 'portfolio_cat', 344, 344, true );
     add_image_size( 'services_cat', 425, 355, true );
-    add_image_size( 'partner', 113, 85, true  );
-    add_image_size( 'single', 710, 545, true  );
-    add_image_size( 'similar-portfolio-slider', 660, 610, true  );
+    add_image_size( 'partner', 113, 85, true );
+    add_image_size( 'single', 710, 545, true );
+    add_image_size( 'single-portfolio', 630, 490, true );
+    add_image_size( 'similar-portfolio-slider', 660, 610, true );
   }
 endif;
 add_action( 'after_setup_theme', 'ith_setup' );

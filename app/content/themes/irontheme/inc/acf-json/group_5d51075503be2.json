@@ -1706,6 +1706,236 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5d5b989314cdc": {
+                    "key": "layout_5d5b989314cdc",
+                    "name": "slider_similar_portfolio",
+                    "label": "Слайдер подобных портфолио",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d5b989314cdd",
+                            "label": "Заголовок",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d5b989314cde",
+                            "label": "Категория",
+                            "name": "cat",
+                            "type": "taxonomy",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "taxonomy": "portfolio_cat",
+                            "field_type": "select",
+                            "allow_null": 0,
+                            "add_term": 0,
+                            "save_terms": 0,
+                            "load_terms": 0,
+                            "return_format": "id",
+                            "multiple": 0
+                        },
+                        {
+                            "key": "field_5d5b989314cdf",
+                            "label": "Настройки слайдера",
+                            "name": "slider_settings",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5d5b989314ce0",
+                                    "label": "Скорость прокрутки",
+                                    "name": "speed",
+                                    "type": "number",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 1000,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "мс",
+                                    "min": 200,
+                                    "max": "",
+                                    "step": 100
+                                },
+                                {
+                                    "key": "field_5d5b989314ce1",
+                                    "label": "Количество слайдов",
+                                    "name": "count_slide",
+                                    "type": "number",
+                                    "instructions": "Чтобы вывести все слайды, введите \"-1\"",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 7,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "min": -1,
+                                    "max": "",
+                                    "step": 1
+                                },
+                                {
+                                    "key": "field_5d5b989314ce2",
+                                    "label": "Автопрокрутка",
+                                    "name": "autoplay",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui": 1,
+                                    "ui_on_text": "",
+                                    "ui_off_text": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5d5bfa46c2314": {
+                    "key": "layout_5d5bfa46c2314",
+                    "name": "form_order",
+                    "label": "Форма заказа",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d5bfa46c2315",
+                            "label": "Заголовок",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d5bfa46c2318",
+                            "label": "Изображение",
+                            "name": "img",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_5d5bfa46c2319",
+                            "label": "Выключить фильтр",
+                            "name": "filter_off",
+                            "type": "checkbox",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "off": "Выключить фильтр"
+                            },
+                            "allow_custom": 0,
+                            "save_custom": 0,
+                            "default_value": [],
+                            "layout": "vertical",
+                            "toggle": 0,
+                            "return_format": "value"
+                        },
+                        {
+                            "key": "field_5d5bfa91f8808",
+                            "label": "Форма",
+                            "name": "form",
+                            "type": "relationship",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "wpcf7_contact_form"
+                            ],
+                            "taxonomy": "",
+                            "filters": [
+                                "search"
+                            ],
+                            "elements": "",
+                            "min": "",
+                            "max": "",
+                            "return_format": "object"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Добавить",
@@ -1777,6 +2007,13 @@
                 "operator": "==",
                 "value": "portfolio"
             }
+        ],
+        [
+            {
+                "param": "admin_page",
+                "operator": "==",
+                "value": "portfolio"
+            }
         ]
     ],
     "menu_order": 0,
@@ -1787,5 +2024,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1566204086
+    "modified": 1566309046
 }

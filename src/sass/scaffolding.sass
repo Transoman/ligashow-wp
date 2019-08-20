@@ -108,6 +108,25 @@ a
     background-color: #e5e5e5
     cursor: not-allowed
     color: #fff
+  &--round
+    border-radius: 50px
+    border: 3px solid #e6e7ec
+    min-width: 130px
+    padding: 17px 23px
+    background: none
+    font-family: $main-font
+    font-size: 18px
+    color: $dark
+    text-transform: none
+    +r(767)
+      font-size: 14px
+      padding: 10px 20px
+    &:hover
+      border-color: $accent
+      background-color: $accent
+    &:focus
+      border-color: darken($accent, 5%)
+      background-color: darken($accent, 5%)
 
 .wrapper
   display: flex

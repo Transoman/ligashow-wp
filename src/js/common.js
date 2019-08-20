@@ -250,6 +250,25 @@ jQuery(document).ready(function($) {
     },
   });
 
+  let singlePortfolioSlider = new Swiper('.single-portfolio-slider', {
+    slidesPerView: 1,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+
+  $().fancybox({
+    selector : '[data-fancybox="group"]',
+    hash     : false,
+    loop: true,
+    beforeClose : function(instance) {
+      if ($('.single-portfolio-slider').length) {
+        singlePortfolioSlider.slideTo( instance.currIndex);
+      }
+    }
+  });
+
   // Calculate order
   let calculateOrder = function () {
     let parentBlocks = $('.calculate-order__item');
@@ -447,7 +466,9 @@ jQuery(document).ready(function($) {
 
       link.remove();
       button.remove();
-      text.remove();
+      if (text) {
+        text.remove();
+      }
       video.appendChild(iframe);
     });
 
@@ -489,11 +510,54 @@ jQuery(document).ready(function($) {
     return 'https://www.youtube.com/embed/' + id + query;
   }
 
+  $('.portfolio-filters__toggle').click(function(e) {
+    e.preventDefault();
+
+    let list = $('.portfolio-filters-list');
+    let btn = $(this);
+    let curHeight = list.height();
+
+
+    if (btn.hasClass('less')) {
+      btn.removeClass('less');
+      btn.text('Показать все');
+      list.height(curHeight).animate({height: btn.attr('data-height')}, 1000, function() {
+        list.removeAttr('style');
+      });
+    }
+    else {
+      btn.addClass('less');
+      btn.attr('data-height', curHeight);
+      btn.text('Скрыть все');
+      let autoHeight = list.css('height', 'auto').height();
+      list.height(curHeight).animate({height: autoHeight}, 1000);
+    }
+  });
+
+  $('.portfolio__services-list li span').click(function() {
+    $(this).toggleClass('is-active').next('ul').slideToggle();
+  });
+
+  let filterPortfolio = function() {
+    let btn = $('.portfolio-filters-list a');
+
+    btn.click(function() {
+      $('.portfolio-filters-list a.all').parent().removeClass('is-active');
+      $(this).parent().toggleClass('is-active');
+      let ids = [];
+      $('.portfolio-filters-list li.is-active').each(function() {
+        ids.push($(this).find('a').data('id'));
+      });
+    });
+
+  };
+
 
   findVideos();
   toggleNav();
   toggleLocation();
   calculateOrder();
+  filterPortfolio();
 
   // SVG
   svg4everybody({});

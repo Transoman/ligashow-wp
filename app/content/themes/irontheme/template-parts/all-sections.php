@@ -73,6 +73,18 @@ if ( have_rows('layouts', $object) ):
 
 			<?php get_template_part('template-parts/section/slider', 'portfolio'); ?>
 
+		<?php elseif ( get_row_layout() == 'slider_similar_portfolio' ): ?>
+
+			<?php get_template_part('template-parts/section/slider', 'similar-portfolio'); ?>
+
+		<?php elseif ( get_row_layout() == 'form_order' ): ?>
+
+			<section class="s-form-order">
+				<div class="container">
+					<h2 class="section-title"><?php the_sub_field('title'); ?></h2>
+				</div>
+			</section>
+
 		<?php endif;
 
 	endwhile;

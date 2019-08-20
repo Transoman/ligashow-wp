@@ -1,0 +1,64 @@
+.ribbon-number
+  position: relative
+  max-width: 140px
+  border: 3px solid $blue
+  border-bottom-color: transparent
+  border-radius: 0 0 10px 10px
+  font-size: 14px
+  color: $dark
+  text-align: center
+  text-transform: uppercase
+  background-color: $blue
+  line-height: 1.6
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%, 0 0)
+  +r(767)
+    border-width: 2px
+    font-size: 12px
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 1px
+    left: 0
+    border-radius: 0 0 7px 7px
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 90%, 0 100%, 0 0)
+    background-color: $bg-color
+    +trans
+  b
+    display: block
+    margin-bottom: 5px
+    font-family: $futura-d-font
+    font-size: 48px
+    color: $blue
+    line-height: 1
+    +r(767)
+      font-size: 30px
+  &__wrap
+    position: relative
+    z-index: 2
+    padding: 20px 15px 50px
+    +r(767)
+      padding: 10px 5px 30px
+  &__top-line
+    position: absolute
+    top: -3px
+    left: -3px
+    right: -3px
+    height: 4px
+    z-index: 1
+    background-color: #0d6eff
+    opacity: 0
+    +trans
+    &::before
+      content: ''
+      position: absolute
+      bottom: -3px
+      left: 50%
+      z-index: 2
+      transform: translateX(-50%)
+      width: 145px
+      height: 145px
+      background-color: #0d6eff
+      border-radius: 50%
+      pointer-events: none
