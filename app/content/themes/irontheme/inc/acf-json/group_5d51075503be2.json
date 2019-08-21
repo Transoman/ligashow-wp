@@ -1517,7 +1517,7 @@
                         },
                         {
                             "key": "field_5d57980131271",
-                            "label": "Список услуг",
+                            "label": "Список преимуществ",
                             "name": "list",
                             "type": "repeater",
                             "instructions": "",
@@ -1530,7 +1530,7 @@
                             },
                             "collapsed": "",
                             "min": 0,
-                            "max": 0,
+                            "max": 6,
                             "layout": "table",
                             "button_label": "",
                             "sub_fields": [
@@ -1573,6 +1573,25 @@
                                     "new_lines": "wpautop"
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_5d5cf6cb5161c",
+                            "label": "Фон",
+                            "name": "bg",
+                            "type": "true_false",
+                            "instructions": "Показывать фон?",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Да",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
                         }
                     ],
                     "min": "",
@@ -1936,6 +1955,149 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5d5ceb57f19e4": {
+                    "key": "layout_5d5ceb57f19e4",
+                    "name": "team",
+                    "label": "Команда",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d5ceb5ef19e5",
+                            "label": "Загловок",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d5ceb69f19e6",
+                            "label": "Списк",
+                            "name": "list",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5d5ceb81f19e7",
+                                    "label": "Изображений",
+                                    "name": "img",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_5d5ceb91f19e8",
+                                    "label": "Имя",
+                                    "name": "name",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5d5ceb9df19e9",
+                                    "label": "Должность",
+                                    "name": "position",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5d5cf82f0b128": {
+                    "key": "layout_5d5cf82f0b128",
+                    "name": "contact",
+                    "label": "Контакты",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d5d1e72c8caf",
+                            "label": "Иконка",
+                            "name": "icon_clone",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d53ba2b418c1"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Добавить",
@@ -1973,6 +2135,25 @@
                     "message": "",
                     "default_value": 1,
                     "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": ""
+                },
+                {
+                    "key": "field_5d5ce45442d2a",
+                    "label": "Фон хлебных крошек",
+                    "name": "bg_breadcrumbs",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 0,
                     "ui_on_text": "",
                     "ui_off_text": ""
                 }
@@ -2024,5 +2205,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1566309046
+    "modified": 1566383790
 }

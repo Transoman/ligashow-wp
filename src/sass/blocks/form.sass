@@ -7,12 +7,98 @@
     margin-top: 60px
     +r(767)
       margin-top: 40px
+
+.form-row
+  display: flex
+  align-items: center
+  margin-bottom: 70px
+  +r(767)
+    flex-direction: column
+    align-items: stretch
+    margin-bottom: 40px
+  &:nth-last-child(2)
+    margin-bottom: 0
+  .form-group
+    flex: 1 0
+    margin-right: 110px
+    margin-bottom: 0
+    +r(1200)
+      margin-right: 80px
+    +r(992)
+      margin-right: 30px
+    +r(767)
+      margin-right: 0
+      margin-bottom: 30px
+    &:last-child
+      margin-right: 0
+      +r(767)
+        margin-bottom: 0
+
+.form-info
+  display: flex
+  align-items: center
+  +r(1200)
+    flex-wrap: wrap
+  +r(767)
+    flex-direction: column
+    text-align: center
+  .form-group
+    margin-right: 65px
+    margin-bottom: 0
+    +r(1395)
+      margin-right: 30px
+    +r(1200)
+      margin-right: 0
+    +r(767)
+      margin-bottom: 30px
+    &:last-child
+      margin-right: 0
+    &--btn
+      margin-top: 0
+    &:nth-child(1)
+      width: 430px
+      flex-shrink: 0
+      +r(1200)
+        order: 3
+        margin-top: 30px
+      +r(767)
+        width: auto
+        margin-top: 0
+        margin-bottom: 0
+    &:nth-child(2)
+      +r(1200)
+        order: 2
+        margin-left: 65px
+      +r(992)
+        margin-left: 0
+    span.wpcf7-list-item
+      margin: 0
+    &--btn
+      margin-left: 70px
+      +r(1395)
+        margin-left: 0
+      +r(1200)
+        order: 1
+      .btn
+        width: 295px
+  input[type="checkbox"]
+    & + span
+      font-size: 16px
+      color: #fff
+      +r(767)
+        text-align: left
+      &::before
+        background-color: #fff
+      &::after
+        background-image: url(images/general/check-red.svg)
+
 .form-field
   width: 100%
   padding: 10px 0
   border: 0
   border-bottom: 3px solid $light-gray
   border-radius: 0
+  background: none
   font-family: $main-font
   font-size: 18px
   box-shadow: none
@@ -24,7 +110,7 @@
   &::placeholder
     color: $light-gray
   &.wpcf7-not-valid
-    border-color: red
+    border-color: red !important
 .form-label
   display: block
   margin: 0

@@ -1,0 +1,55 @@
+.team
+  padding-top: 60px
+  padding-bottom: 25px
+  +r(767)
+    padding: 40px 0
+  .section-header
+    margin-bottom: 95px
+    +r(767)
+      margin-bottom: 20px
+
+.team-list
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -15px
+  &__item
+    width: 16.66%
+    margin-bottom: 75px
+    padding: 0 15px
+    text-align: center
+    opacity: 0.3
+    +trans
+    +r(1395)
+      width: 20%
+    +r(1200)
+      width: 25%
+    +r(992)
+      width: 33.33%
+      margin-bottom: 50px
+      opacity: 1
+    +r(767)
+      width: 100%
+    &:hover
+      opacity: 1
+  &__inner
+    max-width: 205px
+    margin: 0 auto
+  &__img
+    margin-bottom: 30px
+    border-radius: 50%
+    overflow: hidden
+    +r(767)
+      margin-bottom: 15px
+    img
+      width: 100%
+  &__name
+    margin: 0 0 5px
+    font-family: $futura-d-font
+    font-size: 23px
+    color: $dark
+    letter-spacing: -1px
+  &__position
+    margin: 0
+    font-size: 18px
+    text-transform: uppercase
+    color: #898989

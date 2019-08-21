@@ -419,6 +419,10 @@ jQuery(document).ready(function($) {
     $(this).val(document.querySelector('.location__title').innerHTML);
   });
 
+  $('form input[name="page_url"]').each(function() {
+    $(this).val(window.location.href);
+  });
+
   // Smooth scroll to anchor
   $('a[href*="#"]')
   // Remove links that don't actually link to anything
@@ -552,12 +556,29 @@ jQuery(document).ready(function($) {
 
   };
 
+  let changeMapSize = function() {
+    let map = $('.contact__map');
+    if ($(window).width() < 768) {
+      let mapWidth = map.width();
+      map.height(mapWidth);
+    }
+    else {
+      map.removeAttr('style');
+    }
+
+  };
+
 
   findVideos();
   toggleNav();
   toggleLocation();
   calculateOrder();
   filterPortfolio();
+  changeMapSize();
+
+  $(window).resize(function() {
+    changeMapSize();
+  });
 
   // SVG
   svg4everybody({});

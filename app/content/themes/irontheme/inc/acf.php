@@ -24,3 +24,10 @@ if( function_exists('acf_add_options_page') ) {
 		'redirect'		=> false
 	));
 }
+
+function my_acf_init() {
+
+	acf_update_setting('google_api_key', get_field('google_api_key', 'option'));
+}
+
+add_action('acf/init', 'my_acf_init');

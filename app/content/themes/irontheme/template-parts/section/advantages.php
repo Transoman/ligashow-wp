@@ -1,4 +1,4 @@
-<section class="s-advantages">
+<section class="s-advantages<?php echo get_sub_field('bg') ? ' bg-gray' : ''; ?>">
 	<div class="container">
 		<div class="section-header">
 			<h2 class="section-title"><?php the_sub_field('title'); ?></h2>

@@ -33,7 +33,7 @@
             <div class="location__body">
               <ul class="location__list">
 					      <?php endif; $i++; ?>
-                <li><a href="<?php echo home_url('/') . '?region_id='. get_the_ID(); ?>"><?php the_title(); ?></a></li>
+                <li><a href="<?php echo '?region_id='. get_the_ID(); ?>"><?php the_title(); ?></a></li>
 					      <?php endwhile; wp_reset_postdata(); ?>
               </ul>
             </div>
@@ -105,6 +105,15 @@ if ($popups->have_posts()):
     </div>
 <?php endwhile; wp_reset_postdata();
 endif; ?>
+
+  <svg style="position: absolute; z-index: -100; height: 1px; width: 1px;">
+    <defs>
+      <linearGradient id="gradient" x1="0" y1="0%" x2="0" y2="100%">
+        <stop offset="0%" style="stop-color: #0036ff"></stop>
+        <stop offset="100%" style="stop-color: #0072ff"></stop>
+      </linearGradient>
+    </defs>
+  </svg>
 
 <?php wp_footer(); ?>
 

@@ -1,3 +1,38 @@
+.page
+  &:not(.home)
+    .s-about
+      padding: 80px 0
+      +r(767)
+        padding: 40px 0
+    .about
+      padding-right: 0
+      &__col
+        &--left
+          width: 44.65%
+          margin-right: 100px
+          padding-right: 60px
+          border-right: 1px solid #e6e8ed
+          +r(1395)
+            width: 50%
+          +r(1200)
+            margin-right: 50px
+            padding-right: 20px
+          +r(992)
+            width: 100%
+            margin-right: 0
+            padding-right: 0
+            border: 0
+        &--right
+          max-width: 470px
+          +r(992)
+            max-width: none
+          .about__content
+            font-size: 30px
+            +r(992)
+              font-size: 22px
+            +r(767)
+              font-size: 20px
+
 .page-title
   font-size: 30px
   +r(767)

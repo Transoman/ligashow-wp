@@ -89,7 +89,7 @@ else {
             <div class="location__body">
               <ul class="location__list">
 					      <?php endif; $i++; ?>
-                <li><a href="<?php echo home_url('/') . '?region_id='. get_the_ID(); ?>"><?php the_title(); ?></a></li>
+                <li><a href="<?php echo '?region_id='. get_the_ID(); ?>"><?php the_title(); ?></a></li>
 					      <?php endwhile; wp_reset_postdata(); ?>
               </ul>
             </div>
@@ -128,7 +128,7 @@ else {
             <div class="location__body">
               <ul class="location__list">
           <?php endif; $i++; ?>
-                <li><a href="<?php echo home_url('/') . '?region_id='. get_the_ID(); ?>"><?php the_title(); ?></a></li>
+                <li><a href="<?php echo '?region_id='. get_the_ID(); ?>"><?php the_title(); ?></a></li>
 	        <?php endwhile; wp_reset_postdata(); ?>
             </ul>
           </div>
