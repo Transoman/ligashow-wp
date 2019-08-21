@@ -1,0 +1,99 @@
+.product
+  padding: 60px 0 130px
+  +r(767)
+    padding: 40px 0
+  &__wrap
+    display: flex
+    +r(767)
+      flex-direction: column-reverse
+  &__left
+    width: 260px
+    flex-shrink: 0
+    margin-right: 90px
+    +r(1395)
+      margin-right: 30px
+    +r(767)
+      width: auto
+      margin-right: 0
+  &__right
+    flex-grow: 1
+    +r(767)
+      margin-bottom: 50px
+    .page-title
+      margin-top: 10px
+      margin-bottom: 70px
+      +r(767)
+        margin: 0 0 30px
+
+.product-list
+  display: flex
+  flex-wrap: wrap
+  margin: 0 -15px
+  &__item
+    width: 25%
+    padding: 0 15px
+    margin-bottom: 20px
+    +r(1200)
+      width: 33.33%
+    +r(992)
+      width: 50%
+    +r(576)
+      width: 100%
+    
+.product-card
+  display: block
+  text-align: center
+  &:hover
+    .product-card
+      &__img
+        &::before
+          opacity: 1
+  &__img
+    position: relative
+    margin-bottom: 10px
+    background-color: #fff
+    border-radius: 12px
+    overflow: hidden
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: 1
+      background-color: rgba($blue, 0.78)
+      opacity: 0
+      +trans
+
+.product-text
+  display: flex
+  margin-top: 70px
+  padding-top: 80px
+  padding-right: 40px
+  color: $dark
+  border-top: 1px solid #e1e4ee
+  +r(1395)
+    padding-right: 0
+  +r(992)
+    display: block
+    padding-top: 30px
+  &__col
+    flex: 1 0
+    margin-right: 100px
+    +r(1200)
+      margin-right: 40px
+    +r(992)
+      margin-right: 0
+      margin-bottom: 30px
+    &:last-child
+      margin-right: 0
+      +r(992)
+        margin-bottom: 0
+    h2
+      margin-bottom: 40px
+      +r(767)
+        margin-bottom: 20px
+    p
+      &:last-child
+        margin-bottom: 0

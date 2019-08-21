@@ -166,9 +166,13 @@ else {
 <?php
 $object = null;
 
-if (is_archive()) {
+if (is_tax()) {
+  $object = get_queried_object();
+}
+elseif (is_archive()) {
 	$object = get_queried_object()->name;
 }
+
 $page_settings = get_field('page_settings', $object);
 
 if ($page_settings['breadcrumb']) {

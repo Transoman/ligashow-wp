@@ -31,3 +31,10 @@ function my_acf_init() {
 }
 
 add_action('acf/init', 'my_acf_init');
+
+add_filter( 'acf_archive_post_types', 'change_acf_archive_cpt' );
+function change_acf_archive_cpt( $cpts ) {
+	$cpts['product'] = 'Товары Archive';
+
+	return $cpts;
+}

@@ -1,0 +1,49 @@
+.sidebar
+  &__title
+    @extend h2
+    margin-bottom: 40px
+    +r(767)
+      margin-bottom: 20px
+  .btn
+    width: 100%
+    +r(1395)
+      padding:
+        right: 30px
+        left: 30px
+
+.sidebar-list
+  margin: 0 0 125px
+  padding: 0 50px 0 0
+  list-style: none
+  +r(1395)
+    padding-right: 0
+  +r(767)
+    margin-bottom: 50px
+  & > li
+    a
+      display: block
+      padding: 20px 0
+      font-family: $futura-d-font
+      color: $dark
+      border-bottom: 3px solid #e6e7ec
+      +trans
+      &:hover, &:focus
+        color: $accent
+        border-color: $accent
+      &.is-active
+        border-color: $accent
+        color: $accent
+    ul
+      display: none
+      margin: 20px 0 10px
+      padding: 0
+      list-style: none
+      li
+        margin-bottom: 10px
+        &:last-child
+          margin-bottom: 0
+      a
+        font-family: $main-font
+        color: $dark
+        &:hover, &:focus
+          color: $accent

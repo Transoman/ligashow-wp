@@ -1,6 +1,6 @@
 {
     "key": "group_5d5bef02eadc1",
-    "title": "Портфолио каталог",
+    "title": "Архивные страницы",
     "fields": [
         {
             "key": "field_5d5bef112c0c3",
@@ -34,6 +34,13 @@
                 "operator": "==",
                 "value": "portfolio"
             }
+        ],
+        [
+            {
+                "param": "admin_page",
+                "operator": "==",
+                "value": "product"
+            }
         ]
     ],
     "menu_order": 0,
@@ -44,5 +51,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1566306131
+    "modified": 1566391569
 }
