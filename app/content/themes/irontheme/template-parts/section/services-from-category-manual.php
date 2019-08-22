@@ -11,19 +11,15 @@
 			<?php endif; ?>
 		</div>
 
-		<?php $sub_cats = get_sub_field('cat');
-
-		$services = get_services(-1, $sub_cats);
-
-		if ($services->have_posts()): ?>
+		<?php if (have_rows('list')): ?>
 
 			<div class="services-sub-cat-list">
-				<?php while ($services->have_posts()): $services->the_post(); ?>
-					<a href="<?php the_permalink(); ?>" class="services-sub-cat-list__item">
-						<?php echo do_shortcode(get_field('icon')); ?>
-						<?php the_title(); ?>
+				<?php while (have_rows('list')): the_row(); ?>
+					<a href="<?php echo esc_url(get_sub_field('link')); ?>" class="services-sub-cat-list__item">
+						<?php echo do_shortcode(get_sub_field('icon')); ?>
+						<?php the_sub_field('title'); ?>
 					</a>
-				<?php endwhile; wp_reset_postdata(); ?>
+				<?php endwhile; ?>
 			</div>
 
 		<?php endif; ?>

@@ -546,13 +546,21 @@ jQuery(document).ready(function($) {
   let filterPortfolio = function() {
     let btn = $('.portfolio-filters-list a');
 
-    btn.click(function() {
+    btn.click(function(e) {
+      e.preventDefault();
+
+      if ($(this).hasClass('all')) {
+        btn.parent().removeClass('is-active')
+      }
       $('.portfolio-filters-list a.all').parent().removeClass('is-active');
       $(this).parent().toggleClass('is-active');
+
       let ids = [];
       $('.portfolio-filters-list li.is-active').each(function() {
         ids.push($(this).find('a').data('id'));
       });
+
+      sortingPortfolio(ids);
     });
 
   };
@@ -569,6 +577,56 @@ jQuery(document).ready(function($) {
   };
 
   $('.product-card__img').matchHeight();
+
+  let sortingPortfolio = function (ids) {
+
+    $.ajax({
+      type: "POST",
+      url: window.wp_data.ajax_url,
+      data : {
+        action : 'filter_portfolio',
+        ids: ids
+      },
+      beforeSend: function() {
+        $('#response').addClass('active');
+      },
+      success: function (data) {
+        $('#response').html(data);
+        $('#response').removeClass('active');
+      }
+    });
+
+  };
+
+  $('body').on('click', '.load-more', function(e) {
+    e.preventDefault();
+    let btnText = $(this).text();
+    $(this).text('Загружаю...');
+
+    var data = {
+      'action': 'load_more_post',
+      'query': true_posts,
+      'page' : current_page
+    };
+    $.ajax({
+      url: window.wp_data.ajax_url, // обработчик
+      data: data, // данные
+      type: 'POST', // тип запроса
+      beforeSend: function() {
+        $('#response').addClass('active');
+      },
+      success:function(data){
+        if( data ) {
+          $('.load-more').text(btnText).parent().before(data); // вставляем новые посты
+          $('#response').removeClass('active');
+          current_page++; // увеличиваем номер страницы на единицу
+          if (current_page == max_pages) $('.load-more').parent().remove(); // если последняя страница, удаляем кнопку
+        } else {
+          $('.load-more').parent().remove(); // если мы дошли до последней страницы постов, скроем кнопку
+        }
+      }
+    });
+  });
 
 
   findVideos();

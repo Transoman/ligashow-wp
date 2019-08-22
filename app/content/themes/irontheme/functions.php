@@ -50,3 +50,8 @@ require get_template_directory() . '/inc/custom-taxonomy.php';
  * ACF
  */
 require get_template_directory() . '/inc/acf.php';
+
+/**
+ * Ajax
+ */
+require get_template_directory() . '/inc/ajax.php';

@@ -31,6 +31,11 @@ function services_cat_taxonomy() {
 		'menu_name'                  => __( 'Категории', 'ith' ),
 		'all_items'                  => __( 'Категории', 'ith' ),
 	);
+	$rewrite = array(
+		'slug'                       => 'services-category',
+		'with_front'                 => true,
+		'hierarchical'               => false,
+	);
 	$args = array(
 		'labels'                     => $labels,
 		'hierarchical'               => true,
@@ -39,6 +44,7 @@ function services_cat_taxonomy() {
 		'show_admin_column'          => true,
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
+		'rewrite'                    => $rewrite,
 	);
 	register_taxonomy( 'services_cat', array( 'services' ), $args );
 

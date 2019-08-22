@@ -28,6 +28,10 @@ if ( have_rows('layouts', $object) ):
 
 			<?php get_template_part('template-parts/section/services'); ?>
 
+		<?php elseif ( get_row_layout() == 'services_manual' ): ?>
+
+      <?php get_template_part('template-parts/section/services-manual'); ?>
+
 		<?php elseif ( get_row_layout() == 'banner' ): ?>
 
 			<?php get_template_part('template-parts/section/banner'); ?>
@@ -44,6 +48,10 @@ if ( have_rows('layouts', $object) ):
 
 			<?php get_template_part('template-parts/section/services-from', 'category'); ?>
 
+		<?php elseif ( get_row_layout() == 'services_from_category_manual' ): ?>
+
+			<?php get_template_part('template-parts/section/services-from', 'category-manual'); ?>
+
 		<?php elseif ( get_row_layout() == 'services_from_category_tabs' ): ?>
 
 			<?php get_template_part('template-parts/section/services-from', 'category-tabs'); ?>
@@ -51,6 +59,10 @@ if ( have_rows('layouts', $object) ):
 		<?php elseif ( get_row_layout() == 'popular_order' ): ?>
 
 			<?php get_template_part('template-parts/section/popular', 'order'); ?>
+
+		<?php elseif ( get_row_layout() == 'popular_order_manual' ): ?>
+
+			<?php get_template_part('template-parts/section/popular', 'order-manual'); ?>
 
 		<?php elseif ( get_row_layout() == 'partners' ): ?>
 
@@ -94,24 +106,7 @@ if ( have_rows('layouts', $object) ):
 
 		<?php elseif ( get_row_layout() == 'text_block_with_btn' ): ?>
 
-      <section class="text-block-btn">
-        <div class="container">
-          <h2 class="section-title"><?php the_sub_field('title')?></h2>
-
-          <div class="text-block-btn__row">
-            <div class="text-block-btn__content">
-              <?php the_sub_field('text'); ?>
-            </div>
-
-	          <?php if (get_sub_field('type') == 'link' && get_sub_field('link')): ?>
-              <a href="<?php echo esc_url(get_sub_field('link')); ?>" class="btn"><?php the_sub_field('btn_text'); ?></a>
-	          <?php elseif (get_sub_field('type') == 'popup' && get_sub_field('popup')): ?>
-              <a href="#" class="btn <?php echo get_sub_field('popup')[0]->post_name; ?>_open"><?php the_sub_field('btn_text'); ?></a>
-	          <?php endif; ?>
-          </div>
-
-        </div>
-      </section>
+			<?php get_template_part('template-parts/section/text-block-with-btn'); ?>
 
 		<?php endif;
 
