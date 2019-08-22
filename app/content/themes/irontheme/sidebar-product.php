@@ -11,7 +11,8 @@ elseif (is_archive()) {
 
 	<?php $product_terms = get_terms(array(
 		'taxonomy' => 'product_cat',
-		'hide_empty' => false
+		'hide_empty' => false,
+    'parent' => 0
 	));
 
 	if ($product_terms): ?>
@@ -19,6 +20,24 @@ elseif (is_archive()) {
 			<?php foreach ($product_terms as $term): ?>
 				<li>
 					<a href="<?php echo get_term_link($term); ?>"<?php echo $object->term_id == $term->term_id ? ' class="is-active"' : ''; ?>><?php echo $term->name; ?></a>
+					<?php if ($object->term_id == $term->term_id || $object->parent == $term->term_id):
+
+						$child_terms = get_terms( [
+							'taxonomy' => 'product_cat',
+							'hide_empty' => false,
+							'parent' => $term->term_id
+						] );
+
+						if ($child_terms): ?>
+              <ul>
+								<?php foreach ($child_terms as $child_term): ?>
+                  <li>
+                    <a href="<?php echo get_term_link($child_term); ?>"<?php echo $object->term_id == $child_term->term_id ? ' class="is-active"' : ''; ?>><?php echo $child_term->name; ?></a>
+                  </li>
+								<?php endforeach; ?>
+              </ul>
+						<?php endif;?>
+					<?php endif;?>
 				</li>
 			<?php endforeach; ?>
 		</ul>

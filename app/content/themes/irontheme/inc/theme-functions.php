@@ -100,6 +100,7 @@ if ( ! function_exists( 'ith_setup' ) ) :
     add_image_size( 'single-portfolio', 630, 490, true );
     add_image_size( 'similar-portfolio-slider', 660, 610, true );
     add_image_size( 'product_cat', 235, 270, true );
+    add_image_size( 'product_modal', 440, 440, true );
   }
 endif;
 add_action( 'after_setup_theme', 'ith_setup' );

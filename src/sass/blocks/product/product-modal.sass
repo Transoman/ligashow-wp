@@ -1,0 +1,137 @@
+.product-modal
+  width: 1100px
+  padding: 70px 125px 55px 85px
+  color: $dark
+  +r(1200)
+    width: 930px
+    padding-right: 100px
+  +r(992)
+    width: 90%
+    padding: 70px 50px 55px
+  +r(767)
+    padding-top: 70px
+  &__wrap
+    display: flex
+    +r(767)
+      display: block
+  &__left
+    width: 445px
+    flex-shrink: 0
+    margin-right: 130px
+    +r(1200)
+      width: 355px
+      margin-right: 70px
+    +r(992)
+      width: 255px
+      margin-right: 40px
+    +r(767)
+      width: auto
+      margin-right: 0
+      margin-bottom: 20px
+    .product-modal__title
+      display: none
+      +r(767)
+        display: block
+    .product-modal__enter-wrap
+      +r(767)
+        display: none
+  &__right
+    flex-grow: 1
+    .btn
+      margin-top: 75px
+      padding:
+        top: 22px
+        bottom: 22px
+      +r(767)
+        margin-top: 30px
+    &-wrap
+      padding-right: 50px
+      +r(767)
+        padding-right: 0
+        margin-bottom: 30px
+    .product-modal__enter-wrap
+      display: none
+      +r(767)
+        display: block
+  &__img
+    width: 440px
+    height: 440px
+    margin-bottom: 55px
+    border-radius: 50%
+    overflow: hidden
+    border: 3px solid #f2f4f8
+    background-color: #fefefe
+    +r(1200)
+      width: 350px
+      height: 350px
+    +r(992)
+      width: 250px
+      height: 250px
+    +r(767)
+      margin: 0 auto 20px
+    img
+      width: 100%
+  &__enter
+    display: flex
+    flex-wrap: wrap
+    margin: 0 -15px
+    &-label
+      margin-bottom: 20px
+      font-size: 16px
+    &-item
+      display: flex
+      align-items: center
+      width: 50%
+      margin-bottom: 15px
+      padding: 0 15px
+      font-family: $futura-d-font
+      color: $main-color
+      +r(992)
+        width: 100%
+      &:hover, &:focus
+        color: $accent
+        svg
+          fill: $accent
+      svg
+        width: 30px
+        height: 30px
+        margin-right: 25px
+        fill: url(#gradient)
+  &__cat
+    margin-bottom: 30px
+    +r(767)
+      margin-bottom: 20px
+      text-align: center
+    span
+      display: inline-block
+      padding: 7px 30px
+      font-family: $futura-d-font
+      font-size: 14px
+      color: #545454
+      border: 2px solid $light-gray
+      border-radius: 7px
+  &__title
+    margin-bottom: 20px
+    font-size: 36px
+    +r(992)
+      font-size: 30px
+    +r(767)
+      display: none
+      font-size: 26px
+      text-align: center
+  &__descr
+    margin-bottom: 40px
+    font-size: 16px
+    p
+      &:last-child
+        margin-bottom: 0
+  &__compound
+    max-height: 120px
+    font-size: 16px
+    p
+      margin-bottom: 10px
+      &:last-child
+        margin-bottom: 0
+    &-title
+      margin-bottom: 20px
+      font-size: 18px

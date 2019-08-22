@@ -7,7 +7,8 @@ let svg4everybody = require('svg4everybody'),
   noUiSlider = require('nouislider'),
   iMask = require('imask'),
   simplebar = require('simplebar'),
-  fancybox = require('@fancyapps/fancybox');
+  fancybox = require('@fancyapps/fancybox'),
+  matchHeight = require('jquery-match-height-browserify');
 
 jQuery(document).ready(function($) {
   // Toggle nav menu
@@ -565,8 +566,9 @@ jQuery(document).ready(function($) {
     else {
       map.removeAttr('style');
     }
-
   };
+
+  $('.product-card__img').matchHeight();
 
 
   findVideos();

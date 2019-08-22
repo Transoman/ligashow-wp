@@ -22,19 +22,14 @@ elseif (is_archive()) {
 						<div class="product-list">
 							<?php while (have_posts()): the_post(); ?>
 								<div class="product-list__item">
-									<a href="#" class="product-card">
-										<div class="product-card__img">
-											<?php the_post_thumbnail('product_cat'); ?>
-										</div>
-										<?php the_title(); ?>
-									</a>
+									<?php get_template_part('template-parts/product', 'card'); ?>
 								</div>
 							<?php endwhile; wp_reset_postdata(); ?>
 						</div>
 					<?php endif; ?>
 
 					<?php $text_block = get_field('text_block', $object);
-					if ($text_block): ?>
+					if ($text_block['text_left']['title'] || $text_block['text_right']['title']): ?>
 						<div class="product-text">
 							<div class="product-text__col">
 								<h2><?php echo $text_block['text_left']['title']; ?></h2>
