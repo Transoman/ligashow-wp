@@ -164,3 +164,21 @@ a
 .text-center
   width: 100%
   text-align: center
+
+.alignleft
+  float: left
+  margin-right: 1rem
+  +rmin(768)
+    margin-right: calc(2 * 1rem)
+
+.alignright
+  float: right
+  margin-left: 1rem
+  +rmin(768)
+    margin-left: calc(2 * 1rem)
+
+.aligncenter
+  clear: both
+  display: block
+  margin-left: auto
+  margin-right: auto

@@ -154,3 +154,25 @@ input[type="checkbox"]
 
 span.wpcf7-not-valid-tip
   display: none
+
+.btn-loading
+  &::before
+    content: ''
+    position: relative
+    display: inline-block
+    vertical-align: top
+    width: 18px
+    height: 18px
+    margin-top: 0
+    margin-right: 10px
+    bottom: auto
+    left: auto
+    opacity: 1
+    border-radius: 50%
+    border: 3px solid transparent
+    border-top: 3px solid rgba(255, 255, 255, 1)
+    border-right: 3px solid rgba(255, 255, 255, 1)
+    background: transparent
+    animation: 0.5s spin cubic-bezier(0.4, 0, 0.2, 1) infinite
+    +r(767)
+      margin-top: -2px

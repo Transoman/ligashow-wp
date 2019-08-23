@@ -75,5 +75,26 @@
   &__bottom
     text-align: center
 
+.modal-thanks
+  padding-top: 75px
+  padding-bottom: 100px
+  +r(767)
+    padding-bottom: 70px
+  .modal
+    &__close
+      display: none
+    &__content
+      max-width: 330px
+      margin: 0 auto
+      h3
+        margin-bottom: 15px
+        font-size: 36px
+        +r(767)
+          font-size: 28px
+      img
+        margin-bottom: 30px
+        +r(767)
+          width: 120px
+
 .popup_visible .modal
   transform: scale(1)

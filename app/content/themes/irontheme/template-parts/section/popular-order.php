@@ -6,7 +6,7 @@
 		</div>
 	</div>
 
-	<?php $popular_orders = get_popular_orders(-1);
+	<?php $popular_orders = get_any_post('popular_order', -1);
 	if ($popular_orders->have_posts()): ?>
 
 		<div class="slider-container">

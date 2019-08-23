@@ -45,6 +45,7 @@ jQuery(document).ready(function($) {
     opacity: 0.9,
     onclose: function() {
       $(this).find('label.error').remove();
+      $(this).find('.wpcf7-response-output').hide();
     }
   });
 
@@ -627,6 +628,37 @@ jQuery(document).ready(function($) {
       }
     });
   });
+
+  var contactForm = function() {
+    $('.wpcf7').each(function() {
+      var submit = $(this).find('[type="submit"]');
+
+      if (submit.length) {
+        var button = '<button class="btn"><span class="btn-load"></span><span class="text">' + submit.val() + '</span></button>';
+        submit.replaceWith(button);
+        $(this).find('.ajax-loader').remove();
+      }
+    });
+
+    // Loader
+    $('.wpcf7 form').on('submit', function () {
+      var btn = $(this).find('.btn');
+
+      if (btn.hasClass('btn-link')) {
+        btn.addClass("btn-loading");
+        btn.find('.text').css('display', 'none');
+      } else {
+        btn.addClass("btn-loading");
+      }
+    });
+
+    $('.wpcf7').on('wpcf7spam wpcf7invalid wpcf7mailsent wpcf7mailfailed', function (e) {
+      var form = $('.wpcf7');
+      $(form).find('.btn').removeClass("btn-loading");
+    });
+  };
+
+  contactForm();
 
 
   findVideos();

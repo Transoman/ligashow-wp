@@ -12,7 +12,23 @@
 		</div>
 	</div>
 
-	<?php $portfolios = get_portfolios(10);
+	<?php $args = array(
+    'post_type' => 'portfolio',
+    'posts_per_page' => 10,
+    'post_status' => 'publish',
+    'order' => 'ASC',
+  );
+
+	if (get_sub_field('show_important')) {
+		$args['meta_query'] = array(
+			array(
+				'key' => 'important',
+				'value' => 1
+			)
+		);
+  }
+
+  $portfolios = new WP_Query($args);
 	if ($portfolios->have_posts()): ?>
 		<div class="portfolio-slider-wrap">
 			<div class="slider-container">

@@ -45,7 +45,7 @@ if ( ! function_exists( 'ith_setup' ) ) :
 
     // This theme uses wp_nav_menu() in one location.
     register_nav_menus( array(
-      'primary' => esc_html__( 'Primary', 'ith' ),
+      'primary' => esc_html__( 'Главное меню', 'ith' ),
       'footer' => esc_html__( 'Футер', 'ith' ),
     ) );
 
@@ -61,11 +61,6 @@ if ( ! function_exists( 'ith_setup' ) ) :
       'caption',
     ) );
 
-    // Set up the WordPress core custom background feature.
-    add_theme_support( 'custom-background', apply_filters( 'ith_custom_background_args', array(
-      'default-color' => 'ffffff',
-      'default-image' => '',
-    ) ) );
 
     // Add theme support for selective refresh for widgets.
     add_theme_support( 'customize-selective-refresh-widgets' );
@@ -80,17 +75,6 @@ if ( ! function_exists( 'ith_setup' ) ) :
       'width'       => 250,
       'flex-width'  => true,
       'flex-height' => true,
-    ) );
-
-    /**
-     * Add support formats post
-     */
-    add_theme_support( 'post-formats', array (
-      'aside',
-      'gallery',
-      'quote',
-      'image',
-      'video'
     ) );
 
     add_image_size( 'portfolio_cat', 344, 344, true );
@@ -120,24 +104,6 @@ function ith_content_width() {
   $GLOBALS['content_width'] = apply_filters( 'ith_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'ith_content_width', 0 );
-
-/**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function ith_widgets_init() {
-  register_sidebar( array(
-    'name'          => esc_html__( 'Sidebar', 'ith' ),
-    'id'            => 'sidebar-1',
-    'description'   => esc_html__( 'Add widgets here.', 'ith' ),
-    'before_widget' => '<div id="%1$s" class="widget %2$s">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h3 class="widget-title">',
-    'after_title'   => '</h3>',
-  ) );
-}
-add_action( 'widgets_init', 'ith_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
@@ -174,98 +140,6 @@ function js_variables(){
   echo '<script type="text/javascript">window.wp_data = ' . json_encode($variables) . ';</script>';
 }
 add_action('wp_head','js_variables');
-
-/**
- * Get region posts
- */
-function get_regions($count = null) {
-	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-	$args = array(
-		'post_type' => 'region',
-		'post_status' => 'publish',
-		'posts_per_page' => $count ? $count : get_option('posts_per_page'),
-		'paged' => $paged,
-		'order' => 'ASC'
-	);
-	$regions = new WP_Query( $args );
-	return $regions;
-}
-
-/**
- * Get popups posts
- */
-function get_popups($count = null) {
-	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-	$args = array(
-		'post_type' => 'popup',
-		'post_status' => 'publish',
-		'posts_per_page' => $count ? $count : get_option('posts_per_page'),
-		'paged' => $paged,
-		'order' => 'ASC'
-	);
-	$popups = new WP_Query( $args );
-	return $popups;
-}
-
-/**
- * Get portfolio posts
- */
-function get_portfolios($count = null) {
-	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-	$args = array(
-		'post_type' => 'portfolio',
-		'post_status' => 'publish',
-		'posts_per_page' => $count ? $count : get_option('posts_per_page'),
-		'paged' => $paged,
-		'order' => 'ASC'
-	);
-	$portfolios = new WP_Query( $args );
-	return $portfolios;
-}
-
-/**
- * Get Services posts
- */
-function get_services($count = null, $tax = null) {
-	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-	$args = array(
-		'post_type' => 'services',
-		'post_status' => 'publish',
-		'posts_per_page' => $count ? $count : get_option('posts_per_page'),
-		'paged' => $paged,
-		'order' => 'ASC'
-	);
-
-	if ($tax) {
-		$args['tax_query'] = array(
-			array(
-				'taxonomy' => 'services_cat',
-				'field' => 'term_id',
-				'terms' => $tax
-			)
-		);
-	}
-
-	$services = new WP_Query( $args );
-	return $services;
-}
-
-/**
- * Get popular order posts
- */
-function get_popular_orders($count = null) {
-	$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
-	$args = array(
-		'post_type' => 'popular_order',
-		'post_status' => 'publish',
-		'posts_per_page' => $count ? $count : get_option('posts_per_page'),
-		'paged' => $paged,
-		'order' => 'ASC'
-	);
-	$popular_orders = new WP_Query( $args );
-	return $popular_orders;
-}
-
 
 /**
  * Get any posts

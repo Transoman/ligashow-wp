@@ -18,7 +18,7 @@
 					<div class="product-list__item">
 						<?php get_template_part('template-parts/product', 'card'); ?>
 					</div>
-				<?php endforeach; ?>
+				<?php endforeach; wp_reset_postdata(); ?>
 			</div>
 		<?php endif; ?>
 

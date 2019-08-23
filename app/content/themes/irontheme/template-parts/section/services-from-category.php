@@ -13,7 +13,7 @@
 
 		<?php $sub_cats = get_sub_field('cat');
 
-		$services = get_services(-1, $sub_cats);
+		$services = get_any_post('services', -1, 'services_cat', $sub_cats);
 
 		if ($services->have_posts()): ?>
 

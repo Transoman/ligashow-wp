@@ -1,7 +1,7 @@
 <?php
 $GLOBALS['region_id'] = null;
 
-if ($_GET['region_id']) {
+if (isset($_GET['region_id'])) {
 	$GLOBALS['region_id'] = $_GET['region_id'];
 
 	if ($_COOKIE['region'] !== $GLOBALS['region_id']) {
@@ -12,7 +12,7 @@ elseif ($_COOKIE['region']) {
   $GLOBALS['region_id'] = $_COOKIE['region'];
 }
 else {
-  $regions = get_regions(1);
+  $regions = get_any_post('region', 1);
   if ($regions->have_posts()) {
     while ($regions->have_posts()) {
 	    $regions->the_post();
@@ -66,7 +66,7 @@ else {
         ) );
         ?>
 
-	      <?php $regions = get_regions(-1);
+	      <?php $regions = get_any_post('region', -1);
 	      if ($regions->have_posts()): ?>
           <div class="location nav__location">
 
@@ -105,8 +105,7 @@ else {
 
       <div class="nav-overlay"></div>
 
-      <?php $regions = get_regions(-1);
-      if ($regions->have_posts()): ?>
+      <?php if ($regions->have_posts()): ?>
         <div class="location header__location">
 
 	        <?php $i = 0; while ($regions->have_posts()): $regions->the_post(); ?>

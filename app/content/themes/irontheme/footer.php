@@ -9,7 +9,7 @@
           <?php endif; ?>
         </div>
 
-	      <?php $regions = get_regions(-1);
+	      <?php $regions = get_any_post('region', -1);
 	      if ($regions->have_posts()): ?>
         <div class="footer__col">
           <div class="location footer__location">
@@ -91,16 +91,36 @@
 
 </div><!-- /.wrapper -->
 
-<?php $popups = get_popups(-1);
+<?php $popups = get_any_post('popup', -1);
 if ($popups->have_posts()):
   while ($popups->have_posts()): $popups->the_post();?>
-    <div class="modal" id="<?php echo get_post_field('post_name'); ?>">
+    <div class="modal<?php echo get_field('css_class') ? ' '.get_field('css_class') : ''; ?>" id="<?php echo get_post_field('post_name'); ?>">
       <button type="button" class="modal__close <?php echo get_post_field('post_name'); ?>_close"></button>
-      <h3 class="modal__title"><?php the_title(); ?></h3>
+      <?php if (!get_field('hide_title')): ?>
+        <h3 class="modal__title"><?php the_title(); ?></h3>
+      <?php endif; ?>
 
       <div class="modal__content">
         <?php the_content(); ?>
       </div>
+
+      <?php if ($forms = get_field('forms')):
+        foreach ($forms as $form): ?>
+        <script>
+            jQuery(document).ready(function($) {
+                $('.wpcf7[id*="wpcf7-f<?php echo $form->ID; ?>"]').on('wpcf7:mailsent', function(){
+                    var modal = $('.modal');
+                    modal.popup("hide");
+                    $("#<?php echo get_post_field('post_name'); ?>").popup("show");
+                    setTimeout(function(){
+                        $(".modal").popup("hide");
+                        modal.find('.wpcf7-response-output').hide();
+                    }, 4000);
+                });
+            });
+        </script>
+      <?php endforeach;
+      endif; ?>
 
     </div>
 <?php endwhile; wp_reset_postdata();
