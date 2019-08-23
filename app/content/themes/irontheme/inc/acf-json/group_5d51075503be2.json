@@ -671,7 +671,7 @@
                 "layout_5d5e942b5615e": {
                     "key": "layout_5d5e942b5615e",
                     "name": "services_manual",
-                    "label": "Услуги (ручной режым)",
+                    "label": "Услуги (ручной режим)",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1257,7 +1257,7 @@
                 "layout_5d5e97e357d4e": {
                     "key": "layout_5d5e97e357d4e",
                     "name": "services_from_category_manual",
-                    "label": "Услуги с категории (ручной режым)",
+                    "label": "Услуги с категории (ручной режим)",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1456,6 +1456,175 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_5d5f81648ddf4": {
+                    "key": "layout_5d5f81648ddf4",
+                    "name": "services_from_category_tabs_manual",
+                    "label": "Услуги с категории (табы) (ручной режим)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d5f81648ddf5",
+                            "label": "Заголовок",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d5f81648ddf6",
+                            "label": "Тип ссылка",
+                            "name": "type",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d51089dc5d9c",
+                                "field_5d5108f1c5d9d",
+                                "field_5d510931c5d9e",
+                                "field_5d510eb82e196"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5d5f81648ddf7",
+                            "label": "Список",
+                            "name": "list",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5d5f81c08ddf8",
+                                    "label": "Заголовок",
+                                    "name": "title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5d5f81d98ddf9",
+                                    "label": "Внутренний список",
+                                    "name": "inner_list",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "collapsed": "",
+                                    "min": 0,
+                                    "max": 0,
+                                    "layout": "table",
+                                    "button_label": "",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_5d5f81f48ddfa",
+                                            "label": "Заголовок",
+                                            "name": "title",
+                                            "type": "text",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": "",
+                                            "prepend": "",
+                                            "append": "",
+                                            "maxlength": ""
+                                        },
+                                        {
+                                            "key": "field_5d5f82048ddfb",
+                                            "label": "Иконка",
+                                            "name": "icon_clone",
+                                            "type": "clone",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "clone": [
+                                                "field_5d53ba2b418c1"
+                                            ],
+                                            "display": "seamless",
+                                            "layout": "block",
+                                            "prefix_label": 0,
+                                            "prefix_name": 0
+                                        },
+                                        {
+                                            "key": "field_5d5f821d8ddfc",
+                                            "label": "Ссылка",
+                                            "name": "link",
+                                            "type": "link",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "return_format": "url"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_5d53e44957d6e": {
                     "key": "layout_5d53e44957d6e",
                     "name": "popular_order",
@@ -1488,7 +1657,7 @@
                 "layout_5d5e9a6e08a87": {
                     "key": "layout_5d5e9a6e08a87",
                     "name": "popular_order_manual",
-                    "label": "Популярные заказы (ручной режым)",
+                    "label": "Популярные заказы (ручной режим)",
                     "display": "block",
                     "sub_fields": [
                         {
@@ -1644,6 +1813,80 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5d5f7ee47eb2d": {
+                    "key": "layout_5d5f7ee47eb2d",
+                    "name": "partners_manual",
+                    "label": "Слайдер логотипов (ручной режим)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d5f7ee47eb2e",
+                            "label": "Заголовок",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d5f7efd7eb2f",
+                            "label": "Список логотипов",
+                            "name": "list",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5d5f7f107eb30",
+                                    "label": "Изображение",
+                                    "name": "img",
+                                    "type": "image",
+                                    "instructions": "Размеры логотипов 200*150",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -1841,6 +2084,138 @@
                             "prepend": "",
                             "append": "",
                             "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5d5f940bcfff9": {
+                    "key": "layout_5d5f940bcfff9",
+                    "name": "project_manual",
+                    "label": "Проекты (ручной режим)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d5f940bcfffa",
+                            "label": "Заголовок",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d5f941ccfffb",
+                            "label": "Список",
+                            "name": "list",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 4,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5d5f9427cfffc",
+                                    "label": "Заголовок",
+                                    "name": "title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5d5f9453cfffd",
+                                    "label": "Лого",
+                                    "name": "logo",
+                                    "type": "image",
+                                    "instructions": "Максимальная ширина логотипа 200px",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": 200,
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_5d5f9465cfffe",
+                                    "label": "Изображение",
+                                    "name": "img",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_5d5f947ccffff",
+                                    "label": "Ссылка",
+                                    "name": "link",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "url"
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -2151,6 +2526,177 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_5d5f8b79dfb82": {
+                    "key": "layout_5d5f8b79dfb82",
+                    "name": "slider_portfolio_manual",
+                    "label": "Слайдер портфолио (ручной режим)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d5f8b79dfb83",
+                            "label": "Заголовок",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d5f8b79dfb84",
+                            "label": "Список",
+                            "name": "list",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5d5f8c2edfb89",
+                                    "label": "Изображение",
+                                    "name": "img",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_5d5f8c56dfb8a",
+                                    "label": "Видео",
+                                    "name": "video_clone",
+                                    "type": "clone",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "clone": [
+                                        "field_5d569da7757f6"
+                                    ],
+                                    "display": "seamless",
+                                    "layout": "block",
+                                    "prefix_label": 0,
+                                    "prefix_name": 0
+                                },
+                                {
+                                    "key": "field_5d5f8c70dfb8b",
+                                    "label": "Текст для видео",
+                                    "name": "text_for_video",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_5d5f8b79dfb85",
+                            "label": "Настройки слайдера",
+                            "name": "slider_settings",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5d5f8b79dfb86",
+                                    "label": "Скорость прокрутки",
+                                    "name": "speed",
+                                    "type": "number",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 1000,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "мс",
+                                    "min": 200,
+                                    "max": "",
+                                    "step": 100
+                                },
+                                {
+                                    "key": "field_5d5f8b79dfb88",
+                                    "label": "Автопрокрутка",
+                                    "name": "autoplay",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui": 1,
+                                    "ui_on_text": "",
+                                    "ui_off_text": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_5d5b989314cdc": {
                     "key": "layout_5d5b989314cdc",
                     "name": "slider_similar_portfolio",
@@ -2257,6 +2803,232 @@
                                 },
                                 {
                                     "key": "field_5d5b989314ce2",
+                                    "label": "Автопрокрутка",
+                                    "name": "autoplay",
+                                    "type": "true_false",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "",
+                                    "default_value": 0,
+                                    "ui": 1,
+                                    "ui_on_text": "",
+                                    "ui_off_text": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5d5f8fad3e8f8": {
+                    "key": "layout_5d5f8fad3e8f8",
+                    "name": "slider_similar_portfolio_manual",
+                    "label": "Слайдер подобных портфолио (ручной режим)",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d5f8fad3e8f9",
+                            "label": "Заголовок",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d5f8fad3e8fa",
+                            "label": "Список",
+                            "name": "list",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "block",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5d5f90273e8ff",
+                                    "label": "Заголовок",
+                                    "name": "title",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5d5f90353e900",
+                                    "label": "Дата",
+                                    "name": "date",
+                                    "type": "date_picker",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "display_format": "d.m.Y",
+                                    "return_format": "d.m.Y",
+                                    "first_day": 1
+                                },
+                                {
+                                    "key": "field_5d5f905f3e901",
+                                    "label": "Изображение",
+                                    "name": "img",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_5d5f908a3e902",
+                                    "label": "Подзаголовок",
+                                    "name": "subtitle",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_5d5f909a3e903",
+                                    "label": "Услуги",
+                                    "name": "services",
+                                    "type": "relationship",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "post_type": [
+                                        "services"
+                                    ],
+                                    "taxonomy": "",
+                                    "filters": [
+                                        "search"
+                                    ],
+                                    "elements": "",
+                                    "min": "",
+                                    "max": "",
+                                    "return_format": "object"
+                                },
+                                {
+                                    "key": "field_5d5f914e3e904",
+                                    "label": "Ссылка",
+                                    "name": "link",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "url"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_5d5f8fad3e8fb",
+                            "label": "Настройки слайдера",
+                            "name": "slider_settings",
+                            "type": "group",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "layout": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5d5f8fad3e8fc",
+                                    "label": "Скорость прокрутки",
+                                    "name": "speed",
+                                    "type": "number",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": 1000,
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "мс",
+                                    "min": 200,
+                                    "max": "",
+                                    "step": 100
+                                },
+                                {
+                                    "key": "field_5d5f8fad3e8fe",
                                     "label": "Автопрокрутка",
                                     "name": "autoplay",
                                     "type": "true_false",
@@ -2408,7 +3180,7 @@
                         },
                         {
                             "key": "field_5d5ceb69f19e6",
-                            "label": "Списк",
+                            "label": "Список",
                             "name": "list",
                             "type": "repeater",
                             "instructions": "",
@@ -2595,6 +3367,258 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_5d5f8480691d3": {
+                    "key": "layout_5d5f8480691d3",
+                    "name": "service_card",
+                    "label": "Карточка услуги",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d5f87b2691d4",
+                            "label": "Заголовок",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d5f887a691db",
+                            "label": "Текст над описанием",
+                            "name": "text_on_descr",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d5f87c4691d5",
+                            "label": "Изображение",
+                            "name": "img",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        },
+                        {
+                            "key": "field_5d5f87ff691d7",
+                            "label": "Описание",
+                            "name": "descr",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_5d5f87e6691d6",
+                            "label": "Видео",
+                            "name": "video_clone",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d569da7757f6"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5d5f883c691d8",
+                            "label": "Текст над ценой",
+                            "name": "text_on_price",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d5f8846691d9",
+                            "label": "Цена",
+                            "name": "price",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d5f885b691da",
+                            "label": "Тип кнопки",
+                            "name": "type_clone",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d51089dc5d9c",
+                                "field_5d5108f1c5d9d",
+                                "field_5d510931c5d9e",
+                                "field_5d510eb82e196"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_5d5f97dd50ae4": {
+                    "key": "layout_5d5f97dd50ae4",
+                    "name": "product",
+                    "label": "Товары",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5d5f981c50ae5",
+                            "label": "Заголовок",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_5d5f986150ae6",
+                            "label": "Ссылка",
+                            "name": "link_clone",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "field_5d525c728d92a",
+                                "field_5d525c8c8d92b"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        },
+                        {
+                            "key": "field_5d5f98a150ae7",
+                            "label": "Список товаров",
+                            "name": "product_list",
+                            "type": "relationship",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "product"
+                            ],
+                            "taxonomy": "",
+                            "filters": [
+                                "search"
+                            ],
+                            "elements": [
+                                "featured_image"
+                            ],
+                            "min": "",
+                            "max": "",
+                            "return_format": "id"
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Добавить",
@@ -2716,5 +3740,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1566481449
+    "modified": 1566547297
 }

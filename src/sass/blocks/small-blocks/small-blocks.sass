@@ -46,22 +46,28 @@
   width: 3px
   right: 0
 
-#response.active
-  position: relative
-  .portfolio-list__item
-    filter: blur(2px)
-  &::after
-    content: ''
-    position: absolute
-    top: 50%
-    left: 50%
-    width: 50px
-    height: 50px
-    margin-top: -25px
-    margin-left: -25px
-    border: 2px solid $accent
-    border-top-color: #fff
-    border-radius: 50%
-    z-index: 11
-    animation: spin 1s linear infinite
-    transition: all .25s ease
+#response
+  &.active
+    position: relative
+    .portfolio-list__item,
+    .product-list__item
+      filter: blur(2px)
+    &::after
+      content: ''
+      position: absolute
+      top: 50%
+      left: 50%
+      width: 50px
+      height: 50px
+      margin-top: -25px
+      margin-left: -25px
+      border: 2px solid $accent
+      border-top-color: #fff
+      border-radius: 50%
+      z-index: 11
+      animation: spin 1s linear infinite
+      transition: all .25s ease
+  .text-center
+    margin-top: 55px
+    +r(767)
+      margin-top: 0

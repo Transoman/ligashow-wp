@@ -43,15 +43,6 @@
 					</div>
 				</div>
 
-				<svg style="position: absolute; z-index: -100; height: 1px; width: 1px;">
-					<defs>
-						<linearGradient id="services-cat-gradient" x1="0" y1="0%" x2="0" y2="100%">
-							<stop offset="0%" style="stop-color: #0036ff"></stop>
-							<stop offset="100%" style="stop-color: #00a2ff"></stop>
-						</linearGradient>
-					</defs>
-				</svg>
-
 				<div class="slider-controls">
 					<div class="swiper-pagination"></div>
 					<div class="slider-controls__btns">

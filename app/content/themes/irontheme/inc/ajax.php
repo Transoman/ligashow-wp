@@ -57,9 +57,15 @@ function load_more_post(){
 	if( have_posts() ) :
 
 		while( have_posts() ): the_post(); ?>
-			<div class="portfolio-list__item">
-        <?php get_template_part('template-parts/portfolio', 'card'); ?>
-      </div>
+      <?php if ($args['post_type'] == 'portfolio'): ?>
+        <div class="portfolio-list__item">
+          <?php get_template_part('template-parts/portfolio', 'card'); ?>
+        </div>
+      <?php elseif ($args['post_type'] == 'product' || $args['taxonomy'] == 'product_cat'): ?>
+          <div class="product-list__item">
+            <?php get_template_part('template-parts/product', 'card'); ?>
+          </div>
+      <?php endif; ?>
 		<?php endwhile;
 
 	endif;

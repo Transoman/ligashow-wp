@@ -56,6 +56,10 @@ if ( have_rows('layouts', $object) ):
 
 			<?php get_template_part('template-parts/section/services-from', 'category-tabs'); ?>
 
+		<?php elseif ( get_row_layout() == 'services_from_category_tabs_manual' ): ?>
+
+			<?php get_template_part('template-parts/section/services-from', 'category-tabs-manual'); ?>
+
 		<?php elseif ( get_row_layout() == 'popular_order' ): ?>
 
 			<?php get_template_part('template-parts/section/popular', 'order'); ?>
@@ -68,6 +72,10 @@ if ( have_rows('layouts', $object) ):
 
 			<?php get_template_part('template-parts/section/partners'); ?>
 
+		<?php elseif ( get_row_layout() == 'partners_manual' ): ?>
+
+			<?php get_template_part('template-parts/section/partners', 'manual'); ?>
+
 		<?php elseif ( get_row_layout() == 'about' ): ?>
 
 			<?php get_template_part('template-parts/section/about'); ?>
@@ -75,6 +83,10 @@ if ( have_rows('layouts', $object) ):
 		<?php elseif ( get_row_layout() == 'project' ): ?>
 
 			<?php get_template_part('template-parts/section/project'); ?>
+
+		<?php elseif ( get_row_layout() == 'project_manual' ): ?>
+
+			<?php get_template_part('template-parts/section/project', 'manual'); ?>
 
 		<?php elseif ( get_row_layout() == 'similar_services' ): ?>
 
@@ -88,9 +100,17 @@ if ( have_rows('layouts', $object) ):
 
 			<?php get_template_part('template-parts/section/slider', 'portfolio'); ?>
 
+		<?php elseif ( get_row_layout() == 'slider_portfolio_manual' ): ?>
+
+			<?php get_template_part('template-parts/section/slider', 'portfolio-manual'); ?>
+
 		<?php elseif ( get_row_layout() == 'slider_similar_portfolio' ): ?>
 
 			<?php get_template_part('template-parts/section/slider', 'similar-portfolio'); ?>
+
+		<?php elseif ( get_row_layout() == 'slider_similar_portfolio_manual' ): ?>
+
+			<?php get_template_part('template-parts/section/slider', 'similar-portfolio-manual'); ?>
 
 		<?php elseif ( get_row_layout() == 'form_order' ): ?>
 
@@ -107,6 +127,14 @@ if ( have_rows('layouts', $object) ):
 		<?php elseif ( get_row_layout() == 'text_block_with_btn' ): ?>
 
 			<?php get_template_part('template-parts/section/text-block-with-btn'); ?>
+
+		<?php elseif ( get_row_layout() == 'service_card' ): ?>
+
+			<?php get_template_part('template-parts/section/service', 'card'); ?>
+
+		<?php elseif ( get_row_layout() == 'product' ): ?>
+
+			<?php get_template_part('template-parts/section/product'); ?>
 
 		<?php endif;
 

@@ -13,7 +13,7 @@
 						<div class="project__inner">
 							<?php echo wp_get_attachment_image(get_field('logo'), 'medium', '', array('class' => 'project__logo')); ?>
 							<div class="project__body">
-								<?php the_post_thumbnail('large'); ?>
+								<?php the_post_thumbnail('project'); ?>
 								<span class="project__title"><?php the_title(); ?></span>
 							</div>
 						</div>

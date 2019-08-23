@@ -18,39 +18,37 @@
 
 		</div>
 
-		<?php $sub_cats = get_sub_field('cats');
-		if ($sub_cats): ?>
+		<?php if (have_rows('list')): ?>
 
 			<div class="services-tab">
 				<div class="services-tab__list-wrap">
 					<ul class="services-tab-list services-tab__list">
-						<?php $i = 0; foreach ($sub_cats as $cat): ?>
-							<li<?php echo $i == 0 ? ' class="active"' : ''; $i++; ?>><?php echo $cat->name; ?></li>
-						<?php endforeach; ?>
+						<?php $i = 0; while (have_rows('list')): the_row(); ?>
+							<li<?php echo $i == 0 ? ' class="active"' : ''; $i++; ?>><?php the_sub_field('title'); ?></li>
+						<?php endwhile; ?>
 					</ul>
 				</div>
 
-				<?php $i = 0; foreach ($sub_cats as $cat): ?>
+				<?php $i = 0; while (have_rows('list')): the_row(); ?>
 					<div class="services-tab__item<?php echo $i == 0 ? ' active' : ''; $i++; ?>" data-simplebar data-simplebar-auto-hide="false">
-						<?php $services = get_any_post('services', -1, 'services_cat', $cat->term_id);
-						if ($services->have_posts()): ?>
+						<?php if (have_rows('inner_list')): ?>
 							<div class="services-tab__content">
-								<?php while ($services->have_posts()): $services->the_post(); ?>
+								<?php while (have_rows('inner_list')): the_row(); ?>
 									<div class="services-tab__card">
-										<a href="<?php the_permalink(); ?>" class="services-tab-card">
-											<?php if (get_field('icon')): ?>
+										<a href="<?php echo esc_url(get_sub_field('link')); ?>" class="services-tab-card">
+											<?php if (get_sub_field('icon')): ?>
 												<div class="services-tab-card__icon">
-													<?php echo do_shortcode(get_field('icon')); ?>
+													<?php echo do_shortcode(get_sub_field('icon')); ?>
 												</div>
 											<?php endif; ?>
-											<h3 class="services-tab-card__title"><?php the_title(); ?></h3>
+											<h3 class="services-tab-card__title"><?php the_sub_field('title'); ?></h3>
 										</a>
 									</div>
-								<?php endwhile; wp_reset_postdata(); ?>
+								<?php endwhile; ?>
 							</div>
 						<?php endif; ?>
 					</div>
-				<?php endforeach; ?>
+				<?php endwhile; ?>
 
 			</div>
 			<!-- /.services-tab -->

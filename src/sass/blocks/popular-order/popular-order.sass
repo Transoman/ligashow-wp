@@ -5,8 +5,11 @@
     margin: 0 -15px
   &__item
     position: relative
+    display: flex
+    flex-direction: column
     height: auto
     max-width: 430px
+    +trans
     +r(767)
       max-width: none
       padding: 0 15px
@@ -26,6 +29,9 @@
         &__body
           background-color: #fff
           border-color: transparent
+    &.swiper-slide-next
+      + .popular-order-slider__item + .popular-order-slider__item
+        opacity: 0.33
   &__head
     position: relative
     z-index: 1
@@ -68,6 +74,9 @@
         +r(1200)
           font-size: 22px
   &__body
+    display: flex
+    flex-direction: column
+    flex-grow: 1
     padding: 35px 65px 50px
     border-radius: 0 0 12px 12px
     border: 3px solid $light-gray
@@ -78,6 +87,7 @@
       padding: 20px 35px 20px
     .btn
       width: 100%
+      margin-top: auto
     ul
       margin: 0 0 50px
       padding: 0
