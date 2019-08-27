@@ -39,15 +39,17 @@ jQuery(document).ready(function($) {
   };
 
   // Modal
-  $('.modal').popup({
-    transition: 'all 0.3s',
-    color: '#1b244e',
-    opacity: 0.9,
-    onclose: function() {
-      $(this).find('label.error').remove();
-      $(this).find('.wpcf7-response-output').hide();
-    }
-  });
+  let initModal = function() {
+    $('.modal').popup({
+      transition: 'all 0.3s',
+      color: '#1b244e',
+      opacity: 0.9,
+      onclose: function() {
+        $(this).find('label.error').remove();
+        $(this).find('.wpcf7-response-output').hide();
+      }
+    });
+  };
 
   // Input mask
   let phoneInputs = $('input[type="tel"]');
@@ -620,6 +622,7 @@ jQuery(document).ready(function($) {
         if( data ) {
           $('.load-more').text(btnText).parent().before(data); // вставляем новые посты
           $('#response').removeClass('active');
+          initModal();
           current_page++; // увеличиваем номер страницы на единицу
           if (current_page == max_pages) $('.load-more').parent().remove(); // если последняя страница, удаляем кнопку
         } else {
@@ -667,6 +670,7 @@ jQuery(document).ready(function($) {
   calculateOrder();
   filterPortfolio();
   changeMapSize();
+  initModal();
 
   $(window).resize(function() {
     changeMapSize();
