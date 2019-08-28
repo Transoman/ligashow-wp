@@ -1,3 +1,12 @@
 wp/
-content/plugins
+content/plugins/acf-archive
+content/plugins/cf7-editor-button
+content/plugins/clearfy
+content/plugins/contact-form-7
+content/plugins/duplicate-post
+content/plugins/ewww-image-optimizer
+content/plugins/force-regenerate-thumbnails
+content/plugins/safe-svg
+content/plugins/tinymce-advanced
+content/plugins/wordpress-seo
 local-config.php
