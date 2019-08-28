@@ -81,7 +81,7 @@ if ( ! function_exists( 'ith_setup' ) ) :
     add_image_size( 'services_cat', 425, 355, true );
     add_image_size( 'partner', 113, 85, true );
     add_image_size( 'single', 710, 545, true );
-    add_image_size( 'single-portfolio', 630, 490, true );
+    add_image_size( 'single-portfolio', 630, 355, true );
     add_image_size( 'similar-portfolio-slider', 660, 610, true );
     add_image_size( 'product_cat', 235, 270, true );
     add_image_size( 'product_modal', 440, 440, true );
@@ -140,6 +140,14 @@ function js_variables(){
   echo '<script type="text/javascript">window.wp_data = ' . json_encode($variables) . ';</script>';
 }
 add_action('wp_head','js_variables');
+
+add_filter( 'wp_terms_checklist_args', 'set_checked_ontop_default', 10 );
+function set_checked_ontop_default( $args ) {
+	if( ! isset($args['checked_ontop']) )
+		$args['checked_ontop'] = false;
+
+	return $args;
+}
 
 /**
  * Get any posts

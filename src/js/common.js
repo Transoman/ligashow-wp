@@ -260,6 +260,27 @@ jQuery(document).ready(function($) {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+    thumbs: {
+      swiper: {
+        el: '.single-portfolio-thumb-slider',
+        slidesPerView: 2,
+        spaceBetween: 40,
+        breakpoints: {
+          1395: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          767: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          }
+        }
+      }
+    }
   });
 
   $().fancybox({
@@ -470,14 +491,16 @@ jQuery(document).ready(function($) {
     var id = parseMediaURL(link);
 
     video.addEventListener('click', function() {
-      var iframe = createIframe(id);
+      if (!this.classList.contains('video--dummy')) {
+        var iframe = createIframe(id);
 
-      link.remove();
-      button.remove();
-      if (text) {
-        text.remove();
+        link.remove();
+        button.remove();
+        if (text) {
+          text.remove();
+        }
+        video.appendChild(iframe);
       }
-      video.appendChild(iframe);
     });
 
     var source = "https://img.youtube.com/vi/"+ id +"/maxresdefault.jpg";
@@ -622,6 +645,10 @@ jQuery(document).ready(function($) {
         if( data ) {
           $('.load-more').text(btnText).parent().before(data); // вставляем новые посты
           $('#response').removeClass('active');
+          setTimeout(function() {
+            $('.product-card__img').matchHeight();
+          }, 200);
+
           initModal();
           current_page++; // увеличиваем номер страницы на единицу
           if (current_page == max_pages) $('.load-more').parent().remove(); // если последняя страница, удаляем кнопку
@@ -661,9 +688,24 @@ jQuery(document).ready(function($) {
     });
   };
 
+  $('.project__item').mouseenter(function() {
+      let id = $(this).data('id');
+
+      if ($(this).parents().find('#' + id).is(':visible')) {
+          return;
+      }
+
+      $(this).addClass('is-active').siblings().removeClass('is-active');
+      $(this).parents().find('.project__content').hide();
+      $(this).parents().find('#' + id).slideDown();
+  });
+
+  $('.s-our-project').mouseleave(function() {
+    $('.project__item').removeClass('is-active');
+    $('.project__content').slideUp();
+  });
+
   contactForm();
-
-
   findVideos();
   toggleNav();
   toggleLocation();

@@ -5,7 +5,6 @@ if (is_tax()) {
 elseif (is_archive()) {
 	$object = get_queried_object()->name;
 }
-global $wp_query;
 ?>
 
 	<section class="product bg-gray">
@@ -20,18 +19,19 @@ global $wp_query;
 
 					<h2 class="page-title"><?php single_term_title(); ?></h2>
 
-					<?php if (have_posts()): ?>
+					<?php $products = get_any_post('product', null, 'product_cat', $object->term_id);
+          if ($products->have_posts()): ?>
 						<div class="product-list" id="response">
-							<?php while (have_posts()): the_post(); ?>
+							<?php while ($products->have_posts()): $products->the_post(); ?>
 								<div class="product-list__item">
 									<?php get_template_part('template-parts/product', 'card'); ?>
 								</div>
 							<?php endwhile; wp_reset_postdata(); ?>
-							<?php if ( $wp_query->max_num_pages > 1 ) : ?>
+							<?php if ( $products->max_num_pages > 1 ) : ?>
                 <script>
-                    var true_posts = '<?php echo serialize($wp_query->query_vars); ?>';
+                    var true_posts = '<?php echo serialize($products->query_vars); ?>';
                     var current_page = <?php echo (get_query_var('paged')) ? get_query_var('paged') : 1; ?>;
-                    var max_pages = '<?php echo $wp_query->max_num_pages; ?>';
+                    var max_pages = '<?php echo $products->max_num_pages; ?>';
                 </script>
                 <div class="text-center">
                   <a href="#" class="btn-load-more load-more">Показать еще</a>

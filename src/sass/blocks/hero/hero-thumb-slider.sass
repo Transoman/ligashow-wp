@@ -12,6 +12,7 @@
     position: relative
     padding-top: 15px
     border-top: 2px solid rgba(#fff, 0.22)
+    cursor: pointer
     &::before
       content: ''
       position: absolute
@@ -21,6 +22,10 @@
       height: 2px
       background-color: #fff
       +trans
+    &:hover
+      .hero-thumb-slider
+        &__title
+          color: #fff
     &.swiper-slide-thumb-active
       &::before
         width: 100px

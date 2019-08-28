@@ -5,7 +5,7 @@ if (isset($_GET['region_id'])) {
 	$GLOBALS['region_id'] = $_GET['region_id'];
 
 	if ($_COOKIE['region'] !== $GLOBALS['region_id']) {
-		setcookie('region', $GLOBALS['region_id'], time() + 2592000);
+		setcookie('region', $GLOBALS['region_id'], time() + 2592000, '/');
   }
 }
 elseif ($_COOKIE['region']) {
@@ -18,7 +18,7 @@ else {
 	    $regions->the_post();
 
 	    $GLOBALS['region_id'] = get_the_ID();
-	    setcookie('region', $GLOBALS['region_id'],time() + 2592000);
+	    setcookie('region', $GLOBALS['region_id'],time() + 2592000, '/');
     }
     wp_reset_postdata();
   }

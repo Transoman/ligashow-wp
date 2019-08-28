@@ -39,39 +39,48 @@
       fill: $light-blue
       margin-right: 12px
   &__media
-    border-radius: 12px
-    overflow: hidden
+    &-bottom
+      display: flex
+      align-items: center
+      justify-content: space-between
+      margin-top: 20px
+      +r(480)
+        display: block
     img
       width: 100%
+      border-radius: 12px
+      overflow: hidden
   &__right
     flex-grow: 1
     background-color: $bg-color
     border-radius: 12px
   &__summary
     position: relative
-    padding: 50px 65px 75px
+    padding: 50px 65px 25px
     +r(1200)
-      padding: 50px 35px 45px
+      padding: 50px 35px 25px
     +r(767)
       padding: 30px 20px 15px
     ul
       @extend .portfolio-slider-card-full__list
       margin: 0
+      +r(576)
+        margin: 0
       li
         font-size: 18px
         &::before
           top: 8px
   &__label
-    margin-bottom: 120px
+    margin-bottom: 60px
     font-family: $futura-d-font
     font-size: 52px
     color: $dark
     line-height: 1
     +r(1200)
-      margin-bottom: 100px
+      margin-bottom: 80px
       font-size: 42px
     +r(767)
-      margin-bottom: 80px
+      margin-bottom: 70px
       font-size: 24px
   &__ribbon-number
     position: absolute
@@ -80,14 +89,26 @@
     z-index: 1
     +r(767)
       right: 10px
+  &__text
+    padding: 20px 65px 30px
+    border-top: 1px solid #e7e7ee
+    font-size: 16px
+    color: #5e5e5e
+    +r(1200)
+      padding: 20px 35px 30px
+    +r(767)
+      padding: 20px 20px 30px
+    p
+      &:last-child
+        margin-bottom: 0
   &__bottom
-    padding: 60px 20px
+    padding: 35px 20px 40px
     border-top: 1px solid #e7e7ee
     text-align: center
     +r(1200)
-      padding: 50px 20px
+      padding: 35px 20px 40px
     +r(767)
-      padding: 30px 20px
+      padding: 20px
     .btn
       width: 100%
       max-width: 315px
@@ -116,3 +137,28 @@
           fill: #fff
       .swiper-button-prev
         margin-right: 25px
+
+.single-portfolio-thumb-slider
+  width: 380px
+  margin-left: 0
+  margin-right: 20px
+  +r(1395)
+    width: 320px
+  +r(992)
+    width: 450px
+  +r(480)
+    display: none
+  &__item
+    height: auto
+    opacity: 0.5
+    cursor: pointer
+    +trans
+    &.swiper-slide-thumb-active
+      opacity: 1
+    .video
+      height: 100%
+      &__button
+        width: 55px
+        height: 55px
+        &::before
+          border-width: 6px 0 6px 10px

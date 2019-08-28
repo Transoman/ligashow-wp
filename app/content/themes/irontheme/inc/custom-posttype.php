@@ -218,7 +218,7 @@ function project_post_type() {
 	$args = array(
 		'label'                 => __( 'Проект', 'ith' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'thumbnail' ),
+		'supports'              => array( 'title', 'editor', 'thumbnail' ),
 		'hierarchical'          => false,
 		'public'                => false,
 		'show_ui'               => true,

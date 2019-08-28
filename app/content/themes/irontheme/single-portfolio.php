@@ -47,25 +47,54 @@ get_header(); ?>
                   </div>
 	              <?php endif; ?>
               </div>
+            </div>
+
+            <div class="single-portfolio-content__media-bottom">
+              <div class="single-portfolio-thumb-slider swiper-container">
+                <div class="swiper-wrapper">
+                  <?php if (get_the_post_thumbnail(get_the_ID())): ?>
+                    <div class="single-portfolio-thumb-slider__item swiper-slide">
+                      <?php the_post_thumbnail('medium'); ?>
+                    </div>
+                  <?php endif; ?>
+                  <?php foreach ($gallery as $item): ?>
+                    <div class="single-portfolio-thumb-slider__item swiper-slide">
+                      <?php echo wp_get_attachment_image($item, 'medium'); ?>
+                    </div>
+                  <?php endforeach; ?>
+                  <?php if (get_field('video')): ?>
+                    <div class="single-portfolio-thumb-slider__item swiper-slide">
+                      <div class="video video--dummy">
+                        <a href="<?php echo esc_url(get_field('video')); ?>" class="video__link"></a>
+                        <button type="button" aria-label="Запустить видео" class="video__button"></button>
+                      </div>
+                    </div>
+                  <?php endif; ?>
+                </div>
+              </div>
+
               <div class="slider-controls">
                 <div class="slider-controls__btns">
                   <div class="swiper-button-prev">
-		                <?php ith_the_icon('arrow-left'); ?>
+                    <?php ith_the_icon('arrow-left'); ?>
                   </div>
                   <div class="swiper-button-next">
-		                <?php ith_the_icon('arrow-right'); ?>
+                    <?php ith_the_icon('arrow-right'); ?>
                   </div>
                 </div>
               </div>
             </div>
+
 					<?php elseif (get_field('video')): ?>
 						<div class="video">
 							<a href="<?php echo esc_url(get_field('video')); ?>" class="video__link"></a>
 							<button type="button" aria-label="Запустить видео" class="video__button"></button>
 						</div>
-					<?php else:
-						the_post_thumbnail('single-portfolio');
-					endif; ?>
+					<?php else: ?>
+            <a href="<?php the_post_thumbnail_url('full'); ?>" data-fancybox>
+						  <?php the_post_thumbnail('single-portfolio'); ?>
+            </a>
+					<?php endif; ?>
 				</div>
 
 			</div>
@@ -121,7 +150,12 @@ get_header(); ?>
               <?php endforeach; ?>
             </ul>
           <?php endif; ?>
+
         </div>
+
+				<?php if (get_the_content()): ?>
+          <div class="single-portfolio-content__text"><?php the_content(); ?></div>
+				<?php endif; ?>
 
         <?php if ( (get_field('type') == 'link' && get_field('link')) || (get_field('type') == 'popup' && get_field('popup')) ): ?>
           <div class="single-portfolio-content__bottom">
