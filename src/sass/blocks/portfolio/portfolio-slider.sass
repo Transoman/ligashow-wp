@@ -1,5 +1,17 @@
 .portfolio-slider-wrap
   position: relative
+  .slider-controls
+    &__btns
+    .swiper-button-prev,
+    .swiper-button-next
+      +r(576)
+        top: 27%
+    .swiper-button-prev
+      +r(576)
+        left: 25px
+    .swiper-button-next
+      +r(576)
+        right: 25px
 
 .portfolio-slider
   min-height: 695px
@@ -106,7 +118,7 @@
     padding: 7px 15px
     font-family: $futura-d-font
     font-size: 14px
-    color: #545454
+    color: $gray
     border: 2px solid #dadada
     +r(576)
       margin-bottom: 15px

@@ -30,6 +30,7 @@
 			$services = new WP_Query($args);
 
 			if ($services->have_posts()): ?>
+      <div class="slider-wrap">
 				<div class="similar-services-slider swiper-container">
 					<div class="swiper-wrapper">
 						<?php while ($services->have_posts()): $services->the_post(); ?>
@@ -54,6 +55,7 @@
 						</div>
 					</div>
 				</div>
+      </div>
 			<?php endif; ?>
 		<?php endif; ?>
 

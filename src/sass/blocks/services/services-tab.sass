@@ -16,6 +16,8 @@
     display: none
     max-height: 500px
     padding-right: 40px
+    animation: fadeIn 0.5s ease-in-out
+    +trans
     +r(1200)
       max-height: 480px
     +r(767)
@@ -63,6 +65,7 @@
       height: 25px
       flex-shrink: 0
   li
+    position: relative
     padding: 20px 0 25px
     font-family: $futura-d-font
     color: $dark
@@ -75,10 +78,20 @@
       white-space: nowrap
       &:last-child
         margin-right: 0
+    &::after
+      content: ''
+      position: absolute
+      bottom: -3px
+      left: 0
+      width: 0
+      height: 3px
+      background-color: $accent
+      +trans
     &:first-child
       padding-top: 0
     &:hover, &:focus
-      border-color: $accent
-    &.active
-      border-color: $accent
       color: $accent
+    &.active
+      color: $accent
+      &::after
+        width: 100%

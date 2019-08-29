@@ -44,6 +44,7 @@ jQuery(document).ready(function($) {
       transition: 'all 0.3s',
       color: '#1b244e',
       opacity: 0.9,
+      scrolllock: true,
       onclose: function() {
         $(this).find('label.error').remove();
         $(this).find('.wpcf7-response-output').hide();
@@ -70,8 +71,12 @@ jQuery(document).ready(function($) {
     let sliderSpeed = parseInt(heroSlider.getAttribute('data-speed'), 10);
   }
 
-  new Swiper('.hero-slider', {
+  let heroSlider2 = new Swiper('.hero-slider', {
     speed: sliderSpeed,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false
+    },
     pagination: {
       el: '.swiper-pagination',
       type: 'bullets',
@@ -95,11 +100,52 @@ jQuery(document).ready(function($) {
     }
   });
 
-  new Swiper('.portfolio-slider', {
+  if (heroSlider) {
+    let sliderProgress = function(el) {
+      el.clearQueue()
+          .stop()
+          .css(
+              {width:'0%'}
+          )
+          .animate({
+            width: "100%"
+          }, 3000);
+    };
+
+    let sliderProgressClear = function(el) {
+      el.clearQueue()
+          .stop()
+          .css(
+              {width:'0%'}
+          );
+    };
+
+    let activeSlide = heroSlider2.activeIndex;
+    sliderProgress($(heroSlider2.thumbs.swiper.slides).eq(activeSlide).find('.slider-progress'));
+
+    heroSlider2.on('slideChange', function() {
+      let activeSlide = heroSlider2.activeIndex;
+      let prevActiveSlide = heroSlider2.previousIndex;
+
+      sliderProgressClear($(heroSlider2.thumbs.swiper.slides).eq(prevActiveSlide).find('.slider-progress'));
+      sliderProgress($(heroSlider2.thumbs.swiper.slides).eq(activeSlide).find('.slider-progress'));
+    });
+
+    $('.hero-thumb-slider__item').click(function(e) {
+      let activeSlide = heroSlider2.thumbs.swiper.clickedIndex;
+      let prevActiveSlide = heroSlider2.previousIndex;
+
+      sliderProgressClear($(heroSlider2.thumbs.swiper.slides).eq(prevActiveSlide).find('.slider-progress'));
+      sliderProgress($(heroSlider2.thumbs.swiper.slides).eq(activeSlide).find('.slider-progress'));
+    });
+  }
+
+  let portfolioSlider = new Swiper('.portfolio-slider', {
     slidesPerView: 'auto',
     spaceBetween: 75,
     slidesOffsetBefore: -400,
     centeredSlides: true,
+    slideToClickedSlide: true,
     navigation: {
       nextEl: '.portfolio-slider-wrap .swiper-button-next',
       prevEl: '.portfolio-slider-wrap .swiper-button-prev',
@@ -220,28 +266,18 @@ jQuery(document).ready(function($) {
   new Swiper('.similar-services-slider', {
     slidesPerView: 5,
     spaceBetween: 20,
-    slidesPerGroup: 5,
-    slidesPerColumn: 1,
     breakpoints: {
       1395: {
-        slidesPerView: 4,
-        slidesPerGroup: 4,
-        slidesPerColumn: 1,
+        slidesPerView: 4
       },
       1200: {
-        slidesPerView: 3,
-        slidesPerGroup: 3,
-        slidesPerColumn: 1,
+        slidesPerView: 3
       },
       992: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        slidesPerColumn: 1,
+        slidesPerView: 2
       },
       767: {
-        slidesPerView: 1,
-        slidesPerGroup: 1,
-        slidesPerColumn: 1,
+        slidesPerView: 1
       }
     },
     navigation: {
@@ -504,6 +540,7 @@ jQuery(document).ready(function($) {
     });
 
     var source = "https://img.youtube.com/vi/"+ id +"/maxresdefault.jpg";
+
     var image = new Image();
     image.src = source;
     image.classList.add('video__media');
@@ -547,12 +584,13 @@ jQuery(document).ready(function($) {
     let list = $('.portfolio-filters-list');
     let btn = $(this);
     let curHeight = list.height();
+    let speed = 500;
 
 
     if (btn.hasClass('less')) {
       btn.removeClass('less');
       btn.text('Показать все');
-      list.height(curHeight).animate({height: btn.attr('data-height')}, 1000, function() {
+      list.height(curHeight).animate({height: btn.attr('data-height')}, speed, function() {
         list.removeAttr('style');
       });
     }
@@ -561,7 +599,7 @@ jQuery(document).ready(function($) {
       btn.attr('data-height', curHeight);
       btn.text('Скрыть все');
       let autoHeight = list.css('height', 'auto').height();
-      list.height(curHeight).animate({height: autoHeight}, 1000);
+      list.height(curHeight).animate({height: autoHeight}, speed);
     }
   });
 
@@ -660,15 +698,33 @@ jQuery(document).ready(function($) {
   });
 
   var contactForm = function() {
-    $('.wpcf7').each(function() {
+    $('.wpcf7').each(function(i, el) {
       var submit = $(this).find('[type="submit"]');
 
       if (submit.length) {
-        var button = '<button class="btn"><span class="btn-load"></span><span class="text">' + submit.val() + '</span></button>';
+        var button = '<button type="submit" class="btn"><span class="btn-load"></span><span class="text">' + submit.val() + '</span></button>';
         submit.replaceWith(button);
         $(this).find('.ajax-loader').remove();
       }
+
+      toggleSubmit( $(this) );
+
+      $(this).on( 'click', '.wpcf7-acceptance', function() {
+        toggleSubmit( $(el) );
+      } );
+
     });
+
+    function toggleSubmit(form) {
+      let button = form.find('button[type="submit"]');
+
+      if(form.find('.wpcf7-acceptance input:checkbox').is(':checked')) {
+        button.prop('disabled', false);
+      }
+      else {
+        button.prop('disabled', true);
+      }
+    }
 
     // Loader
     $('.wpcf7 form').on('submit', function () {
@@ -688,7 +744,7 @@ jQuery(document).ready(function($) {
     });
   };
 
-  $('.project__item').mouseenter(function() {
+  $('.project__item').click(function() {
       let id = $(this).data('id');
 
       if ($(this).parents().find('#' + id).is(':visible')) {
@@ -697,12 +753,7 @@ jQuery(document).ready(function($) {
 
       $(this).addClass('is-active').siblings().removeClass('is-active');
       $(this).parents().find('.project__content').hide();
-      $(this).parents().find('#' + id).slideDown();
-  });
-
-  $('.s-our-project').mouseleave(function() {
-    $('.project__item').removeClass('is-active');
-    $('.project__content').slideUp();
+      $(this).parents().find('#' + id).fadeIn(500);
   });
 
   contactForm();

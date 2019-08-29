@@ -24,7 +24,7 @@
     margin-bottom: 30px
     font-family: $futura-d-font
     font-size: 14px
-    color: #545454
+    color: $gray
     +r(767)
       margin-bottom: 20px
   &__date
@@ -39,6 +39,7 @@
       fill: $light-blue
       margin-right: 12px
   &__media
+    position: relative
     &-bottom
       display: flex
       align-items: center
@@ -46,10 +47,28 @@
       margin-top: 20px
       +r(480)
         display: block
+        margin: 0
     img
       width: 100%
       border-radius: 12px
       overflow: hidden
+    .slider-controls
+      &__btns
+        .swiper-button-prev,
+        .swiper-button-next
+          +r(576)
+            position: static
+            transform: none
+          +r(480)
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+        .swiper-button-next
+          +r(480)
+            right: 10px
+        .swiper-button-prev
+          +r(480)
+            left: 10px
   &__right
     flex-grow: 1
     background-color: $bg-color
@@ -119,24 +138,6 @@
     height: auto
     .video
       height: 100%
-  .slider-controls
-    position: absolute
-    bottom: 20px
-    right: 20px
-    z-index: 1
-    &__btns
-      .swiper-button-next,
-      .swiper-button-prev
-        border-color: #fff
-        opacity: 1
-        &:hover
-          background-color: #fff
-          svg
-            fill: $dark
-        svg
-          fill: #fff
-      .swiper-button-prev
-        margin-right: 25px
 
 .single-portfolio-thumb-slider
   width: 380px

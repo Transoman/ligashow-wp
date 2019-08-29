@@ -40,6 +40,7 @@
       margin-bottom: 50px
     & > li
       span
+        position: relative
         display: block
         padding: 20px 0
         font-family: $futura-d-font
@@ -47,9 +48,21 @@
         border-bottom: 3px solid #e6e7ec
         cursor: pointer
         +trans
-        &.is-active
-          border-color: $accent
+        &::after
+          content: ''
+          position: absolute
+          bottom: -3px
+          left: 0
+          width: 0
+          height: 3px
+          background-color: $accent
+          +trans
+        &:hover
           color: $accent
+        &.is-active
+          color: $accent
+          &::after
+            width: 100%
       ul
         display: none
         margin: 20px 0 10px
@@ -61,9 +74,9 @@
             margin-bottom: 0
         a
           font-family: $main-font
-          color: $dark
+          color: $gray
           &:hover, &:focus
-            color: $accent
+            color: $dark
 
 .portfolio-filters
   display: flex
@@ -94,7 +107,7 @@
   height: 75px
   overflow: hidden
   +r(767)
-    height: 50px
+    height: 105px
     margin: 0 -5px 0
   li
     padding: 0 7px

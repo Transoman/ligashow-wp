@@ -36,6 +36,7 @@
 				<div class="swiper-wrapper">
 					<?php while (have_rows('slider')): the_row(); ?>
 						<div class="hero-thumb-slider__item swiper-slide">
+              <div class="slider-progress"></div>
 							<span class="hero-thumb-slider__title"><?php the_sub_field('title'); ?></span>
 						</div>
 					<?php endwhile; ?>

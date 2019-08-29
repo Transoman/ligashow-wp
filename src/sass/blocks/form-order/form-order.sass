@@ -62,11 +62,18 @@
       color: #fff
     .form-field
       padding-top: 20px
-      opacity: 0.4
-      border-color: #fff
+      border: 0
+      background-image: linear-gradient(#fff, #fff), linear-gradient(rgba(#fff, 0.4), rgba(#fff, 0.4))
+      background-position: left bottom
+      background-size: 0 3px, 100% 3px
+      background-repeat: no-repeat
       font-size: 24px
-      color: #fff
+      color: rgba(#fff, 0.4)
       &::placeholder
-        color: #fff
+        color: inherit
       &:focus
-        opacity: 1
+        color: #fff
+        background-size: 100% 3px
+      &.wpcf7-not-valid
+        background-image: linear-gradient(red, red), linear-gradient(rgba(#fff, 0.4), rgba(#fff, 0.4))
+        background-size: 100% 3px

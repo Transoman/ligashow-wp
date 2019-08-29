@@ -5,10 +5,15 @@
     padding: 0 15px
     max-width: 720px
 
+.slider-wrap
+  position: relative
+
 .slider-controls
   position: relative
   display: flex
   align-items: center
+  +r(576)
+    position: static
   &__btns
     display: flex
     align-items: center
@@ -31,9 +36,13 @@
       background: none
       opacity: 0.44
       +trans
+      +r(576)
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
       +r(767)
-        width: 50px
-        height: 50px
+        width: 40px
+        height: 40px
       &:hover
         opacity: 1
         background-color: $accent
@@ -41,6 +50,17 @@
           fill: #fff
       &:focus
         outline: none
+      &.swiper-button-disabled
+        border-color: rgba(#000, 0.5)
+        cursor: not-allowed
+        pointer-events: auto
+        svg
+          fill: rgba(#000, 0.5)
+        &:hover
+          background: none
+          opacity: 0.44
+          svg
+            fill: rgba(#000, 0.5)
       svg
         width: 15px
         height: 8px
@@ -48,6 +68,9 @@
         +trans
     .swiper-button-prev
       margin-right: 35px
+      left: 10px
+    .swiper-button-next
+      right: 10px
   .swiper-pagination
     +r(576)
       display: none

@@ -48,25 +48,16 @@
   &:hover
     .product-card
       &__img
-        &::before
-          opacity: 1
+        img
+          transform: scale(1.1)
   &__img
     position: relative
     margin-bottom: 10px
     background-color: #fff
     border-radius: 12px
     overflow: hidden
-    &::before
-      content: ''
-      position: absolute
-      top: 0
-      right: 0
-      bottom: 0
-      left: 0
-      z-index: 1
-      background-color: rgba($blue, 0.78)
-      opacity: 0
-      +trans
+    img
+      +trans(all, 0.5s)
 
 .product-text
   display: flex

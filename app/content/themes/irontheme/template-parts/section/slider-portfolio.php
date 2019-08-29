@@ -31,6 +31,7 @@
 		);
 		$portfolio_items = new WP_Query($args);
 		if ($portfolio_items->have_posts()): ?>
+    <div class="slider-wrap">
 			<div class="slider-container">
 				<div class="similar-portfolio-slider swiper-container"
 					<?php echo $slider_settings['speed'] ? ' data-speed="'.$slider_settings['speed'].'"' : 'data-speed="300"'?>
@@ -68,6 +69,7 @@
 					</div>
 				</div>
 			</div>
+    </div>
 		<?php endif;
 	endif; ?>
 

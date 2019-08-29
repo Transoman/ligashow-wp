@@ -7,6 +7,7 @@
 
 	<?php $slider_settings = get_sub_field('slider_settings');
   if (have_rows('list')): ?>
+    <div class="slider-wrap">
 			<div class="slider-container">
 				<div class="similar-portfolio-slider swiper-container"
 					<?php echo $slider_settings['speed'] ? ' data-speed="'.$slider_settings['speed'].'"' : 'data-speed="300"'?>
@@ -44,6 +45,7 @@
 					</div>
 				</div>
 			</div>
+    </div>
 		<?php endif; ?>
 
 </section>
