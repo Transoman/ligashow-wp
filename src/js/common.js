@@ -66,13 +66,8 @@ jQuery(document).ready(function($) {
 
   // Slider
   let heroSlider = document.querySelector('.hero-slider');
-  let sliderSpeed = 500;
-  if (heroSlider) {
-    let sliderSpeed = parseInt(heroSlider.getAttribute('data-speed'), 10);
-  }
 
   let heroSlider2 = new Swiper('.hero-slider', {
-    speed: sliderSpeed,
     autoplay: {
       delay: 3000,
       disableOnInteraction: false
@@ -101,6 +96,9 @@ jQuery(document).ready(function($) {
   });
 
   if (heroSlider) {
+
+    heroSlider2.params.speed = parseInt(heroSlider.getAttribute('data-speed'), 10);
+
     let sliderProgress = function(el) {
       el.clearQueue()
           .stop()
@@ -140,7 +138,7 @@ jQuery(document).ready(function($) {
     });
   }
 
-  let portfolioSlider = new Swiper('.portfolio-slider', {
+  new Swiper('.portfolio-slider', {
     slidesPerView: 'auto',
     spaceBetween: 75,
     slidesOffsetBefore: -400,

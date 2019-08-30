@@ -72,9 +72,9 @@
                     var prices = 'prices' + <?php echo $i++; ?>;
                     window[prices] = {
                     <?php $j = 0; while (have_rows('prices')): the_row(); ?>
-                      <?php echo $j.': { person_from: '.get_sub_field('person_from') . ','; ?>
-                      <?php echo 'person_to: '.get_sub_field('person_to') . ','; ?>
-                      <?php echo 'price: '.get_sub_field('price') . '},'; $j++; ?>
+                      <?php echo $j.': { person_from: '.(float) get_sub_field('person_from') . ','; ?>
+                      <?php echo 'person_to: '.(float) get_sub_field('person_to') . ','; ?>
+                      <?php echo 'price: '.(float) get_sub_field('price') . '},'; $j++; ?>
                     <?php endwhile; ?>
                     };
                     </script>
