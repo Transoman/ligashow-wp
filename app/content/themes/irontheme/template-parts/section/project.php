@@ -8,8 +8,8 @@
 		<?php $projects = get_any_post( 'project', 4 );
 		if ($projects->have_posts()): ?>
       <div class="project">
-				<?php while ($projects->have_posts()): $projects->the_post(); ?>
-          <div class="project__item" data-id="<?php echo get_post_field('post_name'); ?>">
+				<?php $i = 0; while ($projects->have_posts()): $projects->the_post(); ?>
+          <div class="project__item<?php echo $i++ == 0 ? ' is-active' : ''; ?>" data-id="<?php echo get_post_field('post_name'); ?>">
             <div class="project__inner">
 							<?php echo wp_get_attachment_image(get_field('logo'), 'medium', '', array('class' => 'project__logo')); ?>
               <div class="project__body">
@@ -21,8 +21,8 @@
 				<?php endwhile; wp_reset_postdata(); ?>
       </div>
 
-	    <?php while ($projects->have_posts()): $projects->the_post(); ?>
-        <div class="project__content text-block-btn" id="<?php echo get_post_field('post_name'); ?>">
+	    <?php $i = 0; while ($projects->have_posts()): $projects->the_post(); ?>
+        <div class="project__content text-block-btn" id="<?php echo get_post_field('post_name'); ?>"<?php echo $i++ == 0 ? ' style="display: block;"' : ''; ?>>
         <h2 class="section-title"><?php the_title(); ?></h2>
 
         <div class="text-block-btn__row">

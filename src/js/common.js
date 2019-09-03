@@ -140,8 +140,10 @@ jQuery(document).ready(function($) {
 
   new Swiper('.portfolio-slider', {
     slidesPerView: 'auto',
+    loopedSlides: 3,
     spaceBetween: 75,
     slidesOffsetBefore: -400,
+    loop: true,
     centeredSlides: true,
     slideToClickedSlide: true,
     navigation: {
@@ -174,6 +176,7 @@ jQuery(document).ready(function($) {
     slidesPerView: 'auto',
     spaceBetween: 35,
     slidesOffsetBefore: -470,
+    loop: true,
     centeredSlides: true,
     navigation: {
       nextEl: '.s-popular-order .swiper-button-next',
@@ -213,6 +216,7 @@ jQuery(document).ready(function($) {
     speed: similarPortfolioSliderSettings['speed'],
     autoplay: similarPortfolioSliderSettings['autoplay'],
     slidesOffsetBefore: -355,
+    loop: true,
     centeredSlides: true,
     navigation: {
       nextEl: '.s-similar-portfolio .swiper-button-next',
@@ -291,8 +295,8 @@ jQuery(document).ready(function($) {
   let singlePortfolioSlider = new Swiper('.single-portfolio-slider', {
     slidesPerView: 1,
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.single-portfolio-content__media .swiper-button-next',
+      prevEl: '.single-portfolio-content__media .swiper-button-prev',
     },
     thumbs: {
       swiper: {
