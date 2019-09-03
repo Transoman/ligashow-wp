@@ -7,7 +7,11 @@
 			<div class="single-content__media">
 				<?php if (get_sub_field('video')): ?>
 					<div class="video">
-						<a href="<?php echo esc_url(get_sub_field('video')); ?>" class="video__link"></a>
+						<a href="<?php echo esc_url(get_sub_field('video')); ?>" class="video__link">
+							<?php if (get_field('video_poster')) {
+								echo wp_get_attachment_image( get_field('video_poster'), 'single', '', array('class' => 'video__media') );
+							} ?>
+            </a>
 						<button type="button" aria-label="Запустить видео" class="video__button"></button>
 					</div>
 				<?php else:

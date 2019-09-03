@@ -53,7 +53,9 @@
 											<div class="portfolio-slider-card-full__img"><?php the_post_thumbnail('portfolio_cat'); ?></div>
 											<div class="portfolio-slider-card-full__top-right">
 												<span class="portfolio-slider-card-full__date"><?php the_field('date'); ?></span>
-												<h3 class="portfolio-slider-card-full__title"><?php echo wp_trim_words(get_the_title(), 8); ?></h3>
+												<h3 class="portfolio-slider-card-full__title">
+                          <a href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(), 8); ?></a>
+                        </h3>
 											</div>
 										</div>
 

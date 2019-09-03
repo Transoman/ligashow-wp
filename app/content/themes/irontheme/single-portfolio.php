@@ -41,7 +41,11 @@ get_header(); ?>
 	              <?php if (get_field('video')): ?>
                   <div class="single-portfolio-slider__item swiper-slide">
                     <div class="video">
-                      <a href="<?php echo esc_url(get_field('video')); ?>" class="video__link"></a>
+                      <a href="<?php echo esc_url(get_field('video')); ?>" class="video__link">
+	                      <?php if (get_field('video_poster')) {
+		                      echo wp_get_attachment_image( get_field('video_poster'), 'single-portfolio', '', array('class' => 'video__media') );
+	                      } ?>
+                      </a>
                       <button type="button" aria-label="Запустить видео" class="video__button"></button>
                     </div>
                   </div>
@@ -65,7 +69,11 @@ get_header(); ?>
                   <?php if (get_field('video')): ?>
                     <div class="single-portfolio-thumb-slider__item swiper-slide">
                       <div class="video video--dummy">
-                        <a href="<?php echo esc_url(get_field('video')); ?>" class="video__link"></a>
+                        <a href="<?php echo esc_url(get_field('video')); ?>" class="video__link">
+	                        <?php if (get_field('video_poster')) {
+		                        echo wp_get_attachment_image( get_field('video_poster'), 'medium', '', array('class' => 'video__media') );
+	                        } ?>
+                        </a>
                         <button type="button" aria-label="Запустить видео" class="video__button"></button>
                       </div>
                     </div>
@@ -87,7 +95,11 @@ get_header(); ?>
 
 					<?php elseif (get_field('video')): ?>
 						<div class="video">
-							<a href="<?php echo esc_url(get_field('video')); ?>" class="video__link"></a>
+							<a href="<?php echo esc_url(get_field('video')); ?>" class="video__link">
+								<?php if (get_field('video_poster')) {
+									echo wp_get_attachment_image( get_field('video_poster'), 'single-portfolio', '', array('class' => 'video__media') );
+								} ?>
+              </a>
 							<button type="button" aria-label="Запустить видео" class="video__button"></button>
 						</div>
 					<?php else: ?>

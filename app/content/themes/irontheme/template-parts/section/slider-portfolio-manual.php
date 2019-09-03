@@ -17,7 +17,11 @@
 							<div class="similar-portfolio-slider__item swiper-slide">
 								<?php if (get_sub_field('video')): ?>
 									<div class="video">
-										<a href="<?php echo esc_url(get_sub_field('video')); ?>" class="video__link"></a>
+										<a href="<?php echo esc_url(get_sub_field('video')); ?>" class="video__link">
+											<?php if (get_field('video_poster')) {
+												echo wp_get_attachment_image( get_field('video_poster'), 'similar-portfolio-slider', '', array('class' => 'video__media') );
+											} ?>
+                    </a>
 										<button type="button" aria-label="Запустить видео" class="video__button"></button>
                     <?php echo wpautop(get_sub_field('text_for_video')); ?>
 									</div>

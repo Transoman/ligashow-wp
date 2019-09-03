@@ -539,13 +539,15 @@ jQuery(document).ready(function($) {
 
     var source = "https://img.youtube.com/vi/"+ id +"/maxresdefault.jpg";
 
-    var image = new Image();
-    image.src = source;
-    image.classList.add('video__media');
+    if (!video.querySelector('.video__media')) {
+      var image = new Image();
+      image.src = source;
+      image.classList.add('video__media');
 
-    image.addEventListener('load', function() {
-      link.append( image );
-    } (video) );
+      image.addEventListener('load', function() {
+        link.append( image );
+      } (video) );
+    }
 
     link.removeAttribute('href');
     video.classList.add('video--enabled');
