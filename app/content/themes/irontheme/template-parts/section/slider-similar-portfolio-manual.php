@@ -26,10 +26,14 @@
 
 									<div class="portfolio-slider-card-full">
 										<div class="portfolio-slider-card-full__top">
-											<div class="portfolio-slider-card-full__img"><?php echo wp_get_attachment_image(get_sub_field('img'), 'portfolio_cat'); ?></div>
+											<div class="portfolio-slider-card-full__img">
+                        <a href="<?php echo esc_url(get_sub_field('link')); ?>"><?php echo wp_get_attachment_image(get_sub_field('img'), 'portfolio_cat'); ?></a>
+                      </div>
 											<div class="portfolio-slider-card-full__top-right">
 												<span class="portfolio-slider-card-full__date"><?php the_sub_field('date'); ?></span>
-												<h3 class="portfolio-slider-card-full__title"><?php echo wp_trim_words(get_sub_field('title'), 8); ?></h3>
+												<h3 class="portfolio-slider-card-full__title">
+                          <a href="<?php echo esc_url(get_sub_field('link')); ?>"><?php echo wp_trim_words(get_sub_field('title'), 8); ?></a>
+                        </h3>
 											</div>
 										</div>
 

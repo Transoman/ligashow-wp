@@ -48,7 +48,9 @@
 
 								<div class="portfolio-slider-card-full">
 									<div class="portfolio-slider-card-full__top">
-										<div class="portfolio-slider-card-full__img"><?php the_post_thumbnail('portfolio_cat'); ?></div>
+										<div class="portfolio-slider-card-full__img">
+                      <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('portfolio_cat'); ?></a>
+                    </div>
 										<div class="portfolio-slider-card-full__top-right">
 											<span class="portfolio-slider-card-full__date"><?php the_field('date'); ?></span>
 											<h3 class="portfolio-slider-card-full__title">
