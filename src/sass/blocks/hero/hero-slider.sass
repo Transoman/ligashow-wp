@@ -9,14 +9,15 @@
     position: relative
     z-index: 1
     height: auto
-    padding: 310px 0 310px
+    padding: 310px 0
     color: #fff
     background:
       repeat: no-repeat
       position: center
       size: cover
-    +r(1200)
-      padding: 220px 0 230px
+    +r(1500)
+      padding-top: 220px
+      padding-bottom: 180px
     +r(992)
       padding: 170px 0 80px
       text-align: center
@@ -64,6 +65,8 @@
   &__container
     display: flex
     margin-bottom: 120px
+    +r(1500)
+      margin-bottom: 100px
     +r(1200)
       margin-bottom: 60px
     +r(992)
